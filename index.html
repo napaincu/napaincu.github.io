@@ -294,4 +294,87 @@
     </section>
 
     <section id="curriculum">
-        <div class="container
+        <div class="container">
+            <h2>課程專區</h2>
+            <p>本計畫提供開源教材庫與共編平台，鼓勵師資社群共同維護與更新。</p>
+            <div class="platform-links">
+                <a href="https://github.com/your-repo" class="bg-github"><i class="fab fa-github"></i>前往 GitHub 教材庫</a>
+                <button onclick="openModal()" class="bg-notion"><i class="fas fa-sticky-note"></i>取得 Notion 共編權限</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <h2>社群與活動</h2>
+            <p>透過 Discord 進行跨校討論與雙週讀書會。</p>
+            <div class="platform-links">
+                <button onclick="openModal()" class="bg-discord"><i class="fab fa-discord"></i>進入 NAPAI 專業社群</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>聯絡我們</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> <strong>計畫辦公室：</strong> 國立中央大學 工程五館 B317-1室</p>
+                <p><i class="fas fa-phone"></i> <strong>電話：</strong> (03)422-7151 轉 35364（吳助理）/ 35365（林助理）</p>
+                <p><i class="fas fa-envelope"></i> <strong>信箱：</strong> napai.ncu@gmail.com</p>
+                
+                <hr style="margin: 25px 0; border: 0; border-top: 1px solid #eee;">
+                
+                <p><strong>已經是社群成員，但遺失了加入連結？</strong></p>
+                <a href="mailto:napai.ncu@gmail.com?subject=索取社群加入連結&body=老師您好，我是[姓名/單位]，先前已受邀但遺失了Discord/Notion連結，請協助提供。" class="forgot-link-btn">
+                    <i class="fas fa-key"></i> 忘記社群連結？請聯繫我們
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-user-shield" style="font-size: 3em; color: #004d80; margin-bottom: 10px;"></i>
+                <h3>申請加入師資社群</h3>
+            </div>
+            <div class="modal-body">
+                <p>為維護教學研討品質，Discord 交流區與 Notion 共編空間僅開放給<strong>本計畫受邀教師與合作夥伴</strong>。</p>
+                <p style="font-size: 0.9em; color: #666;">若您尚未取得權限，請點擊下方按鈕填寫申請表單，我們將於審核後將連結寄送至您的信箱。</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://forms.gle/your-google-form-link" target="_blank" class="bg-apply" style="justify-content: center;">
+                    <i class="fas fa-edit"></i> 填寫申請表單
+                </a>
+                <a href="mailto:napai.ncu@gmail.com?subject=詢問計畫加入事宜" class="bg-secondary" style="justify-content: center;">
+                    <i class="fas fa-envelope"></i> 聯繫助理諮詢
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 控制 Modal 的顯示與隱藏
+        var modal = document.getElementById("applyModal");
+
+        function openModal() {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // 彈窗時防止背景捲動
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // 點擊視窗外部也可關閉
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
