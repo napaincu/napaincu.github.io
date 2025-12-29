@@ -18,20 +18,20 @@
                     <button
                         @click="toggleItem(index)"
                         class="w-full px-6 py-5 flex items-center justify-between text-left transition-colors hover:bg-white/50"
-                        :class="{ 'bg-white/80': activeIndex === index }"
+                        :class="{ 'bg-white/80': isOpen(index) }"
                     >
                         <div class="flex items-start gap-4 flex-1">
                             <!-- Q Icon -->
                             <div 
                                 class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-lg transition-all duration-300"
-                                :style="activeIndex === index ? 'background: linear-gradient(135deg, #2563eb 0%, #0d2252 100%);' : 'background: linear-gradient(135deg, #004d80 0%, #112D6D 100%);'"
+                                :style="isOpen(index) ? 'background: linear-gradient(135deg, #2563eb 0%, #0d2252 100%);' : 'background: linear-gradient(135deg, #004d80 0%, #112D6D 100%);'"
                             >
                                 Q
                             </div>
                             <!-- Question Text -->
                             <h3 
                                 class="text-lg font-bold text-slate-800 pt-1 leading-relaxed"
-                                :class="{ 'text-[#004d80]': activeIndex === index }"
+                                :class="{ 'text-[#004d80]': isOpen(index) }"
                             >
                                 {{ item.question }}
                             </h3>
@@ -39,7 +39,7 @@
                         <!-- Chevron Icon -->
                         <div 
                             class="flex-shrink-0 ml-4 transition-transform duration-300"
-                            :class="{ 'rotate-180': activeIndex === index }"
+                            :class="{ 'rotate-180': isOpen(index) }"
                         >
                             <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -56,7 +56,7 @@
                         leave-from-class="opacity-100 max-h-96"
                         leave-to-class="opacity-0 max-h-0"
                     >
-                        <div v-show="activeIndex === index" class="overflow-hidden">
+                        <div v-show="isOpen(index)" class="overflow-hidden">
                             <div class="px-6 pb-6 pt-2">
                                 <div class="flex items-start gap-4 bg-white rounded-lg p-5 shadow-sm border border-blue-100">
                                     <!-- A Icon -->
@@ -107,7 +107,7 @@ useHead({
   title: '常見問題 - 前瞻AI人培',
 })
 
-const activeIndex = ref<number | null>(0) // 默認展開第一個問題
+const openItems = ref<number[]>([0]) // 默認展開第一個問題
 
 const faqItems = [
     {
@@ -116,19 +116,26 @@ const faqItems = [
     },
     {
         question: '誰可以參與讀書會？',
-        answer: '對 Agent AI、Physical AI 教學或實作有興趣的教師、及其研究生，願意參與課程模組開發的教師。每位種子教師，可帶 1～2 位助教參與讀書會。'
+        answer: '對 Agent AI、Physical AI 教學或實作有興趣的教師、及其研究生，願意參與課程模組開發的教師。每位種子教師,可帶 1～2 位助教參與讀書會。'
     },
     {
         question: '讀書會期程規劃',
-        answer: '第一階段，主要透過雙週讀書會（共 6 次）開發課程模組；第二階段，主要將發展出的課程於工作坊進行試教，並針對試教結果修訂課程，同時建置開源教材平台。'
+        answer: '第一階段,主要透過雙週讀書會(共 6 次)開發課程模組；第二階段,主要將發展出的課程於工作坊進行試教,並針對試教結果修訂課程,同時建置開源教材平台。'
     },
     {
         question: '讀書會的預期成果',
-        answer: '完成開源教材平台建置，並定期更新與維護。'
+        answer: '完成開源教材平台建置,並定期更新與維護。'
     }
 ]
 
 const toggleItem = (index: number) => {
-    activeIndex.value = activeIndex.value === index ? null : index
+    const itemIndex = openItems.value.indexOf(index)
+    if (itemIndex > -1) {
+        openItems.value.splice(itemIndex, 1)
+    } else {
+        openItems.value.push(index)
+    }
 }
+
+const isOpen = (index: number) => openItems.value.includes(index)
 </script>
