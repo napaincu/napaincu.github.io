@@ -5,23 +5,26 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Community Cards Here -->
-         <a href="https://discord.gg/aatUjnEKmY" target="_blank" class="block p-8 rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-lg transition-all group bg-slate-50">
-            <Icon name="logos:discord-icon" size="48" class="mb-4" />
-            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600">Discord 交流社群</h3>
-            <p class="text-slate-600">即時討論、問題解答與活動公告。</p>
-        </a>
+         <div class="block p-8 rounded-xl border border-slate-200 transition-all bg-slate-50 opacity-75 cursor-default">
+            <Icon name="logos:discord-icon" size="48" class="mb-4 grayscale" />
+            <h3 class="text-xl font-bold mb-2 text-slate-500">Discord 交流社群</h3>
+            <!-- <p class="text-slate-600">即時討論、問題解答與活動公告。</p> -->
+            <p class="text-slate-400 font-medium">~敬請期待~</p>
+        </div>
 
-        <a href="https://www.notion.so/Agent-AI-..." target="_blank" class="block p-8 rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-lg transition-all group bg-slate-50">
-            <Icon name="logos:notion-icon" size="48" class="mb-4" />
-            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600">Agent AI 知識庫</h3>
-            <p class="text-slate-600">Agent AI 相關課程與資源彙整。</p>
-        </a>
+         <div class="block p-8 rounded-xl border border-slate-200 transition-all bg-slate-50 opacity-75 cursor-default">
+            <Icon name="logos:notion-icon" size="48" class="mb-4 grayscale" />
+            <h3 class="text-xl font-bold mb-2 text-slate-500">Agent AI 知識庫</h3>
+            <!-- <p class="text-slate-600">Agent AI 相關課程與資源彙整。</p> -->
+            <p class="text-slate-400 font-medium">~敬請期待~</p>
+        </div>
 
-        <a href="https://www.notion.so/Physical-AI-..." target="_blank" class="block p-8 rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-lg transition-all group bg-slate-50">
-             <Icon name="logos:notion-icon" size="48" class="mb-4 text-[#004d80]" />
-            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600">Physical AI 知識庫</h3>
-            <p class="text-slate-600">機器人 AI 相關課程與資源彙整。</p>
-        </a>
+         <div class="block p-8 rounded-xl border border-slate-200 transition-all bg-slate-50 opacity-75 cursor-default">
+             <Icon name="logos:notion-icon" size="48" class="mb-4 text-slate-400 grayscale" />
+            <h3 class="text-xl font-bold mb-2 text-slate-500">Physical AI 知識庫</h3>
+            <!-- <p class="text-slate-600">機器人 AI 相關課程與資源彙整。</p> -->
+            <p class="text-slate-400 font-medium">~敬請期待~</p>
+        </div>
     </div>
   </div>
 </template>
