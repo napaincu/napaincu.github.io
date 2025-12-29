@@ -15,12 +15,31 @@ useHead({
 
 <template>
   <NuxtLayout>
-    <NuxtPage />
+    <NuxtPage :transition="{
+      name: 'page',
+      mode: 'out-in'
+    }" />
   </NuxtLayout>
 </template>
 
 <style>
 * {
   font-family: 'Roboto', sans-serif !important;
+}
+
+/* Page transition animations */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
 }
 </style>
