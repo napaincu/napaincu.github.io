@@ -55,6 +55,9 @@
                     <TeamMemberCard name="梁伯嵩 處長" title="聯發科技" image="/image/team/梁伯嵩.jpg">
                             <template #description>專精於數位 IC 設計、處理機架構、SoC 架構、新興運算平台架構。現任聯發科技前瞻技術平台資深處長。</template>
                     </TeamMemberCard>
+                    <TeamMemberCard name="王建彬 院長" title="財團法人商業發展研究所" image="/image/team/王建彬.jpeg">
+                            <template #description>專精於科技管理、創新管理、經營模式、服務管理、服務行銷、產業分析、企業診斷與問題決策、策略創新。</template>
+                    </TeamMemberCard>
                 </div>
             </div>
 
