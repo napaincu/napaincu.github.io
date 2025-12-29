@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="mt-12 pt-8 border-t border-slate-200 text-center text-slate-500 text-sm">
-            <p>&copy; 2024 前瞻AI人培-智慧代理及實體AI課程推動計畫. All rights reserved.</p>
+            <p>&copy; 2026 前瞻AI人培-智慧代理及實體AI課程推動計畫. All rights reserved.</p>
         </div>
       </div>
     </footer>
