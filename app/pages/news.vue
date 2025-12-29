@@ -20,10 +20,10 @@
                                 <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 inline-block mb-6 border border-white/30">
                                     <Icon name="heroicons:megaphone" class="w-16 h-16 text-white" />
                                 </div>
-                                <h3 class="text-2xl font-bold mb-3">年度技術論壇</h3>
+                                <h3 class="text-2xl font-bold mb-3">計畫開跑中</h3>
                                 <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-blue-100">
                                     <Icon name="heroicons:calendar" class="w-4 h-4 mr-2"/>
-                                    2024-12-20
+                                    2025-12-31
                                 </div>
                             </div>
                         </div>
@@ -34,24 +34,65 @@
                                 活動公告
                             </span>
                             <h2 class="text-3xl font-bold text-slate-900 mb-5 leading-tight">
-                                前瞻 AI 技術人才培育<br>智慧代理與實體 AI 技術論壇
+                                【活動報名】前瞻 AI 技術人才培育—智慧代理與實體 AI 技術論壇報名開始！！
                             </h2>
                             <p class="text-slate-600 text-base leading-relaxed mb-8">
-                                本年度最盛大的 AI 技術論壇即將登場！邀請國內外知名學者與產業專家，針對 Agentic AI 與 Physical AI 進行深入探討。名額有限，歡迎各校師生踴躍報名參加，共同激盪 AI 前瞻技術火花。
+                                這不只是一場論壇，更是一場關於未來的預演。 歡迎大家查看表單內容填寫報名參與！
                             </p>
                             
                             <div>
-                                <button class="inline-flex items-center justify-center text-white px-6 py-3 rounded-lg transition-all font-medium shadow-sm hover:shadow-md" style="background-color: #2563eb;">
-                                    <span>立即報名</span>
+                                <a href="https://forms.gle/NgfvhPfsbohyMacYA" target="_blank" class="inline-flex items-center justify-center text-white px-6 py-3 rounded-lg transition-all font-medium shadow-sm hover:shadow-md" style="background-color: #2563eb;">
+                                    <span>報名表單</span>
                                     <Icon name="heroicons:arrow-right" class="ml-2 w-5 h-5" />
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Category Filter -->
+
+            <!-- Recent Events Section -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold text-[#004d80] mb-8 border-l-4 border-blue-500 pl-4">近期活動</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Agentic AI Forum -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative overflow-hidden">
+                            <img 
+                                src="/image/news/Agentic AI_Forum.png" 
+                                alt="Agentic AI 技術論壇"
+                                class="w-full h-auto object-cover"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#004d80] transition-colors">
+                                Agentic AI 技術論壇
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Physical AI Forum -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative overflow-hidden">
+                            <img 
+                                src="/image/news/Physical AI_Forum.png" 
+                                alt="Physical AI 技術論壇"
+                                class="w-full h-auto object-cover"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#004d80] transition-colors">
+                                Physical AI 技術論壇
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter - Commented out for future use -->
+            <!--
             <div class="mb-12">
                 <h3 class="text-xl font-bold text-[#004d80] mb-6 border-l-4 border-blue-500 pl-4">文章分類</h3>
                 <div class="flex flex-wrap gap-2">
@@ -69,14 +110,12 @@
                 </div>
             </div>
 
-            <!-- News Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <article 
                     v-for="(news, index) in filteredNews" 
                     :key="index"
                     class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
                 >
-                    <!-- Card Header -->
                     <div class="h-52 relative overflow-hidden bg-slate-100">
                         <div :class="`absolute inset-0 bg-gradient-to-br ${news.gradient} transition-transform duration-700 group-hover:scale-110`"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
@@ -89,7 +128,6 @@
                         </span>
                     </div>
 
-                    <!-- Card Body -->
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center text-xs font-medium text-slate-400 mb-3">
                             <Icon name="heroicons:calendar" class="w-4 h-4 mr-1.5"/>
@@ -102,7 +140,6 @@
                             {{ news.excerpt }}
                         </p>
                         
-                        <!-- Footer -->
                         <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
                             <span class="text-xs text-slate-400">詳細內容</span>
                             <button class="inline-flex items-center text-sm font-bold text-[#004d80] group-hover:text-blue-600 transition-colors">
@@ -113,6 +150,7 @@
                     </div>
                 </article>
             </div>
+            -->
 
         </div>
     </section>
