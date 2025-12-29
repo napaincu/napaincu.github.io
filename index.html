@@ -154,15 +154,15 @@
         /* --- 團隊成員卡片 Grid --- */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
         .member-card {
             background-color: #f9f9f9;
             border: 1px solid #eee;
             border-radius: 8px;
-            padding: 25px 20px;
+            padding: 15px 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             transition: transform 0.3s;
             text-align: center;
@@ -294,7 +294,7 @@
             
             <div class="platform-links">
                 <a href="[您的GitHub連結]" class="bg-github"><i class="fab fa-github"></i>GitHub 課程資源平台 (公開)</a>
-                <button onclick="openModal()" class="bg-apply"><i class="fas fa-user-plus"></i>申請加入師資社群</button>
+                <button onclick="openModal(https://forms.gle/SujPyzJGheQFyNMD8)" class="bg-apply"><i class="fas fa-user-plus"></i>申請加入師資社群</button>
             </div>
             
             <div class="platform-links" style="margin-top: 15px;">
@@ -489,7 +489,7 @@
             <h3>申請加入師資社群</h3>
             <p>本計畫之 Discord 與 Notion 平台僅開放予<strong>計畫相關教師與研究人員</strong>。請點擊下方按鈕填寫申請表單，經核核後我們將發送邀請連結至您的信箱。</p>
             <div class="modal-footer">
-                <a href="https://forms.gle/https://docs.google.com/forms/d/e/1FAIpQLScMh7SUKG_XfPbzDYs9CTSwomtsRH4KGxJYmWUuUN4bDr2i5A/viewform" target="_blank" class="bg-apply" style="justify-content: center;">前往填寫申請表單</a>
+                <a href="https://forms.gle/SujPyzJGheQFyNMD8" target="_blank" class="bg-apply" style="justify-content: center;">前往填寫申請表單</a>
                 <button onclick="closeModal()" style="background: #eee; color: #333; justify-content: center;">取消</button>
             </div>
         </div>
