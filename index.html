@@ -9,94 +9,278 @@
         /* --- 全域設定 --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             background-color: #f4f7f9;
-            color: #333; line-height: 1.6;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 20px;
         }
-        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
-        a { text-decoration: none; transition: 0.3s; }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        a { text-decoration: none; }
+        img { max-width: 100%; display: block; }
 
-        /* --- 導航列 --- */
+        /* --- 導航列 (Navbar) --- */
         .navbar {
-            background-color: #004d80; color: white;
-            padding: 5px 0; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: #004d80;
+            color: white;
+            padding: 5px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo-area { height: 50px; }
-        .logo-area img { height: 100%; }
-        .nav-links { list-style: none; padding: 0; margin: 0; display: flex; }
-        .nav-links a { color: white; padding: 10px 15px; font-weight: 600; font-size: 0.95rem; }
-        .nav-links a:hover { color: #ffcc00; }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-area {
+            height: 60px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .logo-area img {
+            height: 100%;
+            width: auto;
+            background-color: transparent;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links li {
+            white-space: nowrap;
+        }
+        .nav-links a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            background-color: #007bff;
+            border-radius: 4px;
+        }
 
-        /* --- 區塊設定 --- */
-        section { padding: 60px 0; background-color: white; margin-bottom: 20px; border-radius: 4px; }
-        h2 { text-align: center; color: #004d80; margin-bottom: 30px; position: relative; padding-bottom: 10px; }
-        h2::after { content: ''; width: 50px; height: 3px; background: #007bff; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-        h3 { color: #007bff; border-left: 5px solid #007bff; padding-left: 15px; margin: 40px 0 20px; }
+        /* --- 手機版導航列優化 --- */
+        @media (max-width: 768px) {
+            .nav-content { flex-direction: column; align-items: flex-start; }
+            .logo-area { margin-bottom: 5px; width: 100%; text-align: center; }
+            .logo-area img { margin: 0 auto; }
+            .nav-links {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links li { flex: 0 0 auto; }
+        }
 
-        /* --- 首頁 Hero --- */
-        #home { background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%); text-align: center; padding: 100px 0; border-radius: 0; }
-        .btn-group { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
-        .btn { padding: 12px 24px; border-radius: 5px; font-weight: 600; display: flex; align-items: center; cursor: pointer; border: none; color: white; }
+        /* --- 區塊通用樣式 --- */
+        section {
+            padding: 60px 0;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        #home {
+            box-shadow: none;
+            background-color: #e3f2fd;
+            border-radius: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #004d80;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+            border-bottom: 3px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h3 {
+            color: #007bff;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* --- 按鈕樣式 --- */
+        .platform-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .platform-links a, .platform-links button {
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .platform-links a:hover, .platform-links button:hover { opacity: 0.9; }
+        .platform-links i { margin-right: 8px; }
         .bg-github { background-color: #24292e; }
-        .bg-apply { background-color: #28a745; }
         .bg-discord { background-color: #5865F2; }
-        .bg-notion { background-color: #444; }
+        .bg-notion { background-color: #000000; }
+        .bg-secondary { background-color: #004d80 !important; }
+        .bg-apply { background-color: #28a745; } /* 申請加入專用的綠色 */
 
-        /* --- 最新消息 (News) --- */
-        .news-banner {
-            background: #fff4e5; border: 2px solid #ffcc00; border-radius: 10px;
-            padding: 20px; display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 40px; flex-wrap: wrap; gap: 20px;
-        }
-        .news-info { display: flex; align-items: center; gap: 15px; }
-        .news-tag { background: #ff4400; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8em; }
-        .btn-news { background: #ff4400; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
-
-        /* --- 團隊卡片 (優化間距) --- */
-        .team-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 縮小最小寬度 */
-            gap: 15px; /* 縮小間隙 */
-            justify-content: center; 
+        /* --- 團隊成員卡片 Grid --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
         .member-card {
-            background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 15px;
-            text-align: center; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .member-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .member-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 3px solid #f0f0f0; }
-        .member-card h4 { margin: 8px 0 4px; font-size: 1.1rem; color: #004d80; }
-        .member-card p.title { font-size: 0.85rem; color: #007bff; margin-bottom: 5px; font-weight: 600; }
-        .member-card p.unit { font-size: 0.8rem; color: #777; margin: 0; }
-
-        /* --- 成果展示 --- */
-        .outcome-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .outcome-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
-        .outcome-img { height: 160px; background: #eee; display: flex; align-items: center; justify-content: center; color: #aaa; }
-        .outcome-body { padding: 15px; }
-
-        /* --- 彈出視窗 --- */
-        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
-        .modal-content { background: white; margin: 15% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 450px; text-align: center; position: relative; }
-        .close { position: absolute; right: 20px; top: 10px; font-size: 24px; cursor: pointer; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* 手機版建議加漢堡選單，此處先簡略 */
+        .member-card:hover { transform: translateY(-5px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .member-photo {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #007bff;
+            background-color: #e0e0e0;
         }
+        .member-card h4 { color: #004d80; margin: 10px 0 5px 0; font-size: 1.2em; }
+        .member-card p.title { color: #007bff; font-weight: 600; margin-bottom: 10px; font-size: 0.95em; }
+        .member-card p.desc { font-size: 0.9em; color: #666; text-align: left; width: 100%; }
+
+        /* --- 彈出視窗 (Modal) 樣式 --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px; top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+        .close-btn:hover { color: #333; }
+        .modal-footer {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* --- 聯絡我們快速入口 --- */
+        .forgot-link-box {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #fff4e5;
+            border: 1px dashed #ffa500;
+            border-radius: 8px;
+        }
+        .forgot-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 20px;
+            background-color: #ffa500;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .forgot-btn:hover { background-color: #e69500; }
+
+        /* --- 底部 Logo --- */
+        .footer-banner {
+            background-color: #ffffff;
+            border-top: 4px solid #004d80;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+        }
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-item span {
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .footer-item img { height: 70px; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="container nav-content">
-            <div class="logo-area"><img src="image/logo.png" alt="NAPAI"></div>
+            <div class="logo-area">
+                <a href="#home"><img src="image/logo.png" alt="NAPAI計畫Logo"></a>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">首頁</a></li>
-                <li><a href="#news">最新消息</a></li>
                 <li><a href="#about">計畫介紹</a></li>
                 <li><a href="#team">計畫團隊</a></li>
+                <li><a href="#curriculum">課程專區</a></li>
+                <li><a href="#community">社群與活動</a></li>
                 <li><a href="#outcomes">成果展示</a></li>
                 <li><a href="#contact">聯絡我們</a></li>
             </ul>
@@ -104,34 +288,24 @@
     </nav>
 
     <section id="home">
-        <div class="container">
-            <h1 style="color: #004d80; font-size: 2.5em;">智慧代理與實體AI機器人課程推動計畫</h1>
-            <p style="font-size: 1.2em; color: #666;">教育部前瞻AI技術人才培育計畫</p>
+        <div class="container" style="text-align: center;">
+            <h1 style="color: #004d80; font-size: 2.5em; margin-bottom: 10px;">智慧代理與實體AI機器人課程推動計畫</h1>
+            <p style="font-size: 1.2em; color: #555;">教育部前瞻AI技術人才培育計畫</p>
             
-            <div class="btn-group">
-                <a href="#" class="btn bg-github"><i class="fab fa-github"></i>GitHub 教材平台</a>
-                <button onclick="openModal()" class="btn bg-apply"><i class="fas fa-user-plus"></i>申請加入師資社群</button>
+            <div class="platform-links">
+                <a href="[您的GitHub連結]" class="bg-github"><i class="fab fa-github"></i>GitHub 課程資源平台 (公開)</a>
+                <button onclick="openModal()" class="bg-apply"><i class="fas fa-user-plus"></i>申請加入師資社群</button>
+            </div>
+            
+            <div class="platform-links" style="margin-top: 15px;">
+                <a href="https://discord.gg/aatUjnEKmY" target="_blank" class="bg-discord"><i class="fab fa-discord"></i>NAPAI Discord</a>
+                <a href="https://www.notion.so/Agent-AI-..." target="_blank" class="bg-notion"><i class="fas fa-sticky-note"></i>Agent AI Notion</a>
+                <a href="https://www.notion.so/Physical-AI-..." target="_blank" class="bg-notion bg-secondary"><i class="fas fa-sticky-note"></i>Physical AI Notion</a>
             </div>
         </div>
     </section>
 
-    <section id="news" style="background-color: #fdfdfd;">
-        <div class="container">
-            <h2>最新消息</h2>
-            <div class="news-banner">
-                <div class="news-info">
-                    <span class="news-tag">熱烈報名中</span>
-                    <div>
-                        <strong style="font-size: 1.1em; color: #d35400;">【活動】前瞻 AI 技術論壇 - 智慧代理與機器人趨勢</strong>
-                        <p style="margin: 5px 0 0; font-size: 0.9em; color: #666;">立即報名參加論壇，掌握 Agentic AI 與 Physical AI 最新發展！</p>
-                    </div>
-                </div>
-                <a href="https://forms.gle/MmjRWfY7RoZtZJFc8" target="_blank" class="btn-news">前往報名</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
+    <section id="about">
         <div class="container">
             <h2>計畫介紹</h2>
             <h3>計畫定位與目標</h3>
@@ -143,7 +317,8 @@
         </div>
     </section>
 
-    <section id="team">
+
+      <section id="team">
         <div class="container">
             <h2>計畫團隊</h2>
             
@@ -271,106 +446,74 @@
         </div>
     </section>
 
-    <section id="curriculum">
-        <div class="container">
-            <h2>課程專區</h2>
 
-            <h3>GitHub 開源教材平台</h3>
-            <div class="platform-links" style="margin-top: 15px; margin-bottom: 30px;">
-                <a href="[您的GitHub課程專區分頁連結]" class="bg-github"><i class="fab fa-github"></i>前往 GitHub 課程資源/教材平台</a>
-            </div>
-            
-            <h3>課程共編平台 (Notion)</h3>
-            <div class="platform-links" style="margin-top: 15px; margin-bottom: 30px;">
-                <a href="https://www.notion.so/Agent-AI-aefef4ca13864056b7ebbc70e624e084?source=copy_link" class="bg-notion"><i class="fas fa-sticky-note"></i>Agent AI 課程模組共編</a>
-                <a href="https://www.notion.so/Physical-AI-5a3bc5d40bb845e1b55e909104518526?source=copy_link" class="bg-notion bg-secondary"><i class="fas fa-sticky-note"></i>Physical AI 課程模組共編</a>
-            </div>
+    </section>
 
-            <p>本平台（GitHub）提供以下內容，作為課程資源庫：</p>
-            <ul>
-                <li>課程地圖：智慧代理與實體AI核心課程架構圖。</li>
-                <li>模組介紹：Agentic AI 核心能力 (如LangChain/RAG/KG)、Physical AI 實戰性 (ROS 2/Edge AI/仿真)。</li>
-                <li>課程資源庫：課程投影片、講義、實作範例下載/連結。</li>
-            </ul>
-        </div>
-    </section>
+    <section id="curriculum">
+        <div class="container">
+            <h2>課程專區</h2>
+            <h3>GitHub 開源教材平台</h3>
+            <div class="platform-links"><a href="#" class="bg-github"><i class="fab fa-github"></i>前往 GitHub 教材平台</a></div>
+        </div>
+    </section>
 
-    <section id="community">
-        <div class="container">
-            <h2>社群與活動</h2>
+    <section id="contact">
+        <div class="container">
+            <h2>聯絡我們</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> <strong>計畫辦公室：</strong> 國立中央大學 工程五館 B317-1室</p>
+                <p><i class="fas fa-phone"></i> <strong>電話：</strong> (03)422-7151 轉 35364 / 35365</p>
+                <p><i class="fas fa-envelope"></i> <strong>信箱：</strong> napai.ncu@gmail.com</p>
+                
+                <div class="forgot-link-box">
+                    <strong>已經是成員但找不到 Discord 或 Notion 連結？</strong><br>
+                    <a href="mailto:napai.ncu@gmail.com?subject=索取社群加入連結" class="forgot-btn">忘記社群連結？請聯繫我們</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h3>專業社群 (Discord)</h3>
-            <div class="platform-links" style="margin-top: 15px; margin-bottom: 30px;">
-                <a href="https://discord.gg/aatUjnEKmY" class="bg-discord"><i class="fab fa-discord"></i>NAPAI 專業社群 (Agent & Robot)</a>
-            </div>
+    <div class="footer-banner">
+        <div class="container footer-grid">
+            <div class="footer-item"><span>指導單位</span><img src="image/logo_ITE.png"></div>
+            <div class="footer-item"><span>主辦單位</span><img src="image/logo_NCU.png"></div>
+            <div class="footer-item"><span>協辦單位</span><img src="image/logo_NTPU.png"></div>
+            <div class="footer-item"><span>協辦單位</span><img src="image/logo_NTHU.jpg"></div>
+        </div>
+    </div>
 
-            <p>本計畫將成立兩大專業社群 (SIG)，定期舉辦活動，促進共同開發與交流。所有成員皆加入同一個 Discord 伺服器，並依興趣選擇加入 SIGAgent 或 SIGRobot 討論群組。</p>
-             <ul>
-                <li>SIG 專業社群：SIGAgent(智慧代理) 與 SIGRobot (實體機器人) 雙週讀書會共創課程模組。</li>
-                <li>競賽活動：Summer Camp、Agent創作大賽、機器人競賽活動辦法等重要資訊公告。</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="outcomes">
-        <div class="container">
-            <h2>成果展示</h2>
-             <p>計畫產出的課程模組、產學示範應用案例、以及量化成果數據將於此處展示。</p>
-            <ul>
-                <li>產學示範應用：展示智慧教育服務服務、巡檢機器人等應用案例。</li>
-                <li>競賽活動：Agent創作大賽、機器人競賽成果。</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>聯絡我們</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> <strong>計畫辦公室：</strong> 國立中央大學 工程五館 B317-1室</p>
-                <p><i class="fas fa-phone"></i> <strong>電話：</strong> (03)422-7151 轉 35364（吳明秀助理）/35365（林瑞雅助理）</p>
-                <p><i class="fas fa-envelope"></i> <strong>信箱：</strong> napai.ncu@gmail.com</p>
-            </div>
-        </div>
-    </section>
- <div id="joinModal" class="modal">
+    <div id="joinModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <i class="fas fa-user-check" style="font-size: 3em; color: #28a745; margin-bottom: 15px;"></i>
-            <h3>申請加入師資社群 / 論壇報名</h3>
-            <p style="text-align: left; font-size: 0.9em; color: #666;">
-                請填寫以下表單進行身分認證。我們將於審核通過後，將 Discord 邀請函與技術論壇相關資訊寄送至您的學術信箱。
-            </p>
-            <a href="https://forms.gle/MmjRWfY7RoZtZJFc8" target="_blank" class="btn bg-apply" style="justify-content: center; margin-top: 20px;">前往填寫表單</a>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <i class="fas fa-user-plus" style="font-size: 3em; color: #004d80; margin-bottom: 15px;"></i>
+            <h3>申請加入師資社群</h3>
+            <p>本計畫之 Discord 與 Notion 平台僅開放予<strong>計畫相關教師與研究人員</strong>。請點擊下方按鈕填寫申請表單，經核核後我們將發送邀請連結至您的信箱。</p>
+            <div class="modal-footer">
+                <a href="https://forms.gle/YRwMJ7wCHgjGE4Qc8" target="_blank" class="bg-apply" style="justify-content: center;">前往填寫申請表單</a>
+                <button onclick="closeModal()" style="background: #eee; color: #333; justify-content: center;">取消</button>
+            </div>
         </div>
     </div>
 
     <script>
-        function openModal() { document.getElementById("joinModal").style.display = "block"; }
-        function closeModal() { document.getElementById("joinModal").style.display = "none"; }
+        const modal = document.getElementById("joinModal");
+
+        function openModal() {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // 禁止背景捲動
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // 點擊視窗外部自動關閉
         window.onclick = function(event) {
-            let modal = document.getElementById("joinModal");
-            if (event.target == modal) closeModal();
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
-
-    <div class="footer-banner">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-item">
-                    <span>指導單位</span>
-                    <img src="image/logo_ITE.png" alt="教育部資訊及科技教育司">
-                </div>
-
-                <div class="footer-item">
-                    <span>主辦單位</span>
-                    <img src="image/logo_NCU.png" alt="國立中央大學">
-                </div>
-
-                <div class="footer-item">
-                    <span>協辦單位</span>
-                    <img src="image/logo_NTPU.png" alt="國立臺北大學">
-                </div>
-                <div class="footer-item">
-                    <span>協辦單位</span>
-                    <img src="image/logo_NTHU.jpg" alt="國立清華大學">
+</body>
+</html>
