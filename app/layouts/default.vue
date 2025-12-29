@@ -16,9 +16,11 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-1">
               <NuxtLink v-for="item in navItems" :key="item.name" :to="item.to" 
-                class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-600 hover:text-white transition-all duration-200 ease-in-out"
-                active-class="bg-[#0d2252]">
+                class="relative px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 ease-in-out group"
+                active-class="!text-white">
                 {{ item.name }}
+                <span class="absolute bottom-1 left-3 right-3 h-0.5 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span v-if="item.to === $route.path || ($route.path.startsWith(item.to) && item.to !== '/')" class="absolute bottom-1 left-3 right-3 h-0.5 bg-blue-400"></span>
               </NuxtLink>
             </div>
           </div>
