@@ -171,7 +171,7 @@
                             </div>
                     
                             <div class="mt-6 flex flex-col w-full gap-3">
-                                <a href="https://forms.gle/https://docs.google.com/forms/d/e/1FAIpQLScMh7SUKG_XfPbzDYs9CTSwomtsRH4KGxJYmWUuUN4bDr2i5A/viewform" target="_blank" class="inline-flex justify-center rounded-md border border-transparent bg-[#28a745] px-4 py-2 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 transition-colors">
+                                <a href="https://forms.gle/NgfvhPfsbohyMacYA" target="_blank" class="inline-flex justify-center rounded-md border border-transparent bg-[#28a745] px-4 py-2 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 transition-colors">
                                 前往填寫申請表單
                                 </a>
                                 <button
