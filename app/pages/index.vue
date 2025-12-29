@@ -19,39 +19,6 @@
                     <p class="mt-6 text-lg text-slate-600 max-w-3xl mx-auto">因應AI技術典範轉移，培育智慧代理與實體AI領域的前瞻人才</p>
                 </div>
 
-                <!-- Core Focus Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                    <!-- Agentic AI Card -->
-                    <div class="group bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full"></div>
-                        <div class="relative z-10">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-[#004d80] transition-colors">智慧代理</h3>
-                            <p class="text-slate-600 leading-relaxed">Agentic AI</p>
-                            <p class="text-sm text-slate-500 mt-2">培養學生掌握自主決策、多代理協作與複雜任務規劃能力</p>
-                        </div>
-                    </div>
-
-                    <!-- Physical AI Card -->
-                    <div class="group bg-white rounded-2xl shadow-lg border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full"></div>
-                        <div class="relative z-10">
-                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-[#004d80] transition-colors">實體AI機器人</h3>
-                            <p class="text-slate-600 leading-relaxed">Physical AI</p>
-                            <p class="text-sm text-slate-500 mt-2">整合軟硬體技術，培育實體智慧系統開發與應用人才</p>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Main Content Cards -->
                 <div class="space-y-6">
                     <!-- Background Card -->
