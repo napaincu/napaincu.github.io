@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
+  nitro: {
+    preset: 'github-pages'
+  },
 
   modules: [
     '@nuxtjs/tailwindcss',
