@@ -35,14 +35,18 @@
                          </div>
                      </div>
                  </div>
+             </div>
 
-                 <div class="mt-8 pt-8 border-t border-slate-100 bg-orange-50 border-orange-200 border-dashed rounded-xl p-6 text-center">
-                     <strong class="block text-orange-800 mb-2">已經是成員但找不到 Discord 或 Notion 連結？</strong>
-                     <a href="mailto:napai.ncu@gmail.com?subject=索取社群加入連結" class="inline-flex items-center px-6 py-2 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg mt-2 text-sm">
-                         <Icon name="heroicons:question-mark-circle" class="mr-2" size="20" />
-                         忘記社群連結？請聯繫我們
-                     </a>
-                 </div>
+             <!-- Google Map -->
+             <div class="mt-12 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white p-2">
+                 <iframe 
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.969518109097!2d121.18294759678957!3d24.967151700000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ec9d6d4167%3A0xf1c9f93ab06af735!2z5ZyL56uL5Lit5aSu5aSn5a24IOW3peeoi-S6lOmkqA!5e0!3m2!1szh-TW!2stw!4v1767013513544!5m2!1szh-TW!2stw" 
+                     class="w-full h-[450px] rounded-xl"
+                     style="border:0;" 
+                     allowfullscreen 
+                     loading="lazy" 
+                     referrerpolicy="no-referrer-when-downgrade">
+                 </iframe>
              </div>
          </div>
     </section>
