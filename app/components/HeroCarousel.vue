@@ -26,9 +26,9 @@
                 </p>
 
                 <div class="flex flex-wrap justify-center gap-4">
-                    <NuxtLink to="/curriculum" class="px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#24292e] text-white hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
+                    <!-- <NuxtLink to="/curriculum" class="px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#24292e] text-white hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
                         <Icon name="uil:github" size="20" /> GitHub 課程資源
-                    </NuxtLink>
+                    </NuxtLink> -->
                     <button @click="$emit('open-modal')" class="px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#28a745] text-white hover:bg-green-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
                        <Icon name="heroicons:user-plus" size="20" /> 申請加入師資社群
                     </button>
@@ -94,17 +94,10 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
-  '/image/intro/投影片1.PNG',
-  '/image/intro/投影片2.PNG',
   '/image/intro/投影片3.PNG',
   '/image/intro/投影片4.PNG',
   '/image/intro/投影片5.PNG',
   '/image/intro/投影片6.PNG',
-  '/image/intro/投影片7.PNG',
-  '/image/intro/投影片8.PNG',
-  '/image/intro/投影片9.PNG',
-  '/image/intro/投影片10.PNG',
-  '/image/intro/投影片11.PNG'
 ]
 
 const currentSlide = ref(0)
