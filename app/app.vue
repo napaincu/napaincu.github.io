@@ -5,7 +5,10 @@ useHead({
     { name: 'description', content: '教育部前瞻AI技術人才培育計畫 - 智慧代理與實體AI機器人課程推動計畫' }
   ],
   link: [
-      { rel: 'icon', type: 'image/png', href: '/image/logos/logo.png' }
+      { rel: 'icon', type: 'image/png', href: '/image/logos/logo.png' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap' }
   ]
 })
 </script>
@@ -15,3 +18,9 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+<style>
+* {
+  font-family: 'Roboto', sans-serif !important;
+}
+</style>
