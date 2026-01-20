@@ -251,5 +251,11 @@
 <script setup lang="ts">
 useHead({
   title: "計畫團隊 - 前瞻AI人培",
+  meta: [
+    {
+      name: "description",
+      content: "介紹計畫主持人、協同主持人與諮詢委員團隊成員與專長領域。",
+    },
+  ],
 });
 </script>

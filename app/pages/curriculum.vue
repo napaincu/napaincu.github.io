@@ -109,6 +109,13 @@ import "viewerjs/dist/viewer.css";
 
 useHead({
   title: "課程專區 - 前瞻AI人培",
+  meta: [
+    {
+      name: "description",
+      content:
+        "提供 Agentic AI 與 Physical AI 課程模組與教材資源，歡迎加入社群共編與下載。",
+    },
+  ],
 });
 
 let viewer: Viewer | null = null;

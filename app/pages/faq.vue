@@ -165,6 +165,12 @@ import { ref } from "vue";
 
 useHead({
   title: "常見問題 - 前瞻AI人培",
+  meta: [
+    {
+      name: "description",
+      content: "讀書會與課程推動計畫的常見問題與解答。",
+    },
+  ],
 });
 
 const openItems = ref<number[]>([0]); // 默認展開第一個問題

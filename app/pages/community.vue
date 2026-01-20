@@ -48,5 +48,12 @@
 <script setup lang="ts">
 useHead({
   title: "社群與活動 - 前瞻AI人培",
+  meta: [
+    {
+      name: "description",
+      content:
+        "加入前瞻AI人培計畫社群與活動公告，包含 Discord 交流與 Agentic/Physical AI 知識庫資源。",
+    },
+  ],
 });
 </script>

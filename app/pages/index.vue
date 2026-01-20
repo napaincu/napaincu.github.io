@@ -581,6 +581,17 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 
+useHead({
+  title: "前瞻AI人培-智慧代理及實體AI課程推動計畫",
+  meta: [
+    {
+      name: "description",
+      content:
+        "前瞻AI人培計畫介紹，培育智慧代理與實體AI人才，涵蓋課程、活動與資源。",
+    },
+  ],
+});
+
 const isOpen = ref(false);
 
 function closeModal() {
