@@ -80,6 +80,24 @@
           </div>
         </div>
       </div>
+
+      <div class="space-y-6 text-left max-w-5xl mx-auto">
+        <section
+          class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6"
+        >
+          <h2 class="text-2xl font-bold text-[#004d80] mb-3">課程資源庫</h2>
+          <p class="text-slate-600">
+            歡迎加入專業社群共編課程，以取得完整教材資料。
+          </p>
+        </section>
+
+        <section
+          class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6"
+        >
+          <h2 class="text-2xl font-bold text-[#004d80] mb-3">相關資源</h2>
+          <p class="text-slate-600">建置中</p>
+        </section>
+      </div>
     </div>
   </section>
 </template>
