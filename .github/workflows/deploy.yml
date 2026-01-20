@@ -24,14 +24,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: 'npm' # 如果用 pnpm 請改為 pnpm
+          cache: "npm" # 如果用 pnpm 請改為 pnpm
 
       - name: Install dependencies
         run: npm install
 
       - name: Build static site
-        # 使用 github_pages 預設設定會自動將靜態檔產出至 .output/public
-        run: npx nuxi build --preset github_pages
+        # 使用 github-pages 預設設定會自動將靜態檔產出至 .output/public
+        run: npm run generate
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
