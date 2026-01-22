@@ -111,7 +111,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-const slides = ["/image/intro/共創課程模組.png", "/image/intro/推動策略.png"];
+const slides = ["/image/intro/推動策略.png", "/image/intro/共創課程模組.png"];
 
 const currentSlide = ref(0);
 // Total slides = 1 (Hero) + 11 (Images) = 12

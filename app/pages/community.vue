@@ -8,7 +8,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Community Cards Here -->
       <a
-        href="https://discord.gg/sxCr6hrd"
+        href="https://discord.gg/aatUjnEKmY"
         target="_blank"
         rel="noopener noreferrer"
         class="block p-8 rounded-xl border border-slate-200 transition-all bg-white hover:shadow-lg hover:-translate-y-1"
