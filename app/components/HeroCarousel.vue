@@ -9,14 +9,26 @@
     >
       <!-- Slide 0: Custom Hero Content -->
       <div
-        class="min-w-full h-full relative flex flex-col justify-center items-center bg-gradient-to-b from-blue-50 to-white overflow-hidden"
+        class="min-w-full h-full relative flex flex-col justify-center items-center bg-slate-50 overflow-hidden"
       >
+        <!-- CSS Grid Pattern Background -->
+        <div
+          class="absolute inset-0 z-0 opacity-40"
+          style="
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 32px 32px;
+          "
+        ></div>
+
         <!-- Background Blobs -->
         <div
-          class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+          class="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-blue-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob"
         ></div>
         <div
-          class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+          class="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-purple-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob animation-delay-2000"
+        ></div>
+        <div
+          class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-indigo-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob animation-delay-4000"
         ></div>
 
         <!-- Content -->
@@ -34,15 +46,21 @@
             >
           </h1>
 
-          <div class="flex flex-wrap justify-center gap-4">
+          <div class="flex flex-col items-center justify-center gap-4">
             <!-- <NuxtLink to="/curriculum" class="px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#24292e] text-white hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
                         <Icon name="uil:github" size="20" /> GitHub 課程資源
                     </NuxtLink> -->
             <button
               @click="$emit('open-modal')"
-              class="px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#28a745] text-white hover:bg-green-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#28a745] text-white hover:bg-green-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
             >
               <Icon name="heroicons:user-plus" size="20" /> 申請加入專業社群
+            </button>
+            <button
+              @click="scrollToAbout"
+              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-white text-[#004d80] hover:bg-slate-50 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium border border-blue-100"
+            >
+              <Icon name="heroicons:arrow-down-circle" size="20" /> 瀏覽計畫介紹
             </button>
           </div>
         </div>
@@ -161,6 +179,13 @@ const stopTimer = () => {
   }
 };
 
+const scrollToAbout = () => {
+  const element = document.getElementById("about");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 onMounted(() => {
   startTimer();
 });
@@ -180,6 +205,9 @@ defineEmits(["open-modal"]);
 }
 .animation-delay-2000 {
   animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
 @keyframes blob {
   0% {
