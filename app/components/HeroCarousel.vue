@@ -32,7 +32,7 @@
             前瞻AI技術人才培育計畫<br />
             智慧代理與實體AI機器人課程推動計畫<br />
             <span
-              class="text-2xl sm:text-3xl md:text-4xl text-purple-200 mt-2 block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              class="text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 mt-2 block drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]"
               >National Agentic & Physical AI Initiative</span
             >
           </h1>
