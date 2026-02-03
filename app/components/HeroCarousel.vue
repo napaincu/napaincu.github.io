@@ -9,39 +9,30 @@
     >
       <!-- Slide 0: Custom Hero Content -->
       <div
-        class="min-w-full h-full relative flex flex-col justify-center items-center bg-slate-50 overflow-hidden"
+        class="min-w-full h-full relative flex flex-col justify-center items-center bg-slate-900 overflow-hidden"
       >
-        <!-- CSS Grid Pattern Background -->
-        <div
-          class="absolute inset-0 z-0 opacity-40"
-          style="
-            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 32px 32px;
-          "
-        ></div>
-
-        <!-- Background Blobs -->
-        <div
-          class="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-blue-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob"
-        ></div>
-        <div
-          class="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-purple-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob animation-delay-2000"
-        ></div>
-        <div
-          class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-indigo-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob animation-delay-4000"
-        ></div>
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/image/intro/hero-bg.png"
+            alt="Hero Background"
+            class="w-full h-full object-cover opacity-100"
+          />
+          <!-- Dark Overlay for better text readability -->
+          <div class="absolute inset-0 bg-black/30"></div>
+        </div>
 
         <!-- Content -->
         <div
           class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scale-90 md:scale-100"
         >
           <h1
-            class="text-3xl tracking-tight font-extrabold text-[#004d80] sm:text-4xl md:text-5xl mb-6 leading-tight"
+            class="text-3xl tracking-tight font-extrabold text-white sm:text-4xl md:text-5xl mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             前瞻AI技術人才培育計畫<br />
             智慧代理與實體AI機器人課程推動計畫<br />
             <span
-              class="text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mt-2 block"
+              class="text-2xl sm:text-3xl md:text-4xl text-purple-200 mt-2 block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
               >National Agentic & Physical AI Initiative</span
             >
           </h1>
