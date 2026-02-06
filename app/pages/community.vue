@@ -19,7 +19,7 @@
       </a>
 
       <a
-        href="https://www.notion.so/Agent-AI-aefef4ca13864056b7ebbc70e624e084?source=copy_link"
+        href="https://www.notion.so/Agentic-AI-2fee05e67dac801a8436c5c6d5a67b92?source=copy_link"
         target="_blank"
         rel="noopener noreferrer"
         class="block p-8 rounded-xl border border-slate-200 transition-all bg-white hover:shadow-lg hover:-translate-y-1"
@@ -30,7 +30,7 @@
       </a>
 
       <a
-        href="https://www.notion.so/Physical-AI-5a3bc5d40bb845e1b55e909104518526?source=copy_link"
+        href="https://www.notion.so/Physical-AI-2fee05e67dac803a827ceeee5ffec64d?source=copy_link"
         target="_blank"
         rel="noopener noreferrer"
         class="block p-8 rounded-xl border border-slate-200 transition-all bg-white hover:shadow-lg hover:-translate-y-1"
