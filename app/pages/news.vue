@@ -13,7 +13,7 @@
       <!-- Featured News Section -->
       <div class="mb-16">
         <h2
-          class="text-2xl font-bold text-[#004d80] mb-8 border-l-4 border-blue-500 pl-4"
+          class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-teal-500 pl-4"
         >
           焦點新聞
         </h2>
@@ -24,7 +24,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-5">
             <!-- Visual Side -->
             <div
-              class="lg:col-span-2 bg-gradient-to-br from-[#004d80] to-blue-700 flex items-center justify-center p-12 relative min-h-[300px]"
+              class="lg:col-span-2 bg-gradient-to-br from-teal-700 to-emerald-600 flex items-center justify-center p-12 relative min-h-[300px]"
             >
               <div
                 class="absolute inset-0 opacity-10 bg-[url('/image/logos/logo.png')] bg-center bg-no-repeat bg-contain"
@@ -39,40 +39,37 @@
                     class="w-16 h-16 text-white"
                   />
                 </div>
-                <h3 class="text-2xl font-bold mb-3">計畫開跑中</h3>
+                <h3 class="text-2xl font-bold mb-3">NAPAI SIGPhysical 讀書會</h3>
                 <div
-                  class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-blue-100"
+                  class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-teal-50"
                 >
                   <Icon name="heroicons:calendar" class="w-4 h-4 mr-2" />
-                  2025-12-31
+                  2025-03-09
                 </div>
               </div>
             </div>
 
             <!-- Content Side -->
             <div
-              class="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-blue-50 to-slate-50"
+              class="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-teal-50 to-slate-50"
             >
               <span
-                class="inline-block px-3 py-1 bg-red-50 text-red-600 rounded-md text-xs font-semibold mb-5 border border-red-100 w-fit"
+                class="inline-block px-3 py-1 bg-teal-50 text-teal-700 rounded-md text-xs font-semibold mb-5 border border-teal-100 w-fit"
               >
                 活動公告
               </span>
               <h2 class="text-3xl font-bold text-slate-900 mb-5 leading-tight">
-                【活動報名】前瞻 AI 技術人才培育—智慧代理與實體 AI
-                技術論壇報名開始！！
+                【活動報名】NAPAI SIGPhysical 讀書會活動開放報名中！！
               </h2>
               <p class="text-slate-600 text-base leading-relaxed mb-8">
-                這不只是一場論壇，更是一場關於未來的預演。
-                歡迎大家查看表單內容填寫報名參與！
+                本活動為 NAPAI SIGPhysical 讀書會活動，歡迎大家填寫報名表單報名參加！
               </p>
 
               <div>
                 <a
-                  href="https://forms.gle/NgfvhPfsbohyMacYA"
+                  href="https://forms.gle/4YkjiiyRtsKeZUU96"
                   target="_blank"
-                  class="inline-flex items-center justify-center text-white px-6 py-3 rounded-lg transition-all font-medium shadow-sm hover:shadow-md"
-                  style="background-color: #2563eb"
+                  class="inline-flex items-center justify-center text-white px-6 py-3 rounded-lg transition-all font-medium shadow-sm hover:shadow-md bg-teal-600 hover:bg-teal-700"
                 >
                   <span>報名表單</span>
                   <Icon name="heroicons:arrow-right" class="ml-2 w-5 h-5" />
@@ -86,7 +83,7 @@
       <!-- Recent Events Section -->
       <div class="mb-16">
         <h2
-          class="text-2xl font-bold text-[#004d80] mb-8 border-l-4 border-blue-500 pl-4"
+          class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-teal-500 pl-4"
         >
           近期活動
         </h2>
@@ -105,27 +102,63 @@
             </div>
             <div class="p-6">
               <h3
-                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#004d80] transition-colors"
+                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-700 transition-colors"
               >
                 Agentic AI 技術論壇
               </h3>
             </div>
           </div>
 
+          <!-- NAPAI SIGPhysical -->
+          <div
+            class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group"
+          >
+            <div class="relative overflow-hidden">
+              <a href="https://forms.gle/4YkjiiyRtsKeZUU96" target="_blank" rel="noopener noreferrer" class="block">
+                <img
+                  src="/image/news/NAPAI_SIGPhysical.png"
+                  alt="NAPAI_SIGPhysical讀書會"
+                  class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </a>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-700 transition-colors"
+              >
+                NAPAI SIGPhysical 讀書會
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Events Section -->
+      <div class="mb-16">
+        <h2
+          class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-slate-400 pl-4"
+        >
+          過去活動
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Physical AI Forum -->
           <div
             class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 group"
           >
             <div class="relative overflow-hidden">
+              <!-- Black mask overlay -->
+              <div class="absolute inset-0 bg-slate-900/40 z-10 transition-colors group-hover:bg-slate-900/20"></div>
               <img
                 src="/image/news/Physical AI_Forum.png"
                 alt="Physical AI 技術論壇"
-                class="w-full h-auto object-cover"
+                class="w-full h-auto object-cover grayscale brightness-75 transition-all group-hover:grayscale-[50%] group-hover:brightness-90 z-0 relative"
               />
+              <div class="absolute top-4 right-4 bg-slate-800/90 text-white px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm z-20">已結束</div>
             </div>
             <div class="p-6">
               <h3
-                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#004d80] transition-colors"
+                class="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-700 transition-colors"
               >
                 Physical AI 技術論壇
               </h3>
