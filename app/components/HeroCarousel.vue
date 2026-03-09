@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden bg-slate-50 group"
+    class="relative w-full h-[50vh] md:h-[60vh] max-h-[700px] overflow-hidden bg-slate-50 group"
   >
     <!-- Slider Track (Flex Container) -->
     <div
@@ -9,17 +9,12 @@
     >
       <!-- Slide 0: Custom Hero Content -->
       <div
-        class="min-w-full h-full relative flex flex-col justify-center items-center bg-slate-900 overflow-hidden"
+        class="min-w-full h-full relative flex flex-col justify-center items-center bg-slate-50 overflow-hidden"
       >
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-          <img
-            src="/image/intro/hero-bg.png"
-            alt="Hero Background"
-            class="w-full h-full object-cover opacity-100"
-          />
-          <!-- Dark Overlay for better text readability -->
-          <div class="absolute inset-0 bg-black/30"></div>
+          <!-- Light Overlay for better text readability -->
+          <div class="absolute inset-0 bg-white/50"></div>
         </div>
 
         <!-- Content -->
@@ -27,12 +22,12 @@
           class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scale-90 md:scale-100"
         >
           <h1
-            class="text-3xl tracking-tight font-extrabold text-white sm:text-4xl md:text-5xl mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+            class="text-3xl tracking-tight font-extrabold text-slate-800 sm:text-4xl md:text-5xl mb-6 leading-tight drop-shadow-sm"
           >
             前瞻AI技術人才培育計畫<br />
             智慧代理與實體AI機器人課程推動計畫<br />
             <span
-              class="text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 mt-2 block drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+              class="text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-400 mt-2 block"
               >National Agentic & Physical AI Initiative</span
             >
           </h1>
@@ -43,32 +38,26 @@
                     </NuxtLink> -->
             <button
               @click="$emit('open-modal')"
-              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#28a745] text-white hover:bg-green-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-teal-600 text-white hover:bg-teal-700 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
             >
               <Icon name="heroicons:user-plus" size="20" /> 申請加入專業社群
-            </button>
-            <button
-              @click="scrollToAbout"
-              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-white text-[#004d80] hover:bg-slate-50 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium border border-blue-100"
-            >
-              <Icon name="heroicons:arrow-down-circle" size="20" /> 瀏覽計畫介紹
-            </button>
+            </button>       
           </div>
         </div>
       </div>
 
-      <!-- Slide 1 to N: Image Slides -->
+      <!-- Slide 1 toN: Image Slides -->
       <div
         v-for="(slide, index) in slides"
         :key="index"
         class="min-w-full h-full relative"
       >
         <!-- 1. Blurred Background Layer -->
-        <div class="absolute inset-0 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 overflow-hidden bg-slate-100">
           <img
             :src="slide"
             alt=""
-            class="w-full h-full object-cover blur-3xl scale-110 opacity-50 brightness-50"
+            class="w-full h-full object-cover blur-3xl scale-110 opacity-30 brightness-110"
           />
         </div>
 
@@ -106,11 +95,11 @@
         v-for="i in slides.length + 1"
         :key="'indicator-' + i"
         @click="goToSlide(i - 1)"
-        class="h-1.5 rounded-full transition-all duration-300 focus:outline-none shadow-sm backdrop-blur-sm border border-white/20"
+        class="h-1.5 rounded-full transition-all duration-300 focus:outline-none shadow-sm backdrop-blur-sm border border-slate-300"
         :class="
           currentSlide === i - 1
-            ? 'w-12 bg-[#004d80]'
-            : 'w-6 bg-[#004d80]/20 hover:bg-[#004d80]/50'
+            ? 'w-12 bg-teal-600'
+            : 'w-6 bg-teal-600/30 hover:bg-teal-600/60'
         "
       ></button>
     </div>

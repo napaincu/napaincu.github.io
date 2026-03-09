@@ -2,13 +2,13 @@
   <div class="min-h-screen flex flex-col font-sans text-slate-800 bg-slate-50 selection:bg-blue-200 selection:text-blue-900">
     
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-[#112D6D] shadow-lg border-b border-white/10">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center">
             <NuxtLink to="/" class="flex items-center gap-2 group">
-              <img class="h-10 w-auto transition-transform group-hover:scale-105" src="/image/logos/logo-removebg.png" alt="NAPAI計畫Logo">
+              <img class="h-10 w-auto transition-transform group-hover:scale-105" src="/image/logos/logo-removebg_new.png" alt="NAPAI計畫Logo">
             </NuxtLink>
           </div>
           
@@ -16,18 +16,18 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-1">
               <NuxtLink v-for="item in navItems" :key="item.name" :to="item.to" 
-                class="relative px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 ease-in-out group"
-                active-class="!text-white">
+                class="relative px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors duration-200 ease-in-out group"
+                active-class="!text-teal-700">
                 {{ item.name }}
-                <span class="absolute bottom-1 left-3 right-3 h-0.5 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                <span v-if="item.to === $route.path || ($route.path.startsWith(item.to) && item.to !== '/')" class="absolute bottom-1 left-3 right-3 h-0.5 bg-blue-400"></span>
+                <span class="absolute bottom-1 left-3 right-3 h-0.5 bg-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span v-if="item.to === $route.path || ($route.path.startsWith(item.to) && item.to !== '/')" class="absolute bottom-1 left-3 right-3 h-0.5 bg-teal-500"></span>
               </NuxtLink>
             </div>
           </div>
 
           <!-- Mobile menu button -->
           <div class="-mr-2 flex md:hidden">
-            <button @click="isMobileMenuOpen = !isMobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white">
+            <button @click="isMobileMenuOpen = !isMobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-teal-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-100 focus:ring-teal-500">
               <span class="sr-only">Open main menu</span>
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -47,12 +47,12 @@
         leave-from-class="transform scale-100 opacity-100"
         leave-to-class="transform scale-95 opacity-0"
       >
-        <div v-show="isMobileMenuOpen" class="md:hidden bg-[#112D6D] border-t border-blue-700">
+        <div v-show="isMobileMenuOpen" class="md:hidden bg-white border-t border-slate-100 shadow-lg">
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <NuxtLink v-for="item in navItems" :key="item.name" :to="item.to"
                @click="isMobileMenuOpen = false"
-               class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-700 hover:text-white transition-colors"
-               active-class="bg-[#0d2252]">
+               class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-teal-700 transition-colors"
+               active-class="bg-teal-50 text-teal-800">
               {{ item.name }}
             </NuxtLink>
           </div>
@@ -66,23 +66,23 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t-4 border-[#004d80] pt-12 pb-8 mt-12">
+    <footer class="bg-white border-t-4 border-teal-600 pt-12 pb-8 mt-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="flex flex-col items-center">
-                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-blue-500">指導單位</span>
+                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200">指導單位</span>
                 <img src="/image/logos/logo_ITE.png" alt="指導單位" class="h-16 object-contain hover:scale-105 transition-transform">
             </div>
             <div class="flex flex-col items-center">
-                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-blue-500">主辦單位</span>
+                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200">主辦單位</span>
                 <img src="/image/logos/logo_NCU.png" alt="主辦單位" class="h-16 object-contain hover:scale-105 transition-transform">
             </div>
             <div class="flex flex-col items-center">
-                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-blue-500">協辦單位</span>
+                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200">協辦單位</span>
                 <img src="/image/logos/logo_NTPU.png" alt="協辦單位" class="h-16 object-contain hover:scale-105 transition-transform">
             </div>
             <div class="flex flex-col items-center">
-                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-blue-500">協辦單位</span>
+                <span class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200">協辦單位</span>
                 <img src="/image/logos/logo_NTHU.jpg" alt="協辦單位" class="h-16 object-contain hover:scale-105 transition-transform">
             </div>
         </div>
