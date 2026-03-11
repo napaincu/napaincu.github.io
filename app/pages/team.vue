@@ -50,6 +50,136 @@
         </div>
       </div>
 
+      <!-- 核心種子教師 -->
+      <div class="mb-16">
+        <h3
+          class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-blue-500 pl-4"
+        >
+          SIGAgent 核心種子教師
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <TeamMemberCard
+            name="簡士鎰 副教授"
+            title="國立政治大學資訊管理學系"
+            image="/image/team/SIGAgent/簡士鎰副教授.png"
+          >
+            <template #description
+              >專精於使用者體驗、人機互動、機器人系統、資訊行為。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="戴敏育 教授"
+            title="國立臺北大學資訊管理研究所"
+            image="/image/team/SIGAgent/戴敏育.jpg"
+          >
+            <template #description
+              >專精於人工智慧、代理式AI、永續綠色金融科技。現任國立臺北大學資訊管理研究所所長兼金融科技暨綠色金融研究中心主任。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="林豪鏘 教授"
+            title="國立臺南大學數位學習科技學系"
+            image="/image/team/SIGAgent/林豪鏘教授.png"
+          >
+            <template #description
+              >專精於人工智慧、情感運算、延伸實境與元宇宙、數位藝術、數位學習。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="張瑋倫 特聘教授"
+            title="國立臺北大學企業管理學系"
+            image="/image/team/SIGAgent/張瑋倫特聘教授.jpg"
+          >
+            <template #description
+              >專精於企業數位轉型、人工智慧與應用、文字與情感分析</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="謝舒凱 教授"
+            title="國立臺灣大學語言學研究所"
+            image="/image/team/SIGAgent/謝舒凱教授.jpg"
+          >
+            <template #description
+              >專精於語料庫與計算語言學，認知、詞彙與知識本體，語意與語用學，計算文字與符碼系統。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="張詠淳 教授"
+            title="臺北醫學大學大數據科技及管理研究所"
+            image="/image/team/SIGAgent/張詠淳教授.png"
+          >
+            <template #description
+              >專精於文字探勘與自然語言處理以及相關的機器學習與語言辨識技術，擅長將這些技術應用於解決不同領域的問題，主要研究領域為智慧醫療、生物資訊、商業智慧以及語言理解。</template
+            >
+          </TeamMemberCard>
+        </div>
+      </div>
+
+      <!-- SIGRobot 核心種子教師 -->
+      <div class="mb-16">
+        <h3
+          class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-blue-500 pl-4"
+        >
+          SIGRobot 核心種子教師
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <TeamMemberCard
+            name="姚智原 副教授"
+            title="國立臺灣科技大學資訊工程學系"
+            image="/image/team/SIGRobot/姚智原.jpg"
+          >
+            <template #description
+              >專精於電腦圖學、電腦視覺、延展實境、人機互動、醫療影像3D重建。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="陳奕廷 副教授"
+            title="國立陽明交通大學資工系"
+            image="/image/team/SIGRobot/陳奕廷副教授.png"
+          >
+            <template #description
+              >專精於 人本實體人工智慧、智慧駕駛系統、輔助機器人、電腦視覺、機器學習。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="柯宗瑋 助理教授"
+            title="國立臺灣大學資訊工程學系"
+            image="/image/team/SIGRobot/柯宗瑋.jpg"
+          >
+            <template #description
+              >專精於電腦視覺、機器人學習、機器學習。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="潘則佑 助理教授"
+            title="國立臺灣科技大學人工智慧跨域科技研究所"
+            image="/image/team/SIGRobot/潘則佑.png"
+          >
+            <template #description
+              >專精於多媒體內容分析、電腦視覺、人機互動、延展實境。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="朱宏國 教授"
+            title="國立清華大學資訊工程學系"
+            image="/image/team/SIGRobot/朱宏國.jpeg"
+          >
+            <template #description
+              >專精於電腦圖形學，具體研究方向包括形狀分析、智慧操作、視訊/影像處理、人機互動和視覺感知等。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
+            name="洪仕軒 助理教授"
+            title="國立清華大學資訊工程學系"
+            image="/image/team/SIGRobot/洪仕軒.png"
+          >
+            <template #description
+              >專精於電腦圖學、科學及資訊視覺化、幾何建模。</template
+            >
+          </TeamMemberCard>
+        </div>
+      </div>
+
       <!-- Agentic AI Consultants -->
       <div class="mb-16">
         <h3
