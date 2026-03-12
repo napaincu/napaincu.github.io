@@ -39,7 +39,7 @@
                     class="w-16 h-16 text-white"
                   />
                 </div>
-                <h3 class="text-2xl font-bold mb-3">NAPAI SIGPhysical 讀書會</h3>
+                <h3 class="text-2xl font-bold mb-3">NAPAI SIGRobot 讀書會</h3>
                 <div
                   class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-teal-50"
                 >
@@ -59,10 +59,10 @@
                 活動公告
               </span>
               <h2 class="text-3xl font-bold text-slate-900 mb-5 leading-tight">
-                【活動報名】NAPAI SIGPhysical 讀書會活動開放報名中！！
+                【活動報名】NAPAI SIGRobot 讀書會活動開放報名中！！
               </h2>
               <p class="text-slate-600 text-base leading-relaxed mb-8">
-                本活動為 NAPAI SIGPhysical 讀書會活動，歡迎大家填寫報名表單報名參加！
+                本活動為 NAPAI SIGRobot 讀書會活動，歡迎大家填寫報名表單報名參加！
               </p>
 
               <div>
@@ -116,8 +116,8 @@
             <div class="relative overflow-hidden">
               <a href="https://forms.gle/4YkjiiyRtsKeZUU96" target="_blank" rel="noopener noreferrer" class="block">
                 <img
-                  src="/image/news/NAPAI_SIGPhysical.png"
-                  alt="NAPAI_SIGPhysical讀書會"
+                  src="/image/news/NAPAI_SIGRobot.png"
+                  alt="NAPAI_SIGRobot讀書會"
                   class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </a>
@@ -126,7 +126,7 @@
               <h3
                 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-700 transition-colors"
               >
-                NAPAI SIGPhysical 讀書會
+                NAPAI SIGRobot 讀書會
               </h3>
             </div>
           </div>
