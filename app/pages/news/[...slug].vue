@@ -78,6 +78,13 @@
           </a>
         </div>
       </article>
+
+      <div
+        v-else-if="!pending"
+        class="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-600"
+      >
+        找不到這篇消息。
+      </div>
     </div>
   </section>
 </template>
@@ -95,11 +102,12 @@ const slug = computed(() => {
   return (rawSlug ?? "").toString().replace(/^\/+|\/+$/g, "");
 });
 
-const { data: newsItem } = await useAsyncData(`news-${slug.value}`, () =>
-  queryCollection("news").path(`/news/${slug.value}`).first(),
+const { data: newsItem, pending } = await useAsyncData(
+  `news-${slug.value}`,
+  () => queryCollection("news").path(`/news/${slug.value}`).first(),
 );
 
-if (!newsItem.value || newsItem.value.draft) {
+if (import.meta.server && (!newsItem.value || newsItem.value.draft)) {
   throw createError({
     statusCode: 404,
     statusMessage: "找不到這篇消息",
@@ -112,11 +120,17 @@ const canonicalUrl = computed(() => {
 });
 
 useSeoMeta({
-  title: `${newsItem.value.title} - 前瞻AI人培`,
-  description: newsItem.value.description,
-  ogTitle: newsItem.value.title,
-  ogDescription: newsItem.value.description,
-  ogImage: newsItem.value.cover,
+  title: newsItem.value
+    ? `${newsItem.value.title} - 前瞻AI人培`
+    : "最新消息 - 前瞻AI人培",
+  description:
+    newsItem.value?.description ??
+    "前瞻AI人培計畫最新消息列表，提供可分享的活動與公告資訊。",
+  ogTitle: newsItem.value?.title ?? "最新消息",
+  ogDescription:
+    newsItem.value?.description ??
+    "前瞻AI人培計畫最新消息列表，提供可分享的活動與公告資訊。",
+  ogImage: newsItem.value?.cover,
   ogUrl: canonicalUrl.value,
 });
 
