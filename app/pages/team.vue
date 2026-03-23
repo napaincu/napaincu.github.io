@@ -59,9 +59,18 @@
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <TeamMemberCard
+            name="范耀中 教授"
+            title="國立中興大學資訊工程學系"
+            image="/image/team/SIGAgent/范耀中教授.jpg"
+          >
+            <template #description
+              >專精於文字挖掘、自然語言生成、機器閱讀理解及社群網路。</template
+            >
+          </TeamMemberCard>
+          <TeamMemberCard
             name="簡士鎰 副教授"
             title="國立政治大學資訊管理學系"
-            image="/image/team/SIGAgent/簡士鎰副教授.png"
+            image="/image/team/SIGAgent/簡士鎰.jpg"
           >
             <template #description
               >專精於使用者體驗、人機互動、機器人系統、資訊行為。</template
@@ -97,7 +106,7 @@
           <TeamMemberCard
             name="謝舒凱 教授"
             title="國立臺灣大學語言學研究所"
-            image="/image/team/SIGAgent/謝舒凱教授.jpg"
+            image="/image/team/SIGAgent/謝舒凱.png"
           >
             <template #description
               >專精於語料庫與計算語言學，認知、詞彙與知識本體，語意與語用學，計算文字與符碼系統。</template
@@ -138,7 +147,8 @@
             image="/image/team/SIGRobot/陳奕廷副教授.png"
           >
             <template #description
-              >專精於 人本實體人工智慧、智慧駕駛系統、輔助機器人、電腦視覺、機器學習。</template
+              >專精於
+              人本實體人工智慧、智慧駕駛系統、輔助機器人、電腦視覺、機器學習。</template
             >
           </TeamMemberCard>
           <TeamMemberCard

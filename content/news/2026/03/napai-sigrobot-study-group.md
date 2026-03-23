@@ -4,7 +4,7 @@ description: 本活動為 NAPAI SIGRobot 讀書會系列講座，歡迎填寫報
 date: 2026-03-09
 category: 活動公告
 cover: /image/news/NAPAI_SIGRobot.png
-featured: true
+featured: false
 status: upcoming
 externalLink: https://forms.gle/4YkjiiyRtsKeZUU96
 tags:

@@ -56,7 +56,7 @@
           class="mb-8 h-auto w-full rounded-xl border border-slate-200"
         />
 
-        <div class="prose prose-slate max-w-none">
+        <div class="news-content max-w-none">
           <ContentRenderer :value="newsItem" />
         </div>
 
@@ -123,3 +123,58 @@ const statusLabel = (value: string) => {
   return value;
 };
 </script>
+
+<style scoped>
+.news-content :deep(p) {
+  margin: 0.9rem 0;
+  line-height: 1.8;
+  color: rgb(51 65 85);
+}
+
+.news-content :deep(h2) {
+  margin: 1.6rem 0 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: rgb(15 23 42);
+}
+
+.news-content :deep(h3) {
+  margin: 1.3rem 0 0.7rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: rgb(15 23 42);
+}
+
+.news-content :deep(ul),
+.news-content :deep(ol) {
+  margin: 0.9rem 0;
+  padding-left: 1.4rem;
+  color: rgb(51 65 85);
+}
+
+.news-content :deep(ul) {
+  list-style: disc;
+}
+
+.news-content :deep(ol) {
+  list-style: decimal;
+}
+
+.news-content :deep(li) {
+  margin: 0.35rem 0;
+  line-height: 1.75;
+}
+
+.news-content :deep(a) {
+  color: rgb(13 148 136);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.news-content :deep(strong) {
+  font-weight: 700;
+  color: rgb(15 23 42);
+}
+</style>

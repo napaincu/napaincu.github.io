@@ -76,7 +76,8 @@
                 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs">
                   <span
                     v-if="item.featured"
-                    class="inline-flex items-center gap-1 rounded-md bg-[#f59e0b] px-2.5 py-1 font-semibold text-slate-900 shadow-sm"
+                    class="inline-flex items-center gap-1 rounded-md px-2.5 py-1 font-semibold text-slate-900 shadow-sm"
+                    style="background-color: #f59e0b !important"
                   >
                     <Icon
                       name="heroicons:star-solid"
@@ -92,12 +93,6 @@
                   <span class="text-slate-400">{{
                     formatDate(item.date)
                   }}</span>
-                  <span
-                    v-if="item.status"
-                    class="rounded-md bg-teal-50 px-2 py-1 font-medium text-teal-700"
-                  >
-                    {{ statusLabel(item.status) }}
-                  </span>
                 </div>
                 <NuxtLink
                   :to="resolveNewsPath(item)"
@@ -160,7 +155,8 @@
                 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs">
                   <span
                     v-if="item.featured"
-                    class="inline-flex items-center gap-1 rounded-md bg-[#f59e0b] px-2.5 py-1 font-semibold text-slate-900 shadow-sm"
+                    class="inline-flex items-center gap-1 rounded-md px-2.5 py-1 font-semibold text-slate-900 shadow-sm"
+                    style="background-color: #f59e0b !important"
                   >
                     <Icon
                       name="heroicons:star-solid"
@@ -277,13 +273,6 @@ const resolveNewsPath = (item: {
 };
 
 const formatDate = (value: string) => value;
-
-const statusLabel = (value: string) => {
-  if (value === "upcoming") return "即將開始";
-  if (value === "ongoing") return "進行中";
-  if (value === "past") return "已結束";
-  return value;
-};
 
 useSeoMeta({
   title: "最新消息 - 前瞻AI人培",
