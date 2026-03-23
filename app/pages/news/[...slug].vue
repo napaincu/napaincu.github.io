@@ -85,7 +85,15 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const slug = computed(() => route.path.replace("/news/", ""));
+const slug = computed(() => {
+  const rawSlug = route.params.slug;
+
+  if (Array.isArray(rawSlug)) {
+    return rawSlug.join("/");
+  }
+
+  return (rawSlug ?? "").toString().replace(/^\/+|\/+$/g, "");
+});
 
 const { data: newsItem } = await useAsyncData(`news-${slug.value}`, () =>
   queryCollection("news").path(`/news/${slug.value}`).first(),
