@@ -70,7 +70,7 @@
             <article
               v-for="item in displayedNews"
               :key="resolveNewsPath(item)"
-              class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md"
+              class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md"
             >
               <div class="flex flex-col p-5 md:p-6">
                 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs">
@@ -161,7 +161,7 @@
                 </div>
               </NuxtLink>
 
-              <div class="p-5">
+              <div class="flex flex-1 flex-col p-5">
                 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs">
                   <span
                     v-if="item.featured"
@@ -206,12 +206,12 @@
                 </NuxtLink>
 
                 <p
-                  class="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600"
+                  class="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600"
                 >
                   {{ item.description }}
                 </p>
 
-                <div class="mt-4 flex justify-end">
+                <div class="mt-auto flex justify-end pt-4">
                   <NuxtLink
                     :to="resolveNewsPath(item)"
                     class="inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
