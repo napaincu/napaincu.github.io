@@ -86,6 +86,16 @@
                     置頂
                   </span>
                   <span
+                    v-if="item.videoLink"
+                    class="inline-flex items-center gap-1 rounded-md bg-rose-100 px-2 py-1 font-semibold text-rose-700"
+                  >
+                    <Icon
+                      name="heroicons:play-circle-solid"
+                      class="h-3.5 w-3.5"
+                    />
+                    影片
+                  </span>
+                  <span
                     class="rounded-md bg-slate-100 px-2 py-1 font-semibold text-slate-700"
                   >
                     {{ item.category }}
@@ -163,6 +173,16 @@
                       class="h-3.5 w-3.5 text-slate-900"
                     />
                     置頂
+                  </span>
+                  <span
+                    v-if="item.videoLink"
+                    class="inline-flex items-center gap-1 rounded-md bg-rose-100 px-2 py-1 font-semibold text-rose-700"
+                  >
+                    <Icon
+                      name="heroicons:play-circle-solid"
+                      class="h-3.5 w-3.5"
+                    />
+                    影片
                   </span>
                   <span
                     class="rounded-md bg-slate-100 px-2 py-1 font-semibold text-slate-700"

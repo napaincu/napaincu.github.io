@@ -15,6 +15,7 @@ export default defineContentConfig({
         featured: z.boolean().optional().default(false),
         status: z.enum(["upcoming", "ongoing", "past"]).optional(),
         externalLink: z.string().optional(),
+        videoLink: z.string().optional(),
         draft: z.boolean().optional().default(false),
       }),
     }),

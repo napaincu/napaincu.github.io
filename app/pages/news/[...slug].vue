@@ -61,6 +61,48 @@
         </div>
 
         <div
+          v-if="newsItem.videoLink"
+          class="mt-10 border-t border-slate-100 pt-6"
+        >
+          <h2 class="mb-4 text-xl font-bold text-slate-900">活動影片</h2>
+          <div
+            class="overflow-hidden rounded-xl border border-slate-200 bg-slate-100"
+          >
+            <iframe
+              v-if="toYouTubeEmbedUrl(newsItem.videoLink)"
+              :src="toYouTubeEmbedUrl(newsItem.videoLink)"
+              class="aspect-video w-full"
+              title="YouTube 活動影片"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <a
+            :href="newsItem.videoLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+          >
+            在 YouTube 觀看
+            <Icon
+              name="heroicons:arrow-top-right-on-square"
+              class="ml-1.5 h-4 w-4"
+            />
+          </a>
+        </div>
+
+        <div
           v-if="newsItem.externalLink"
           class="mt-10 border-t border-slate-100 pt-6"
         >
@@ -143,6 +185,28 @@ const statusLabel = (value: string) => {
   if (value === "ongoing") return "進行中";
   if (value === "past") return "已結束";
   return value;
+};
+
+const toYouTubeEmbedUrl = (url?: string | null) => {
+  if (!url) return null;
+
+  try {
+    const parsed = new URL(url);
+
+    if (parsed.hostname.includes("youtube.com")) {
+      const id = parsed.searchParams.get("v");
+      if (id) return `https://www.youtube.com/embed/${id}`;
+    }
+
+    if (parsed.hostname.includes("youtu.be")) {
+      const id = parsed.pathname.replace(/^\/+/, "");
+      if (id) return `https://www.youtube.com/embed/${id}`;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
 };
 </script>
 
