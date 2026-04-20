@@ -199,14 +199,14 @@
                   class="group inline-block"
                 >
                   <h3
-                    class="line-clamp-2 text-xl font-bold leading-snug text-slate-900 transition group-hover:text-teal-700"
+                    class="line-clamp-2 min-h-[3.5rem] text-xl font-bold leading-snug text-slate-900 transition group-hover:text-teal-700"
                   >
                     {{ item.title }}
                   </h3>
                 </NuxtLink>
 
                 <p
-                  class="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600"
+                  class="mt-2 line-clamp-3 min-h-[5.25rem] text-sm leading-relaxed text-slate-600"
                 >
                   {{ item.description }}
                 </p>
