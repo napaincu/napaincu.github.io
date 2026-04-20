@@ -229,7 +229,7 @@ const {
   queryCollection("news").order("date", "DESC").all(),
 );
 
-const viewMode = ref<"compact" | "detailed">("compact");
+const viewMode = ref<"compact" | "detailed">("detailed");
 
 onMounted(() => {
   const savedMode = localStorage.getItem(STORAGE_KEY);
