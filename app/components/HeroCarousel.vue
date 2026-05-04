@@ -32,16 +32,28 @@
             >
           </h1>
 
-          <div class="flex flex-col items-center justify-center gap-4">
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
             <!-- <NuxtLink to="/curriculum" class="px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#24292e] text-white hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium">
                         <Icon name="uil:github" size="20" /> GitHub 課程資源
                     </NuxtLink> -->
-            <button
-              @click="$emit('open-modal')"
-              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-teal-600 text-white hover:bg-teal-700 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
+            <a
+              href="https://discord.gg/aatUjnEKmY"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#5865F2] text-white hover:bg-[#4752c4] transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
             >
-              <Icon name="heroicons:user-plus" size="20" /> 申請加入專業社群
-            </button>       
+              <Icon name="ic:baseline-discord" size="20" /> 加入 Discord
+              專業社群
+            </a>
+            <NuxtLink
+              to="/community#notion-links"
+              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-slate-900 text-white hover:bg-slate-800 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
+            >
+              <Icon name="simple-icons:notion" size="20" /> 瀏覽 Notion
+              課程資料庫
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -174,9 +186,6 @@ onUnmounted(() => {
   stopTimer();
   if (resumeTimeout) clearTimeout(resumeTimeout);
 });
-
-// Define emits
-defineEmits(["open-modal"]);
 </script>
 
 <style scoped>

@@ -123,6 +123,14 @@
         </section>
 
         <section id="community-links" class="mt-4 flex flex-col gap-6">
+          <button
+            type="button"
+            @click="openModal"
+            class="w-full px-8 py-4 rounded-xl flex items-center justify-center gap-3 bg-teal-600 text-white hover:bg-teal-700 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-semibold text-lg"
+          >
+            <Icon name="heroicons:user-plus" size="24" /> 申請加入專業社群
+          </button>
+
           <a
             href="https://discord.gg/aatUjnEKmY"
             target="_blank"
@@ -141,10 +149,11 @@
           </a>
 
           <a
+            id="notion-links"
             href="https://www.notion.so/Agentic-AI-2fee05e67dac801a8436c5c6d5a67b92?source=copy_link"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center p-6 sm:p-8 rounded-xl border border-slate-200 transition-all bg-white hover:shadow-lg hover:-translate-y-1 hover:border-teal-200 group gap-6"
+            class="scroll-mt-24 flex items-center p-6 sm:p-8 rounded-xl border border-slate-200 transition-all bg-white hover:shadow-lg hover:-translate-y-1 hover:border-teal-200 group gap-6"
           >
             <Icon
               name="logos:notion-icon"
@@ -221,6 +230,88 @@
       </div>
     </div>
 
+    <!-- Join Modal -->
+    <Teleport to="body">
+      <TransitionRoot appear :show="isOpen" as="template">
+        <Dialog as="div" @close="closeModal" class="relative z-[2000]">
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+          >
+            <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" />
+          </TransitionChild>
+
+          <div class="fixed inset-0 overflow-y-auto">
+            <div
+              class="flex min-h-full items-center justify-center p-4 text-center"
+            >
+              <TransitionChild
+                as="template"
+                enter="duration-300 ease-out"
+                enter-from="opacity-0 scale-95"
+                enter-to="opacity-100 scale-100"
+                leave="duration-200 ease-in"
+                leave-from="opacity-100 scale-100"
+                leave-to="opacity-0 scale-95"
+              >
+                <DialogPanel
+                  class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all relative"
+                >
+                  <button
+                    @click="closeModal"
+                    class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors"
+                  >
+                    <Icon name="heroicons:x-mark" size="24" />
+                  </button>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div class="mb-4 text-[#004d80]">
+                      <Icon name="fa6-solid:user-plus" size="48" />
+                    </div>
+                    <DialogTitle
+                      as="h3"
+                      class="text-2xl font-bold leading-6 text-slate-900 mb-4"
+                    >
+                      申請加入師資社群
+                    </DialogTitle>
+
+                    <div class="mt-2">
+                      <p class="text-sm text-slate-500">
+                        本計畫之 Discord 與 Notion
+                        平台僅開放予<strong>計畫相關教師與研究人員</strong>。請點擊下方按鈕填寫申請表單，經核核後我們將發送邀請連結至您的信箱。
+                      </p>
+                    </div>
+
+                    <div class="mt-6 flex flex-col w-full gap-3">
+                      <a
+                        href="https://forms.gle/NgfvhPfsbohyMacYA"
+                        target="_blank"
+                        class="inline-flex justify-center rounded-md border border-transparent bg-[#28a745] px-4 py-2 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 transition-colors"
+                      >
+                        前往填寫申請表單
+                      </a>
+                      <button
+                        type="button"
+                        class="inline-flex justify-center rounded-md border border-transparent bg-slate-100 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 transition-colors"
+                        @click="closeModal"
+                      >
+                        取消
+                      </button>
+                    </div>
+                  </div>
+                </DialogPanel>
+              </TransitionChild>
+            </div>
+          </div>
+        </Dialog>
+      </TransitionRoot>
+    </Teleport>
+
     <!-- Image Lightbox Modal -->
     <transition
       enter-active-class="transition duration-300 ease-out"
@@ -256,6 +347,13 @@
 
 <script setup lang="ts">
 import { ref, onUnmounted } from "vue";
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/vue";
 
 const featuredVideo = {
   title: "NAPAI 社群首支影片",
@@ -282,6 +380,15 @@ useHead({
     },
   ],
 });
+
+// Join Modal State
+const isOpen = ref(false);
+const openModal = () => {
+  isOpen.value = true;
+};
+const closeModal = () => {
+  isOpen.value = false;
+};
 
 // Image Lightbox State
 const selectedImage = ref<string | null>(null);
