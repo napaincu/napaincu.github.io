@@ -5,7 +5,7 @@
         <h1
           class="relative inline-block text-4xl font-bold text-[#004d80] after:mx-auto after:mt-2 after:block after:h-1 after:w-2/3 after:bg-blue-500 after:content-['']"
         >
-          最新消息
+          {{ $t("news.pageTitle") }}
         </h1>
       </div>
 
@@ -14,13 +14,13 @@
           <h2
             class="border-l-4 border-blue-500 pl-4 text-2xl font-bold text-slate-800"
           >
-            消息列表
+            {{ $t("news.listHeading") }}
           </h2>
 
           <div
             class="inline-flex items-center rounded-xl border border-slate-300 bg-white p-1.5 shadow-sm"
             role="group"
-            aria-label="顯示模式"
+            :aria-label="$t('news.viewMode')"
           >
             <button
               type="button"
@@ -30,7 +30,7 @@
                   ? 'bg-teal-100 text-teal-800 shadow-sm'
                   : 'text-slate-600 hover:bg-slate-100 hover:text-slate-800'
               "
-              aria-label="條列模式"
+              :aria-label="$t('news.viewCompact')"
               @click="viewMode = 'compact'"
             >
               <Icon name="heroicons:list-bullet" class="h-4 w-4" />
@@ -44,7 +44,7 @@
                   ? 'bg-teal-100 text-teal-800 shadow-sm'
                   : 'text-slate-600 hover:bg-slate-100 hover:text-slate-800'
               "
-              aria-label="圖片模式"
+              :aria-label="$t('news.viewDetailed')"
               @click="viewMode = 'detailed'"
             >
               <Icon name="heroicons:squares-2x2" class="h-4 w-4" />
@@ -56,13 +56,13 @@
           v-if="pending"
           class="rounded-xl border border-slate-200 bg-white p-6 text-slate-600"
         >
-          資料載入中...
+          {{ $t("news.loading") }}
         </div>
         <div
           v-else-if="error"
           class="rounded-xl border border-red-200 bg-red-50 p-6 text-red-700"
         >
-          消息資料讀取失敗，請稍後再試。
+          {{ $t("news.error") }}
         </div>
 
         <template v-else-if="displayedNews.length">
@@ -83,7 +83,7 @@
                       name="heroicons:star-solid"
                       class="h-3.5 w-3.5 text-slate-900"
                     />
-                    置頂
+                    {{ $t("news.featured") }}
                   </span>
                   <span
                     v-if="item.videoLink"
@@ -93,7 +93,7 @@
                       name="heroicons:play-circle-solid"
                       class="h-3.5 w-3.5"
                     />
-                    影片
+                    {{ $t("news.video") }}
                   </span>
                   <span
                     class="rounded-md bg-slate-100 px-2 py-1 font-semibold text-slate-700"
@@ -126,7 +126,7 @@
                     :to="resolveNewsPath(item)"
                     class="inline-flex shrink-0 items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
-                    閱讀更多
+                    {{ $t("news.readMore") }}
                     <Icon name="heroicons:arrow-right" class="ml-1.5 h-4 w-4" />
                   </NuxtLink>
                 </div>
@@ -172,7 +172,7 @@
                       name="heroicons:star-solid"
                       class="h-3.5 w-3.5 text-slate-900"
                     />
-                    置頂
+                    {{ $t("news.featured") }}
                   </span>
                   <span
                     v-if="item.videoLink"
@@ -182,7 +182,7 @@
                       name="heroicons:play-circle-solid"
                       class="h-3.5 w-3.5"
                     />
-                    影片
+                    {{ $t("news.video") }}
                   </span>
                   <span
                     class="rounded-md bg-slate-100 px-2 py-1 font-semibold text-slate-700"
@@ -216,7 +216,7 @@
                     :to="resolveNewsPath(item)"
                     class="inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
-                    閱讀更多
+                    {{ $t("news.readMore") }}
                     <Icon name="heroicons:arrow-right" class="ml-1.5 h-4 w-4" />
                   </NuxtLink>
                 </div>
@@ -229,7 +229,7 @@
           v-else
           class="rounded-xl border border-slate-200 bg-white p-8 text-center text-slate-500"
         >
-          目前沒有可顯示的消息。
+          {{ $t("news.empty") }}
         </div>
       </section>
     </div>
@@ -241,12 +241,17 @@ import { computed, onMounted, ref, watch } from "vue";
 
 const STORAGE_KEY = "news:viewMode";
 
+const { t, locale } = useI18n();
+const collection = computed(() => (locale.value === "en" ? "news_en" : "news"));
+
 const {
   data: newsData,
   pending,
   error,
-} = await useAsyncData("news-list", () =>
-  queryCollection("news").order("date", "DESC").all(),
+} = await useAsyncData(
+  () => `news-list-${locale.value}`,
+  () => queryCollection(collection.value).order("date", "DESC").all(),
+  { watch: [locale] },
 );
 
 const viewMode = ref<"compact" | "detailed">("detailed");
@@ -295,7 +300,7 @@ const resolveNewsPath = (item: {
 const formatDate = (value: string) => value;
 
 useSeoMeta({
-  title: "最新消息 - 前瞻AI人培",
-  description: "前瞻AI人培計畫最新消息列表，提供可分享的活動與公告資訊。",
+  title: () => t("news.meta.listTitle"),
+  description: () => t("news.meta.listDescription"),
 });
 </script>

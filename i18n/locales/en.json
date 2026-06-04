@@ -1,0 +1,355 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "readMore": "Read more",
+    "switchLanguage": "Switch language"
+  },
+  "app": {
+    "metaDescription": "Ministry of Education Advanced AI Talent Cultivation Program — Agentic & Physical AI Robotics Curriculum Initiative"
+  },
+  "project": {
+    "name": "NAPAI — National Agentic & Physical AI Initiative",
+    "shortName": "NAPAI"
+  },
+  "nav": {
+    "home": "Home",
+    "news": "News",
+    "team": "Team",
+    "curriculum": "Curriculum",
+    "community": "Community & Events",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "footer": {
+    "guidance": "Supervising Authority",
+    "host": "Organizer",
+    "coHost": "Co-organizer",
+    "copyright": "© 2026 NAPAI — National Agentic & Physical AI Initiative. All rights reserved.",
+    "visits": "Site visits: ",
+    "visitsLoading": "Loading...",
+    "visitsError": "Failed to load"
+  },
+  "hero": {
+    "title1": "Advanced AI Talent Cultivation Program",
+    "title2": "Agentic & Physical AI Robotics Curriculum Initiative",
+    "subtitle": "National Agentic & Physical AI Initiative",
+    "discord": "Join our Discord Community",
+    "notion": "Browse the Notion Course Library"
+  },
+  "home": {
+    "meta": {
+      "title": "NAPAI — National Agentic & Physical AI Initiative",
+      "description": "About the NAPAI program: cultivating talent in Agentic AI and Physical AI, with courses, events, and resources."
+    },
+    "about": {
+      "title": "About the Program",
+      "subtitle": "Cultivating forward-looking talent in Agentic AI and Physical AI in response to the AI paradigm shift"
+    },
+    "origin": {
+      "title": "Program Background",
+      "intro": "In recent years, AI technology has advanced rapidly, with continual breakthroughs in model capabilities and simulation results. Yet most AI education and training still remains at the stage of \"<span class=\"font-semibold text-teal-600\">using models</span>\" and \"<span class=\"font-semibold text-teal-600\">idealized simulation</span>.\" It is often only when AI systems truly enter real life and industrial settings that we discover the challenges are just beginning.",
+      "realityGapTitle": "The Real-World Gap in Physical Systems",
+      "realityGapBody": "Tasks that run smoothly in a simulated environment, once connected to physical hardware, must contend with motor error, sensor noise, response latency, and environmental uncertainty.",
+      "dynamicTitle": "Complex Demands of Dynamic Scenarios",
+      "dynamicBody": "In everyday life, problems are often multifaceted and constantly changing, requiring simultaneous consideration of user needs, situational judgment, and resource constraints rather than being solved by a single command.",
+      "insight1": "Many applied AI systems are not simply \"answering questions\"; they must start from the user's perspective—understanding needs, breaking down tasks, and continually adjusting their course of action.",
+      "insight2": "This shows that what current agent development lacks is often not model capability, but rather experience drawn from real usage scenarios and the ability to integrate systems.",
+      "positioning": "Therefore, <span class=\"font-bold text-teal-800 text-xl\">NAPAI</span> focuses its AI talent cultivation on two forward-looking pillars: <span class=\"inline-flex items-center px-3 py-1 rounded-full text-teal-800 font-semibold text-base\">Agentic AI</span> and <span class=\"inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-base\">Physical AI</span>:",
+      "pillar1": "Cultivating agentic capabilities that can proactively reason, plan, and respond to user needs",
+      "pillar2": "Cultivating hands-on skills to implement AI in physical systems under real-world constraints",
+      "closing": "By integrating these two pillars, NAPAI is committed to cultivating forward-looking AI talent who can bridge the gap between models, simulation, and the real world to <span class=\"font-bold text-slate-800\">genuinely solve real-world problems</span>.",
+      "banner": "The next step for AI is not just stronger models, but systems that understand real needs and act in the real world."
+    },
+    "goals": {
+      "title": "Program Goals",
+      "intro": "NAPAI adopts a \"<span class=\"font-bold text-teal-800\">lean but focused, results-driven</span>\" strategy, targeting two core technical pillars and integrating seed-teacher training, co-creation of course modules, pilot demonstration courses, student hands-on competitions, and community building.",
+      "feature1Title": "Open-Source Courseware Platform",
+      "feature1Body": "Co-edited course maps and a GitHub course repository",
+      "feature2Title": "Forward-Looking Technical Vision",
+      "feature2Body": "Cultivating AI professionals with cross-domain hands-on skills",
+      "feature3Title": "Strengthening Teaching Capacity",
+      "feature3Body": "Enhancing teachers' instructional and practical capabilities",
+      "feature4Title": "Community Support System",
+      "feature4Body": "Building scalable, maintainable course modules",
+      "closing": "Through hands-on projects and competitions, students are guided to focus on real industry scenarios and societal needs, <span class=\"font-semibold text-teal-800\">laying a solid talent foundation</span> for the future development of Taiwan's AI industry and intelligent applications."
+    }
+  },
+  "team": {
+    "meta": {
+      "title": "Team - NAPAI",
+      "description": "Meet the principal investigators, co-investigators, and advisory members of the program and their areas of expertise."
+    },
+    "pageTitle": "Project Team",
+    "personalPage": "Homepage",
+    "sections": {
+      "pi": "Principal & Co-Principal Investigators",
+      "sigagent": "SIGAgent Core Seed Teachers",
+      "sigrobot": "SIGRobot Core Seed Teachers",
+      "agenticConsultants": "Agentic AI Advisory Board",
+      "roboticsConsultants": "Robotics AI Advisory Board"
+    },
+    "m": {
+      "zhang-ch": {
+        "title": "Principal Investigator | Dept. of Computer Science & Information Engineering, National Central University",
+        "desc": "Research interests include web information integration, natural language understanding, data mining, and intelligent computing. Currently convener of the Intelligent Computing Program at the NSTC Department of Engineering and Technologies."
+      },
+      "dai-pi": {
+        "title": "Co-Principal Investigator | Graduate Institute of Information Management, National Taipei University",
+        "desc": "Specializes in artificial intelligence, agentic AI, and sustainable green FinTech. Currently Director of the Graduate Institute of Information Management and Director of the FinTech and Green Finance Research Center at National Taipei University."
+      },
+      "hu-mj": {
+        "title": "Co-Principal Investigator | Dept. of Computer Science, National Tsing Hua University",
+        "desc": "Specializes in multimedia computing, computer vision, computer graphics, and augmented and virtual reality."
+      },
+      "fan": {
+        "title": "Dept. of Computer Science & Engineering, National Chung Hsing University",
+        "desc": "Specializes in text mining, natural language generation, machine reading comprehension, and social networks."
+      },
+      "jian": {
+        "title": "Dept. of Management Information Systems, National Chengchi University",
+        "desc": "Specializes in user experience, human-computer interaction, robotic systems, and information behavior."
+      },
+      "dai-sa": {
+        "title": "Graduate Institute of Information Management, National Taipei University",
+        "desc": "Specializes in artificial intelligence, agentic AI, and sustainable green FinTech. Currently Director of the Graduate Institute of Information Management and Director of the FinTech and Green Finance Research Center at National Taipei University."
+      },
+      "lin-hq": {
+        "title": "Dept. of Digital Learning Technology, National University of Tainan",
+        "desc": "Specializes in artificial intelligence, affective computing, extended reality and the metaverse, digital art, and digital learning."
+      },
+      "zhang-wl": {
+        "title": "Dept. of Business Administration, National Taipei University",
+        "desc": "Specializes in enterprise digital transformation, AI and its applications, and text and sentiment analysis."
+      },
+      "xie-sk": {
+        "title": "Graduate Institute of Linguistics, National Taiwan University",
+        "desc": "Specializes in corpus and computational linguistics; cognition, lexicon and ontology; semantics and pragmatics; and computational writing and symbol systems."
+      },
+      "zhang-yc": {
+        "title": "Graduate Institute of Data Science, Taipei Medical University",
+        "desc": "Specializes in text mining and natural language processing along with related machine learning and language recognition techniques, applying them to problems across different domains. Main research areas include smart healthcare, bioinformatics, business intelligence, and language understanding."
+      },
+      "yao": {
+        "title": "Dept. of Computer Science & Information Engineering, National Taiwan University of Science and Technology",
+        "desc": "Specializes in computer graphics, computer vision, extended reality, human-computer interaction, and 3D reconstruction of medical images."
+      },
+      "chen-yt": {
+        "title": "Dept. of Computer Science, National Yang Ming Chiao Tung University",
+        "desc": "Specializes in human-centered physical AI, intelligent driving systems, assistive robots, computer vision, and machine learning."
+      },
+      "ke": {
+        "title": "Dept. of Computer Science & Information Engineering, National Taiwan University",
+        "desc": "Specializes in computer vision, robot learning, and machine learning."
+      },
+      "pan": {
+        "title": "Graduate Institute of AI Interdisciplinary Technology, National Taiwan University of Science and Technology",
+        "desc": "Specializes in multimedia content analysis, computer vision, human-computer interaction, and extended reality."
+      },
+      "zhu": {
+        "title": "Dept. of Computer Science, National Tsing Hua University",
+        "desc": "Specializes in computer graphics, with research directions including shape analysis, intelligent manipulation, video/image processing, human-computer interaction, and visual perception."
+      },
+      "hong": {
+        "title": "Dept. of Computer Science, National Tsing Hua University",
+        "desc": "Specializes in computer graphics, scientific and information visualization, and geometric modeling."
+      },
+      "huang": {
+        "title": "Dept. of Information Management, National Sun Yat-sen University",
+        "desc": "Specializes in database systems, text mining, data mining, and workflow management."
+      },
+      "xu": {
+        "title": "Dept. of Business Administration, National Central University",
+        "desc": "Specializes in enterprise e-business management, data mining, business intelligence, and ERP system management."
+      },
+      "jiang": {
+        "title": "Dept. of Computer Science & Information Engineering, National Cheng Kung University",
+        "desc": "Specializes in biomedical informatics mining, artificial intelligence, intelligent computing, cloud-based healthcare, cancer and stem cell research, and big data analytics."
+      },
+      "liu": {
+        "title": "Dept. of Computer Science, National Chengchi University",
+        "desc": "Research areas include artificial intelligence, machine learning, LLM applications, knowledge mining, legal informatics, digital humanities, and model construction."
+      },
+      "chen-bl": {
+        "title": "Dept. of Computer Science & Information Engineering, National Taiwan Normal University",
+        "desc": "Specializes in speech recognition, information retrieval, natural language processing, and machine learning."
+      },
+      "wang": {
+        "title": "Commerce Development Research Institute",
+        "desc": "Specializes in technology management, innovation management, business models, service management, service marketing, industry analysis, business diagnosis and decision-making, and strategic innovation."
+      },
+      "lin-xc": {
+        "title": "Galaxy Software Services",
+        "desc": "Currently Vice President of the Technology Services Division and Innovation R&D Center at Galaxy Software Services."
+      },
+      "liang": {
+        "title": "MediaTek",
+        "desc": "Specializes in AI computing architecture and digital IC design. Currently Senior Director of Corporate Strategy and Forward-Looking Technology at MediaTek; visiting professor at NTU's Dept. of CSIE, Graduate Institute of Electronics Engineering, and College of Strategic Technologies, and at NYCU's College of Electrical and Computer Engineering."
+      },
+      "cai": {
+        "title": "Taiwan AI Academy",
+        "desc": "Specializes in AI talent development strategy, digital innovation governance, and industrial AI transformation."
+      },
+      "zhuang": {
+        "title": "Dept. of Electrical Engineering, National Chung Hsing University",
+        "desc": "Specializes in computational intelligence, fuzzy systems, neural networks, deep learning, evolutionary computation, and intelligent robots."
+      },
+      "su": {
+        "title": "Dept. of Computer Science & Information Engineering, National Cheng Kung University",
+        "desc": "Specializes in digital audio processing, image and video processing, computer music analysis and synthesis, and media processor design."
+      },
+      "li": {
+        "title": "Dept. of Electrical Engineering, National Cheng Kung University",
+        "desc": "Specializes in artificial and biological intelligence and their applications, humanoid robots, service robots, and fuzzy systems and control."
+      },
+      "zhang-zy": {
+        "title": "Dept. of Power Mechanical Engineering, National Tsing Hua University",
+        "desc": "Specializes in mechatronics, robotics, mechanical vibration, dynamic systems and control, and smart machinery and manufacturing."
+      },
+      "ye": {
+        "title": "Dept. of Power Mechanical Engineering, National Tsing Hua University",
+        "desc": "Specializes in dynamic system modeling and control, nonlinear control theory, and robotics applications."
+      },
+      "zeng": {
+        "title": "Dept. of Computer Science, National Yang Ming Chiao Tung University",
+        "desc": "Specializes in the Internet of Things, 5G mobile technology, and AI services."
+      },
+      "wu": {
+        "title": "Dept. of Electrical and Computer Engineering, National Yang Ming Chiao Tung University",
+        "desc": "Specializes in systems control, multimedia signal processing, biomedical engineering, AI and computer engineering, and AI robotics."
+      },
+      "yang": {
+        "title": "Dept. of Electrical and Computer Engineering, National Yang Ming Chiao Tung University",
+        "desc": "Specializes in robot learning control, path planning and calibration, VR/robotics integration, and biological control systems."
+      },
+      "fu": {
+        "title": "Depts. of Electrical Engineering & Computer Science, National Taiwan University",
+        "desc": "Specializes in social robots, smart homes, image detection and tracking, virtual reality, and control theory and applications."
+      },
+      "lin-pq": {
+        "title": "Dept. of Mechanical Engineering, National Taiwan University",
+        "desc": "Specializes in robotics, biomimetic engineering, mechanical system design, and mechatronics/motion control."
+      }
+    }
+  },
+  "curriculum": {
+    "meta": {
+      "title": "Curriculum - NAPAI",
+      "description": "Agentic AI and Physical AI course modules and learning resources. Join the community to co-create and download materials."
+    },
+    "pageTitle": "Curriculum",
+    "intro": "Join our professional community to co-create courses and gain access to the full set of teaching materials.",
+    "agenticModule": "Agentic AI Course Modules",
+    "physicalModule": "Physical AI Course Modules",
+    "resourceLib": "Course Resource Library",
+    "relatedResources": "Related Resources",
+    "building": "Under construction"
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact - NAPAI",
+      "description": "Program office address, phone, email, and map location. Get in touch with the NAPAI program."
+    },
+    "pageTitle": "Contact Us",
+    "office": "Program Office",
+    "officeAddr": "Room B317-1, Engineering Building 5, National Central University",
+    "phone": "Phone",
+    "phoneValue": "(03) 422-7151 ext. 35364 / 35365",
+    "email": "Email"
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ - NAPAI",
+      "description": "Frequently asked questions and answers about the study groups and curriculum program."
+    },
+    "pageTitle": "FAQ",
+    "subtitle": "Frequently asked questions about the study groups and curriculum program",
+    "moreTitle": "Still have questions?",
+    "moreText": "Feel free to reach out anytime—we're happy to help.",
+    "contactCta": "Contact Us",
+    "items": {
+      "q1": {
+        "question": "Who can serve as a core seed teacher for the study groups?",
+        "answer": "Teachers who have conducted research in robotics or Agentic AI, or who have previously taught courses related to robotics or Agentic AI."
+      },
+      "q2": {
+        "question": "Who can take part in the study groups?",
+        "answer": "Teachers interested in teaching or building with Agentic AI and Physical AI, along with their graduate students, and teachers willing to participate in course module development. Each seed teacher may bring 1–2 teaching assistants to the study group."
+      },
+      "q3": {
+        "question": "Study group schedule",
+        "answer": "In the first phase, course modules are developed mainly through biweekly study groups (6 sessions in total). In the second phase, the developed courses are pilot-taught in workshops and revised based on the pilot results, while an open-source courseware platform is built.",
+        "imageAlt": "Study group schedule"
+      },
+      "q4": {
+        "question": "Expected outcomes of the study groups",
+        "answer": "Complete the open-source courseware platform and update and maintain it regularly.",
+        "imageAlt": "Expected outcomes of the study groups"
+      }
+    }
+  },
+  "community": {
+    "meta": {
+      "title": "Community & Events - NAPAI",
+      "description": "Join the NAPAI community and event announcements, including Discord discussions and the Agentic/Physical AI knowledge bases."
+    },
+    "pageTitle": "Community & Events",
+    "subtitle": "Follow our latest updates on Facebook, browse event photo recaps and YouTube videos, and join our dedicated community platforms.",
+    "nav": {
+      "video": "Featured Videos",
+      "recap": "Event Recap",
+      "links": "Community",
+      "fb": "Facebook Feed"
+    },
+    "videoHeading": "Featured Event Videos",
+    "videoIframeTitle": "NAPAI event video",
+    "galleryHeading": "Event Photo Recap",
+    "photoCount": "{count} photos",
+    "photoAlt": "{title} — photo {index}",
+    "applyBtn": "Apply to Join the Community",
+    "discordTitle": "Discord Community",
+    "discordDesc": "Real-time discussion, Q&A, and event announcements.",
+    "agenticKbTitle": "Agentic AI Knowledge Base",
+    "agenticKbDesc": "A curated collection of Agentic AI courses and resources.",
+    "physicalKbTitle": "Physical AI Knowledge Base",
+    "physicalKbDesc": "A curated collection of robotics AI courses and resources.",
+    "fbHeading": "Latest Updates",
+    "albums": {
+      "agenticForum0209": "Physical AI Technology Forum — Recap"
+    },
+    "modal": {
+      "title": "Apply to Join the Faculty Community",
+      "body": "The program's Discord and Notion platforms are open only to <strong>teachers and researchers affiliated with the program</strong>. Please click the button below to fill out the application form; once approved, we will send an invitation link to your email.",
+      "submit": "Go to the application form",
+      "cancel": "Cancel"
+    },
+    "lightboxAlt": "Enlarged event photo"
+  },
+  "news": {
+    "meta": {
+      "listTitle": "News - NAPAI",
+      "listDescription": "Latest news from the NAPAI program, with shareable event and announcement information."
+    },
+    "pageTitle": "Latest News",
+    "listHeading": "News List",
+    "viewMode": "Display mode",
+    "viewCompact": "List view",
+    "viewDetailed": "Grid view",
+    "loading": "Loading...",
+    "error": "Failed to load news. Please try again later.",
+    "empty": "There is no news to display at the moment.",
+    "featured": "Featured",
+    "video": "Video",
+    "readMore": "Read more",
+    "backToList": "Back to news list",
+    "notFound": "This article could not be found.",
+    "eventVideo": "Event Video",
+    "watchOnYouTube": "Watch on YouTube",
+    "youTubeTitle": "YouTube event video",
+    "externalLink": "Go to external link",
+    "status": {
+      "upcoming": "Upcoming",
+      "ongoing": "Ongoing",
+      "past": "Past"
+    }
+  }
+}

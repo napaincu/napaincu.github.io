@@ -6,10 +6,10 @@
         <h1
           class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2"
         >
-          常見問題
+          {{ $t("faq.pageTitle") }}
         </h1>
         <p class="mt-6 text-lg text-slate-600">
-          關於讀書會與課程推動計畫的常見問題
+          {{ $t("faq.subtitle") }}
         </p>
       </div>
 
@@ -131,15 +131,15 @@
               ></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-3">還有其他問題？</h3>
+          <h3 class="text-2xl font-bold mb-3">{{ $t("faq.moreTitle") }}</h3>
           <p class="text-blue-100 mb-6 text-lg">
-            歡迎隨時與我們聯繫，我們很樂意為您解答
+            {{ $t("faq.moreText") }}
           </p>
           <NuxtLink
-            to="/contact"
+            :to="localePath('/contact')"
             class="inline-flex items-center justify-center px-8 py-3 bg-white text-[#004d80] rounded-lg font-bold hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
           >
-            聯絡我們
+            {{ $t("faq.contactCta") }}
             <svg
               class="ml-2 w-5 h-5"
               fill="none"
@@ -161,45 +161,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
-useHead({
-  title: "常見問題 - 前瞻AI人培",
-  meta: [
-    {
-      name: "description",
-      content: "讀書會與課程推動計畫的常見問題與解答。",
-    },
-  ],
+const { t } = useI18n();
+const localePath = useLocalePath();
+
+useSeoMeta({
+  title: () => t("faq.meta.title"),
+  description: () => t("faq.meta.description"),
 });
 
 const openItems = ref<number[]>([0]); // 默認展開第一個問題
 
-const faqItems = [
+const faqItems = computed(() => [
   {
-    question: "誰可以擔任讀書會核心種子教師？",
-    answer:
-      "已從事機器人或 Agentic AI 研究、或曾開設機器人或 Agentic AI 相關課程的教師。",
+    question: t("faq.items.q1.question"),
+    answer: t("faq.items.q1.answer"),
   },
   {
-    question: "誰可以參與讀書會？",
-    answer:
-      "對 Agent AI、Physical AI 教學或實作有興趣的教師、及其研究生，願意參與課程模組開發的教師。每位種子教師,可帶 1～2 位助教參與讀書會。",
+    question: t("faq.items.q2.question"),
+    answer: t("faq.items.q2.answer"),
   },
   {
-    question: "讀書會期程規劃",
-    answer:
-      "第一階段,主要透過雙週讀書會(共 6 次)開發課程模組；第二階段,主要將發展出的課程於工作坊進行試教,並針對試教結果修訂課程,同時建置開源教材平台。",
+    question: t("faq.items.q3.question"),
+    answer: t("faq.items.q3.answer"),
     image: "/image/faq/讀書會期程規劃.png",
-    imageAlt: "讀書會期程規劃",
+    imageAlt: t("faq.items.q3.imageAlt"),
   },
   {
-    question: "讀書會的預期成果",
-    answer: "完成開源教材平台建置,並定期更新與維護。",
+    question: t("faq.items.q4.question"),
+    answer: t("faq.items.q4.answer"),
     image: "/image/faq/讀書會的預期成果.png",
-    imageAlt: "讀書會的預期成果",
+    imageAlt: t("faq.items.q4.imageAlt"),
   },
-];
+]);
 
 const toggleItem = (index: number) => {
   const itemIndex = openItems.value.indexOf(index);

@@ -16,7 +16,7 @@
 
     <div v-if="props.link" class="mt-4 pt-4 border-t border-slate-100 w-full text-center">
         <a :href="props.link" target="_blank" class="text-xs font-medium text-blue-500 hover:text-blue-700 flex items-center justify-center gap-1">
-            個人網頁 <span aria-hidden="true">&rarr;</span>
+            {{ $t("team.personalPage") }} <span aria-hidden="true">&rarr;</span>
         </a>
     </div>
   </div>

@@ -4,13 +4,13 @@
       <h1
         class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2 mb-6"
       >
-        課程專區
+        {{ $t("curriculum.pageTitle") }}
       </h1>
 
       <p
         class="text-center text-base md:text-lg text-slate-600 mb-12 max-w-3xl mx-auto"
       >
-        歡迎加入專業社群共編課程，以取得完整教材資料。
+        {{ $t("curriculum.intro") }}
       </p>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -22,7 +22,7 @@
           >
             <img
               src="/image/courses/Agentic AI Curriculum.png"
-              alt="Agentic AI 課程模組"
+              :alt="$t('curriculum.agenticModule')"
               class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 cursor-zoom-in"
               @click="openViewer"
             />
@@ -42,7 +42,7 @@
           </div>
           <div class="p-6">
             <h3 class="text-xl md:text-2xl font-bold text-[#004d80] mb-3">
-              Agentic AI 課程模組
+              {{ $t("curriculum.agenticModule") }}
             </h3>
           </div>
         </div>
@@ -55,7 +55,7 @@
           >
             <img
               src="/image/courses/Physical AI  Curriculum.png"
-              alt="Physical AI 課程模組"
+              :alt="$t('curriculum.physicalModule')"
               class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 cursor-zoom-in"
               @click="openViewer"
             />
@@ -75,7 +75,7 @@
           </div>
           <div class="p-6">
             <h3 class="text-xl md:text-2xl font-bold text-[#004d80] mb-3">
-              Physical AI 課程模組
+              {{ $t("curriculum.physicalModule") }}
             </h3>
           </div>
         </div>
@@ -85,17 +85,21 @@
         <section
           class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6"
         >
-          <h2 class="text-2xl font-bold text-[#004d80] mb-3">課程資源庫</h2>
+          <h2 class="text-2xl font-bold text-[#004d80] mb-3">
+            {{ $t("curriculum.resourceLib") }}
+          </h2>
           <p class="text-slate-600">
-            歡迎加入專業社群共編課程，以取得完整教材資料。
+            {{ $t("curriculum.intro") }}
           </p>
         </section>
 
         <section
           class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6"
         >
-          <h2 class="text-2xl font-bold text-[#004d80] mb-3">相關資源</h2>
-          <p class="text-slate-600">建置中</p>
+          <h2 class="text-2xl font-bold text-[#004d80] mb-3">
+            {{ $t("curriculum.relatedResources") }}
+          </h2>
+          <p class="text-slate-600">{{ $t("curriculum.building") }}</p>
         </section>
       </div>
     </div>
@@ -107,15 +111,11 @@ import { onBeforeUnmount } from "vue";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.css";
 
-useHead({
-  title: "課程專區 - 前瞻AI人培",
-  meta: [
-    {
-      name: "description",
-      content:
-        "提供 Agentic AI 與 Physical AI 課程模組與教材資源，歡迎加入社群共編與下載。",
-    },
-  ],
+const { t } = useI18n();
+
+useSeoMeta({
+  title: () => t("curriculum.meta.title"),
+  description: () => t("curriculum.meta.description"),
 });
 
 let viewer: Viewer | null = null;

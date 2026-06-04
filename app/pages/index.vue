@@ -26,10 +26,10 @@
           <h2
             class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2"
           >
-            計畫介紹
+            {{ $t("home.about.title") }}
           </h2>
           <p class="mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
-            因應AI技術典範轉移，培育智慧代理與實體AI領域的前瞻人才
+            {{ $t("home.about.subtitle") }}
           </p>
         </div>
 
@@ -58,7 +58,9 @@
                     ></path>
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">計畫緣起</h3>
+                <h3 class="text-2xl font-bold text-white">
+                  {{ $t("home.origin.title") }}
+                </h3>
               </div>
             </div>
             <div class="p-8 space-y-6">
@@ -69,15 +71,8 @@
                 ></div>
                 <p
                   class="text-base md:text-lg text-slate-700 leading-relaxed text-justify pl-4"
-                >
-                  近年來，AI 技術快速發展，模型能力與模擬成果不斷突破，然而多數 AI
-                  教育與訓練仍停留在「<span class="font-semibold text-teal-600"
-                    >模型使用</span
-                  >」與「<span class="font-semibold text-teal-600"
-                    >理想化模擬</span
-                  >」階段。當 AI
-                  系統真正走入真實生活與產業場景時，往往才發現挑戰才正要開始。
-                </p>
+                  v-html="$t('home.origin.intro')"
+                ></p>
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
@@ -104,11 +99,11 @@
                       </svg>
                     </div>
                     <h4 class="text-base md:text-lg font-bold text-slate-800">
-                      實體系統的真實落差
+                      {{ $t("home.origin.realityGapTitle") }}
                     </h4>
                   </div>
                   <p class="text-base text-slate-600 leading-relaxed">
-                    在模擬環境中可順利完成的任務，一旦接上實體設備，便會面臨馬達誤差、感測雜訊、反應延遲與環境不確定性。
+                    {{ $t("home.origin.realityGapBody") }}
                   </p>
                 </div>
 
@@ -135,11 +130,11 @@
                       </svg>
                     </div>
                     <h4 class="text-base md:text-lg font-bold text-teal-900">
-                      動態情境的複雜需求
+                      {{ $t("home.origin.dynamicTitle") }}
                     </h4>
                   </div>
                   <p class="text-base text-slate-600 leading-relaxed">
-                    在日常生活中，問題往往是多面向且動態變化的，需要同時考量使用者需求、情境判斷與資源限制，而非單一指令即可解決。
+                    {{ $t("home.origin.dynamicBody") }}
                   </p>
                 </div>
               </div>
@@ -170,11 +165,10 @@
                     <p
                       class="text-base md:text-lg text-slate-800 leading-relaxed font-medium mb-3"
                     >
-                      許多應用型 AI 並非單純「回答問題」，而是必須從使用者角度出發，理解需求、拆解任務並持續調整行動策略。
+                      {{ $t("home.origin.insight1") }}
                     </p>
                     <p class="text-base text-slate-600 leading-relaxed">
-                      顯示當前 Agent
-                      開發所欠缺的，往往不是模型能力，而是來自真實使用情境的經驗與系統整合能力。
+                      {{ $t("home.origin.insight2") }}
                     </p>
                   </div>
                 </div>
@@ -186,22 +180,8 @@
               >
                 <p
                   class="text-base md:text-lg text-slate-800 leading-relaxed mb-5"
-                >
-                  因此，<span class="font-bold text-teal-800 text-xl"
-                    >NAPAI</span
-                  >
-                  將 AI 人才培育的重心，聚焦於
-                  <span
-                    class="inline-flex items-center px-3 py-1 rounded-full bg-teal-100 text-teal-800 font-semibold text-base"
-                    >Agentic AI</span
-                  >
-                  與
-                  <span
-                    class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-base"
-                    >Physical AI</span
-                  >
-                  兩大前瞻主軸：
-                </p>
+                  v-html="$t('home.origin.positioning')"
+                ></p>
                 <div class="grid md:grid-cols-2 gap-3 mb-4">
                   <div
                     class="flex items-start gap-2 p-3 bg-white rounded-lg border border-teal-100 shadow-sm"
@@ -220,7 +200,7 @@
                       ></path>
                     </svg>
                     <p class="text-base text-slate-700">
-                      培育能主動推理、規劃並回應使用者需求的智慧代理能力
+                      {{ $t("home.origin.pillar1") }}
                     </p>
                   </div>
                   <div
@@ -240,17 +220,14 @@
                       ></path>
                     </svg>
                     <p class="text-base text-slate-700">
-                      培育能面對真實世界限制，將 AI 落實於實體系統中的實作能力
+                      {{ $t("home.origin.pillar2") }}
                     </p>
                   </div>
                 </div>
-                <p class="text-base text-slate-600 leading-relaxed">
-                  透過這兩大主軸的整合，NAPAI
-                  致力培育能跨越模型、模擬與真實世界落差，<span
-                    class="font-bold text-slate-800"
-                    >真正解決現實問題</span
-                  >的前瞻 AI 技術人才。
-                </p>
+                <p
+                  class="text-base text-slate-600 leading-relaxed"
+                  v-html="$t('home.origin.closing')"
+                ></p>
               </div>
 
               <!-- 結語強調 -->
@@ -277,7 +254,7 @@
                   <p
                     class="text-white font-bold text-xl md:text-2xl leading-relaxed"
                   >
-                    AI 的下一步，不只是更強的模型，而是能理解真實需求、並在真實世界中行動的系統。
+                    {{ $t("home.origin.banner") }}
                   </p>
                 </div>
               </div>
@@ -309,17 +286,16 @@
                     ></path>
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-white">計畫目標</h3>
+                <h3 class="text-2xl font-bold text-white">
+                  {{ $t("home.goals.title") }}
+                </h3>
               </div>
             </div>
             <div class="p-8">
               <p
                 class="text-base md:text-lg text-slate-700 leading-relaxed mb-8"
-              >
-                NAPAI 採取「<span class="font-bold text-teal-800"
-                  >少而精、重實效</span
-                >」的策略，鎖定兩大技術主軸，整合種子師資培訓、課程模組共創、示範課程試行、學生實作競賽與社群經營等面向。
-              </p>
+                v-html="$t('home.goals.intro')"
+              ></p>
 
               <!-- Key Features Grid -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -345,10 +321,10 @@
                   </div>
                   <div class="flex-1">
                     <p class="text-base font-semibold text-slate-800">
-                      開源教材平台
+                      {{ $t("home.goals.feature1Title") }}
                     </p>
                     <p class="text-sm text-slate-600 mt-1">
-                      共編課程地圖與 GitHub 課程庫
+                      {{ $t("home.goals.feature1Body") }}
                     </p>
                   </div>
                 </div>
@@ -375,10 +351,10 @@
                   </div>
                   <div class="flex-1">
                     <p class="text-base font-semibold text-slate-800">
-                      前瞻技術視野
+                      {{ $t("home.goals.feature2Title") }}
                     </p>
                     <p class="text-sm text-slate-600 mt-1">
-                      培育跨域實作能力的 AI 專業人才
+                      {{ $t("home.goals.feature2Body") }}
                     </p>
                   </div>
                 </div>
@@ -405,10 +381,10 @@
                   </div>
                   <div class="flex-1">
                     <p class="text-base font-semibold text-slate-800">
-                      師資能量提升
+                      {{ $t("home.goals.feature3Title") }}
                     </p>
                     <p class="text-sm text-slate-600 mt-1">
-                      強化教師教學與實務能量
+                      {{ $t("home.goals.feature3Body") }}
                     </p>
                   </div>
                 </div>
@@ -435,10 +411,10 @@
                   </div>
                   <div class="flex-1">
                     <p class="text-base font-semibold text-slate-800">
-                      社群支持系統
+                      {{ $t("home.goals.feature4Title") }}
                     </p>
                     <p class="text-sm text-slate-600 mt-1">
-                      建立可擴散、可維護的課程模組
+                      {{ $t("home.goals.feature4Body") }}
                     </p>
                   </div>
                 </div>
@@ -447,13 +423,10 @@
               <div
                 class="p-6 bg-slate-50 rounded-xl border-l-4 border-teal-500"
               >
-                <p class="text-base md:text-lg text-slate-700 leading-relaxed">
-                  透過實作專題與競賽，引導學生關注真實產業情境與社會需求，為臺灣未來
-                  AI 產業與智慧應用發展<span
-                    class="font-semibold text-teal-800"
-                    >奠定扎實的人才基礎</span
-                  >。
-                </p>
+                <p
+                  class="text-base md:text-lg text-slate-700 leading-relaxed"
+                  v-html="$t('home.goals.closing')"
+                ></p>
               </div>
             </div>
           </div>
@@ -465,15 +438,11 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "前瞻AI人培-智慧代理及實體AI課程推動計畫",
-  meta: [
-    {
-      name: "description",
-      content:
-        "前瞻AI人培計畫介紹，培育智慧代理與實體AI人才，涵蓋課程、活動與資源。",
-    },
-  ],
+const { t } = useI18n();
+
+useSeoMeta({
+  title: () => t("home.meta.title"),
+  description: () => t("home.meta.description"),
 });
 </script>
 

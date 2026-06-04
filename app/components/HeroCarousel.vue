@@ -24,11 +24,11 @@
           <h1
             class="text-3xl tracking-tight font-extrabold text-slate-800 sm:text-4xl md:text-5xl mb-6 leading-tight drop-shadow-sm"
           >
-            前瞻AI技術人才培育計畫<br />
-            智慧代理與實體AI機器人課程推動計畫<br />
+            {{ $t("hero.title1") }}<br />
+            {{ $t("hero.title2") }}<br />
             <span
               class="text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-400 mt-2 block"
-              >National Agentic & Physical AI Initiative</span
+              >{{ $t("hero.subtitle") }}</span
             >
           </h1>
 
@@ -44,15 +44,15 @@
               rel="noopener noreferrer"
               class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#5865F2] text-white hover:bg-[#4752c4] transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
             >
-              <Icon name="ic:baseline-discord" size="20" /> 加入 Discord
-              專業社群
+              <Icon name="ic:baseline-discord" size="20" />
+              {{ $t("hero.discord") }}
             </a>
             <NuxtLink
-              to="/community#notion-links"
+              :to="localePath('/community') + '#notion-links'"
               class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-slate-900 text-white hover:bg-slate-800 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
             >
-              <Icon name="simple-icons:notion" size="20" /> 瀏覽 Notion
-              課程資料庫
+              <Icon name="simple-icons:notion" size="20" />
+              {{ $t("hero.notion") }}
             </NuxtLink>
           </div>
         </div>
@@ -120,6 +120,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+
+const localePath = useLocalePath();
 
 const slides = ["/image/intro/推動策略.png", "/image/intro/共創課程模組.png"];
 

@@ -5,7 +5,7 @@
         <h1
           class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2"
         >
-          聯絡我們
+          {{ $t("contact.pageTitle") }}
         </h1>
       </div>
 
@@ -18,8 +18,10 @@
               <Icon name="heroicons:map-pin" size="24" />
             </div>
             <div>
-              <strong class="block text-slate-900 mb-1">計畫辦公室</strong>
-              國立中央大學 工程五館 B317-1室
+              <strong class="block text-slate-900 mb-1">{{
+                $t("contact.office")
+              }}</strong>
+              {{ $t("contact.officeAddr") }}
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -29,8 +31,10 @@
               <Icon name="heroicons:phone" size="24" />
             </div>
             <div>
-              <strong class="block text-slate-900 mb-1">電話</strong>
-              (03)422-7151 轉 35364 / 35365
+              <strong class="block text-slate-900 mb-1">{{
+                $t("contact.phone")
+              }}</strong>
+              {{ $t("contact.phoneValue") }}
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -40,7 +44,9 @@
               <Icon name="heroicons:envelope" size="24" />
             </div>
             <div>
-              <strong class="block text-slate-900 mb-1">信箱</strong>
+              <strong class="block text-slate-900 mb-1">{{
+                $t("contact.email")
+              }}</strong>
               <a
                 href="mailto:napai.ncu@gmail.com"
                 class="text-blue-600 hover:underline"
@@ -70,14 +76,10 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: "聯絡我們 - 前瞻AI人培",
-  meta: [
-    {
-      name: "description",
-      content:
-        "提供計畫辦公室地址、電話、Email 與地圖位置，歡迎聯繫前瞻AI人培計畫。",
-    },
-  ],
+const { t } = useI18n();
+
+useSeoMeta({
+  title: () => t("contact.meta.title"),
+  description: () => t("contact.meta.description"),
 });
 </script>

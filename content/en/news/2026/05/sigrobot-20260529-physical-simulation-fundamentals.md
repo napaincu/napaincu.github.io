@@ -1,0 +1,23 @@
+---
+title: NAPAI SIGRobot 5 | Physical Simulation Fundamentals
+description: NAPAI SIGRobot 5 focuses on getting started with Physical AI, building from physical simulation fundamentals toward later practice and applications.
+date: 2026-05-29
+category: Series Events
+cover: /image/news/SIGRobot%235_20260529.png
+status: upcoming
+tags:
+  - SIGRobot
+  - Physical AI
+  - Physical Simulation
+featured: false
+draft: false
+---
+
+NAPAI SIGRobot #5 event details are as follows.
+
+- Series: NAPAI SIGRobot
+- Date: 2026/5/29 (Fri)
+- Time: 13:00-16:30
+- Speaker: Asst. Prof. 洪仕軒, Dept. of Computer Science, National Tsing Hua University
+- Topic: Physical Simulation: Fundamentals for Physical AI
+- Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

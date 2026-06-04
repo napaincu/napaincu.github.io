@@ -2,11 +2,11 @@
   <section class="py-16 bg-white min-h-screen">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <NuxtLink
-        to="/news"
+        :to="localePath('/news')"
         class="mb-6 inline-flex items-center text-sm font-medium text-slate-600 transition hover:text-teal-700"
       >
         <Icon name="heroicons:arrow-left" class="mr-2 h-4 w-4" />
-        返回消息列表
+        {{ $t("news.backToList") }}
       </NuxtLink>
 
       <article
@@ -64,7 +64,9 @@
           v-if="newsItem.videoLink"
           class="mt-10 border-t border-slate-100 pt-6"
         >
-          <h2 class="mb-4 text-xl font-bold text-slate-900">活動影片</h2>
+          <h2 class="mb-4 text-xl font-bold text-slate-900">
+            {{ $t("news.eventVideo") }}
+          </h2>
           <div
             class="overflow-hidden rounded-xl border border-slate-200 bg-slate-100"
           >
@@ -72,7 +74,7 @@
               v-if="toYouTubeEmbedUrl(newsItem.videoLink)"
               :src="toYouTubeEmbedUrl(newsItem.videoLink)"
               class="aspect-video w-full"
-              title="YouTube 活動影片"
+              :title="$t('news.youTubeTitle')"
               frameborder="0"
               allow="
                 accelerometer;
@@ -94,7 +96,7 @@
             rel="noopener noreferrer"
             class="mt-4 inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
           >
-            在 YouTube 觀看
+            {{ $t("news.watchOnYouTube") }}
             <Icon
               name="heroicons:arrow-top-right-on-square"
               class="ml-1.5 h-4 w-4"
@@ -112,7 +114,7 @@
             rel="noopener noreferrer"
             class="inline-flex items-center rounded-lg bg-teal-600 px-5 py-2.5 font-medium text-white transition hover:bg-teal-700"
           >
-            前往外部連結
+            {{ $t("news.externalLink") }}
             <Icon
               name="heroicons:arrow-top-right-on-square"
               class="ml-2 h-4 w-4"
@@ -125,7 +127,7 @@
         v-else-if="!pending"
         class="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-600"
       >
-        找不到這篇消息。
+        {{ $t("news.notFound") }}
       </div>
     </div>
   </section>
@@ -133,26 +135,21 @@
 
 <script setup lang="ts">
 const route = useRoute();
+const { t, locale } = useI18n();
+const localePath = useLocalePath();
 
-const slug = computed(() => {
-  const rawSlug = route.params.slug;
-
-  if (Array.isArray(rawSlug)) {
-    return rawSlug.join("/");
-  }
-
-  return (rawSlug ?? "").toString().replace(/^\/+|\/+$/g, "");
-});
+const collection = computed(() => (locale.value === "en" ? "news_en" : "news"));
 
 const { data: newsItem, pending } = await useAsyncData(
-  `news-${slug.value}`,
-  () => queryCollection("news").path(`/news/${slug.value}`).first(),
+  () => `news-${route.path}`,
+  () => queryCollection(collection.value).path(route.path).first(),
+  { watch: [() => route.path] },
 );
 
 if (import.meta.server && (!newsItem.value || newsItem.value.draft)) {
   throw createError({
     statusCode: 404,
-    statusMessage: "找不到這篇消息",
+    statusMessage: t("news.notFound"),
   });
 }
 
@@ -161,19 +158,20 @@ const canonicalUrl = computed(() => {
   return `${siteUrl}${route.path}`;
 });
 
+const shortName = computed(() => t("project.shortName"));
+const fallbackTitle = computed(() => t("news.meta.listTitle"));
+const fallbackDesc = computed(() => t("news.meta.listDescription"));
+
 useSeoMeta({
-  title: newsItem.value
-    ? `${newsItem.value.title} - 前瞻AI人培`
-    : "最新消息 - 前瞻AI人培",
-  description:
-    newsItem.value?.description ??
-    "前瞻AI人培計畫最新消息列表，提供可分享的活動與公告資訊。",
-  ogTitle: newsItem.value?.title ?? "最新消息",
-  ogDescription:
-    newsItem.value?.description ??
-    "前瞻AI人培計畫最新消息列表，提供可分享的活動與公告資訊。",
-  ogImage: newsItem.value?.cover,
-  ogUrl: canonicalUrl.value,
+  title: () =>
+    newsItem.value
+      ? `${newsItem.value.title} - ${shortName.value}`
+      : fallbackTitle.value,
+  description: () => newsItem.value?.description ?? fallbackDesc.value,
+  ogTitle: () => newsItem.value?.title ?? t("news.pageTitle"),
+  ogDescription: () => newsItem.value?.description ?? fallbackDesc.value,
+  ogImage: () => newsItem.value?.cover,
+  ogUrl: () => canonicalUrl.value,
 });
 
 useHead({
@@ -181,9 +179,9 @@ useHead({
 });
 
 const statusLabel = (value: string) => {
-  if (value === "upcoming") return "即將開始";
-  if (value === "ongoing") return "進行中";
-  if (value === "past") return "已結束";
+  if (value === "upcoming") return t("news.status.upcoming");
+  if (value === "ongoing") return t("news.status.ongoing");
+  if (value === "past") return t("news.status.past");
   return value;
 };
 

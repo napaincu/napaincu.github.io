@@ -10,22 +10,22 @@
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center">
-            <NuxtLink to="/" class="flex items-center gap-2 group">
+            <NuxtLink :to="localePath('/')" class="flex items-center gap-2 group">
               <img
                 class="h-10 w-auto transition-transform group-hover:scale-105"
                 src="/image/logos/logo-removebg_new.png"
-                alt="NAPAI計畫Logo"
+                alt="NAPAI Logo"
               />
             </NuxtLink>
           </div>
 
           <!-- Desktop Menu -->
-          <div class="hidden md:block">
+          <div class="hidden md:flex md:items-center">
             <div class="ml-10 flex items-baseline space-x-1">
               <NuxtLink
                 v-for="item in navItems"
-                :key="item.name"
-                :to="item.to"
+                :key="item.to"
+                :to="localePath(item.to)"
                 class="relative px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors duration-200 ease-in-out group"
                 active-class="!text-teal-700"
               >
@@ -35,13 +35,62 @@
                 ></span>
                 <span
                   v-if="
-                    item.to === $route.path ||
-                    ($route.path.startsWith(item.to) && item.to !== '/')
+                    localePath(item.to) === $route.path ||
+                    ($route.path.startsWith(localePath(item.to)) &&
+                      item.to !== '/')
                   "
                   class="absolute bottom-1 left-3 right-3 h-0.5 bg-teal-500"
                 ></span>
               </NuxtLink>
             </div>
+
+            <!-- Language Switcher (Desktop) -->
+            <Menu as="div" class="relative ml-4">
+              <MenuButton
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-teal-200 hover:text-teal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+                :aria-label="$t('common.switchLanguage')"
+                :title="$t('common.switchLanguage')"
+              >
+                <Icon name="heroicons:globe-alt" class="h-5 w-5" />
+              </MenuButton>
+
+              <transition
+                enter-active-class="transition duration-100 ease-out"
+                enter-from-class="transform scale-95 opacity-0"
+                enter-to-class="transform scale-100 opacity-100"
+                leave-active-class="transition duration-75 ease-in"
+                leave-from-class="transform scale-100 opacity-100"
+                leave-to-class="transform scale-95 opacity-0"
+              >
+                <MenuItems
+                  class="absolute right-0 z-50 mt-2 w-40 origin-top-right overflow-hidden rounded-xl border border-slate-100 bg-white py-1 shadow-lg focus:outline-none"
+                >
+                  <MenuItem
+                    v-for="l in availableLocales"
+                    :key="l.code"
+                    v-slot="{ active }"
+                  >
+                    <NuxtLink
+                      :to="switchLocalePath(l.code)"
+                      class="flex items-center justify-between px-4 py-2 text-sm transition-colors"
+                      :class="[
+                        active ? 'bg-slate-50' : '',
+                        locale === l.code
+                          ? 'font-semibold text-teal-700'
+                          : 'text-slate-600',
+                      ]"
+                    >
+                      {{ l.name }}
+                      <Icon
+                        v-if="locale === l.code"
+                        name="heroicons:check"
+                        class="h-4 w-4 text-teal-600"
+                      />
+                    </NuxtLink>
+                  </MenuItem>
+                </MenuItems>
+              </transition>
+            </Menu>
           </div>
 
           <!-- Mobile menu button -->
@@ -96,14 +145,43 @@
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <NuxtLink
               v-for="item in navItems"
-              :key="item.name"
-              :to="item.to"
+              :key="item.to"
+              :to="localePath(item.to)"
               @click="isMobileMenuOpen = false"
               class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-teal-700 transition-colors"
               active-class="bg-teal-50 text-teal-800"
             >
               {{ item.name }}
             </NuxtLink>
+
+            <!-- Language Switcher (Mobile) -->
+            <div class="mt-2 border-t border-slate-100 pt-2">
+              <p
+                class="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-400"
+              >
+                <Icon name="heroicons:globe-alt" class="h-4 w-4" />
+                {{ $t("common.switchLanguage") }}
+              </p>
+              <NuxtLink
+                v-for="l in availableLocales"
+                :key="l.code"
+                :to="switchLocalePath(l.code)"
+                @click="isMobileMenuOpen = false"
+                class="flex items-center justify-between rounded-md px-3 py-2 text-base font-medium transition-colors"
+                :class="
+                  locale === l.code
+                    ? 'text-teal-700'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-teal-700'
+                "
+              >
+                {{ l.name }}
+                <Icon
+                  v-if="locale === l.code"
+                  name="heroicons:check"
+                  class="h-5 w-5 text-teal-600"
+                />
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </transition>
@@ -121,44 +199,44 @@
           <div class="flex flex-col items-center">
             <span
               class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200"
-              >指導單位</span
+              >{{ $t("footer.guidance") }}</span
             >
             <img
               src="/image/logos/logo_ITE.png"
-              alt="指導單位"
+              :alt="$t('footer.guidance')"
               class="h-16 object-contain hover:scale-105 transition-transform"
             />
           </div>
           <div class="flex flex-col items-center">
             <span
               class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200"
-              >主辦單位</span
+              >{{ $t("footer.host") }}</span
             >
             <img
               src="/image/logos/logo_NCU.png"
-              alt="主辦單位"
+              :alt="$t('footer.host')"
               class="h-16 object-contain hover:scale-105 transition-transform"
             />
           </div>
           <div class="flex flex-col items-center">
             <span
               class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200"
-              >協辦單位</span
+              >{{ $t("footer.coHost") }}</span
             >
             <img
               src="/image/logos/logo_NTPU.png"
-              alt="協辦單位"
+              :alt="$t('footer.coHost')"
               class="h-16 object-contain hover:scale-105 transition-transform"
             />
           </div>
           <div class="flex flex-col items-center">
             <span
               class="font-bold text-slate-700 mb-4 pb-1 border-b-2 border-slate-200"
-              >協辦單位</span
+              >{{ $t("footer.coHost") }}</span
             >
             <img
               src="/image/logos/logo_NTHU.jpg"
-              alt="協辦單位"
+              :alt="$t('footer.coHost')"
               class="h-16 object-contain hover:scale-105 transition-transform"
             />
           </div>
@@ -168,13 +246,13 @@
         >
           <div class="relative md:flex md:items-center md:justify-center">
             <p class="text-center">
-              &copy; 2026 前瞻AI人培-智慧代理及實體AI課程推動計畫 All rights
-              reserved.
+              {{ $t("footer.copyright") }}
             </p>
             <p
               class="mt-2 text-center md:mt-0 md:absolute md:right-0 md:text-right"
             >
-              網站來訪人次：<span class="font-semibold text-slate-700">{{
+              {{ $t("footer.visits")
+              }}<span class="font-semibold text-slate-700">{{
                 totalVisitsText
               }}</span>
             </p>
@@ -186,20 +264,32 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+
+const { t, locale, locales } = useI18n();
+const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
 
 const isMobileMenuOpen = ref(false);
-const totalVisitsText = ref("載入中...");
+const totalVisitsText = ref(t("footer.visitsLoading"));
 
-const navItems = [
-  { name: "首頁", to: "/" },
-  { name: "最新消息", to: "/news" },
-  { name: "計畫團隊", to: "/team" },
-  { name: "課程專區", to: "/curriculum" },
-  { name: "社群與活動", to: "/community" },
-  { name: "常見問題", to: "/faq" },
-  { name: "聯絡我們", to: "/contact" },
-];
+const navItems = computed(() => [
+  { name: t("nav.home"), to: "/" },
+  { name: t("nav.news"), to: "/news" },
+  { name: t("nav.team"), to: "/team" },
+  { name: t("nav.curriculum"), to: "/curriculum" },
+  { name: t("nav.community"), to: "/community" },
+  { name: t("nav.faq"), to: "/faq" },
+  { name: t("nav.contact"), to: "/contact" },
+]);
+
+const availableLocales = computed(() =>
+  (locales.value as { code: string; name: string }[]).map((l) => ({
+    code: l.code,
+    name: l.name,
+  })),
+);
 
 onMounted(async () => {
   try {
@@ -209,9 +299,9 @@ onMounted(async () => {
     const count = Number.parseInt(data.count, 10);
     totalVisitsText.value = Number.isNaN(count)
       ? data.count
-      : count.toLocaleString("zh-TW");
+      : count.toLocaleString(locale.value === "en" ? "en-US" : "zh-TW");
   } catch {
-    totalVisitsText.value = "讀取失敗";
+    totalVisitsText.value = t("footer.visitsError");
   }
 });
 </script>

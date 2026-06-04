@@ -1,12 +1,16 @@
 <script setup lang="ts">
-useHead({
-  title: "前瞻AI人培-智慧代理及實體AI課程推動計畫",
+const { t } = useI18n();
+const i18nHead = useLocaleHead();
+
+useHead(() => ({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs?.lang,
+    dir: i18nHead.value.htmlAttrs?.dir,
+  },
+  title: t("project.name"),
   meta: [
-    {
-      name: "description",
-      content:
-        "教育部前瞻AI技術人才培育計畫 - 智慧代理與實體AI機器人課程推動計畫",
-    },
+    { name: "description", content: t("app.metaDescription") },
+    ...(i18nHead.value.meta ?? []),
   ],
   script: [
     {
@@ -16,6 +20,7 @@ useHead({
     },
   ],
   link: [
+    ...(i18nHead.value.link ?? []),
     { rel: "icon", type: "image/png", href: "/image/logos/favicon.png" },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
@@ -24,7 +29,7 @@ useHead({
       href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap",
     },
   ],
-});
+}));
 </script>
 
 <template>
