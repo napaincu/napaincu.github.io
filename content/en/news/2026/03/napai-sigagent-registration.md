@@ -23,12 +23,12 @@ Registration for NAPAI SIGAgent events is now open.
 
 | Date | Time | Speaker | Venue |
 | -------------- | ----------- | --------------------------------------------- | ------------------------------------- |
-| 2026/4/9 (Thu) | 13:30-17:00 | Prof. 戴敏育, Graduate Institute of Information Management, National Taipei University | Future Classroom, 3F, Teaching & Research Building, National Central University |
-| 2026/4/24 (Fri) | 16:30-19:00 | Prof. 林豪鏘, Dept. of Digital Learning Technology, National University of Tainan | Future Classroom, 3F, Teaching & Research Building, National Central University |
-| 2026/5/5 (Tue) | 13:30-17:00 | Prof. 張詠淳, Graduate Institute of Data Science, Taipei Medical University | Future Classroom, 3F, Teaching & Research Building, National Central University |
-| 2026/5/22 (Fri) | 12:30-16:00 | Prof. 范耀中, Dept. of Computer Science & Engineering, National Chung Hsing University | Future Classroom, 3F, Teaching & Research Building, National Central University |
-| 2026/6/4 (Thu) | 13:30-17:00 | Assoc. Prof. 簡士鎰, Dept. of Management Information Systems, National Chengchi University | Future Classroom, 3F, Teaching & Research Building, National Central University |
-| 2026/6/16 (Tue) | 13:30-17:00 | Prof. 謝舒凱, Graduate Institute of Linguistics, National Taiwan University | NCU Creative Park, 4F, Teaching & Research Building, National Central University |
-| 2026/6/23 (Tue) | 13:30-17:00 | Distinguished Prof. 張瑋倫, Dept. of Business Administration, National Taipei University | Future Classroom, 3F, Teaching & Research Building, National Central University |
+| 2026/4/9 (Thu) | 13:30-17:00 | Prof. Min-Yuh Day, Graduate Institute of Information Management, National Taipei University | Future Classroom, 3F, Teaching & Research Building, National Central University |
+| 2026/4/24 (Fri) | 16:30-19:00 | Prof. Hao-Chiang Koong Lin, Dept. of Digital Learning Technology, National University of Tainan | Future Classroom, 3F, Teaching & Research Building, National Central University |
+| 2026/5/5 (Tue) | 13:30-17:00 | Prof. Yung-Chun Chang, Graduate Institute of Data Science, Taipei Medical University | Future Classroom, 3F, Teaching & Research Building, National Central University |
+| 2026/5/22 (Fri) | 12:30-16:00 | Prof. Yao-Chung Fan, Dept. of Computer Science & Engineering, National Chung Hsing University | Future Classroom, 3F, Teaching & Research Building, National Central University |
+| 2026/6/4 (Thu) | 13:30-17:00 | Assoc. Prof. Shih-Yi Chien, Dept. of Management Information Systems, National Chengchi University | Future Classroom, 3F, Teaching & Research Building, National Central University |
+| 2026/6/16 (Tue) | 13:30-17:00 | Prof. Shu-Kai Hsieh, Graduate Institute of Linguistics, National Taiwan University | NCU Creative Park, 4F, Teaching & Research Building, National Central University |
+| 2026/6/23 (Tue) | 13:30-17:00 | Distinguished Prof. Wei-Lun Chang, Dept. of Business Administration, National Taipei University | Future Classroom, 3F, Teaching & Research Building, National Central University |
 
 Teachers and partners interested in the SIGAgent series are warmly welcome to register.

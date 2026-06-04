@@ -18,6 +18,6 @@ NAPAI SIGRobot #5 event details are as follows.
 - Series: NAPAI SIGRobot
 - Date: 2026/5/29 (Fri)
 - Time: 13:00-16:30
-- Speaker: Asst. Prof. 洪仕軒, Dept. of Computer Science, National Tsing Hua University
+- Speaker: Asst. Prof. Shih-Hsuan Hong, Dept. of Computer Science, National Tsing Hua University
 - Topic: Physical Simulation: Fundamentals for Physical AI
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

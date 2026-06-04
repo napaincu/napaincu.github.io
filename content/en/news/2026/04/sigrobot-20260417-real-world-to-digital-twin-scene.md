@@ -18,6 +18,6 @@ NAPAI SIGRobot #2 event details are as follows. Feel free to share.
 - Series: NAPAI SIGRobot
 - Date: 2026/4/17 (Fri)
 - Time: 13:00-16:30
-- Speaker: Prof. 朱宏國, Dept. of Computer Science, National Tsing Hua University
+- Speaker: Prof. Hung-Kuo Chu, Dept. of Computer Science, National Tsing Hua University
 - Topic: Real World to Digital Twin Scene: Building and Augmenting Environments for Robotics
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

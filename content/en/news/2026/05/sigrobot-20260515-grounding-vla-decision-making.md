@@ -18,6 +18,6 @@ NAPAI SIGRobot #4 event details are as follows.
 - Series: NAPAI SIGRobot
 - Date: 2026/5/15 (Fri)
 - Time: 13:00-16:30
-- Speaker: Assoc. Prof. 姚智原, Dept. of Computer Science & Information Engineering, National Taiwan University of Science and Technology
+- Speaker: Assoc. Prof. Chih-Yuan Yao, Dept. of Computer Science & Information Engineering, National Taiwan University of Science and Technology
 - Topic: Grounding VLA Decision-Making: Integrating High-Fidelity Digital Twin Scenes for Robotic Autonomy
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

@@ -18,6 +18,6 @@ NAPAI SIGAgent #2 event details are as follows.
 - Series: NAPAI SIGAgent
 - Date: 2026/4/24 (Fri)
 - Time: 16:30-19:00
-- Speaker: Prof. 林豪鏘, Dept. of Digital Learning Technology, National University of Tainan
+- Speaker: Prof. Hao-Chiang Koong Lin, Dept. of Digital Learning Technology, National University of Tainan
 - Topic: Writing is Coding: Cross-disciplinary Creation Secrets from AIGC to Vibe Coding
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

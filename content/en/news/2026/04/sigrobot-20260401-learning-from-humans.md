@@ -18,6 +18,6 @@ NAPAI SIGRobot #1 event details are as follows. Feel free to share with anyone i
 - Series: NAPAI SIGRobot
 - Date: 2026/4/1 (Wed)
 - Time: 12:30-16:00
-- Speaker: Assoc. Prof. 陳奕廷, Dept. of Computer Science, National Yang Ming Chiao Tung University
+- Speaker: Assoc. Prof. Yi-Ting Chen, Dept. of Computer Science, National Yang Ming Chiao Tung University
 - Topic: Learning from Humans: Teleoperation and Demonstration for Robot Policy Training
 - Venue: NCU Creative Park, 4F, Teaching & Research Building, National Central University

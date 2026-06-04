@@ -18,6 +18,6 @@ NAPAI SIGAgent #5 event details are as follows.
 - Series: NAPAI SIGAgent
 - Date: 2026/6/4 (Thu)
 - Time: 13:30-17:00
-- Speaker: Assoc. Prof. 簡士鎰, Dept. of Management Information Systems, National Chengchi University
+- Speaker: Assoc. Prof. Shih-Yi Chien, Dept. of Management Information Systems, National Chengchi University
 - Topic: Human-AI Collaboration: Concepts, Challenges, and Opportunities
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

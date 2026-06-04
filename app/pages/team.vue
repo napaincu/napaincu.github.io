@@ -23,7 +23,7 @@
           <TeamMemberCard
             v-for="member in section.members"
             :key="member.key"
-            :name="member.name"
+            :name="memberName(member)"
             :title="$t(`team.m.${member.key}.title`)"
             :image="member.image"
             :link="member.link"
@@ -39,7 +39,14 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
+const { t, te } = useI18n();
+
+// Show the localized name when available (English names live in en.json);
+// fall back to the Chinese name stored in the member data otherwise.
+const memberName = (member: { key: string; name: string }) => {
+  const key = `team.m.${member.key}.name`;
+  return te(key) ? t(key) : member.name;
+};
 
 const piGrid = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8";
 const memberGrid = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6";

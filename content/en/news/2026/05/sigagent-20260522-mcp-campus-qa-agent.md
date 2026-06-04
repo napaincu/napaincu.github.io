@@ -18,6 +18,6 @@ NAPAI SIGAgent #4 event details are as follows.
 - Series: NAPAI SIGAgent
 - Date: 2026/5/22 (Fri)
 - Time: 12:30-16:00
-- Speaker: Prof. 范耀中, Dept. of Computer Science & Engineering, National Chung Hsing University
+- Speaker: Prof. Yao-Chung Fan, Dept. of Computer Science & Engineering, National Chung Hsing University
 - Topic: From Zero to Production: A Complete Guide to Building a Campus Q&A Agent with MCP
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

@@ -18,6 +18,6 @@ NAPAI SIGAgent #7 event details are as follows.
 - Series: NAPAI SIGAgent
 - Date: 2026/6/23 (Tue)
 - Time: 13:30-17:00
-- Speaker: Distinguished Prof. 張瑋倫, Dept. of Business Administration, National Taipei University
+- Speaker: Distinguished Prof. Wei-Lun Chang, Dept. of Business Administration, National Taipei University
 - Topic: AI Governance and Sustainable AI
 - Venue: Future Classroom, 3F, Teaching & Research Building, National Central University

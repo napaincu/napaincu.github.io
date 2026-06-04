@@ -18,6 +18,6 @@ NAPAI SIGRobot #6 event details are as follows.
 - Series: NAPAI SIGRobot
 - Date: 2026/6/11 (Thu)
 - Time: 13:00-16:30
-- Speaker: Asst. Prof. 柯宗瑋, Dept. of Computer Science & Information Engineering, National Taiwan University
+- Speaker: Asst. Prof. Tsung-Wei Ke, Dept. of Computer Science & Information Engineering, National Taiwan University
 - Topic: Learning and Planning to Act in a Physical World
 - Venue: NCU Creative Park, 4F, Teaching & Research Building, National Central University
