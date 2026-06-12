@@ -119,15 +119,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const localePath = useLocalePath();
+const { locale } = useI18n();
 
-const slides = ["/image/intro/推動策略.png", "/image/intro/共創課程模組.png"];
+const slideBase = ["/image/intro/推動策略.png", "/image/intro/共創課程模組.png"];
+
+// 英文介面時改用 _英文版 圖片（檔案放在同資料夾）
+const slides = computed(() =>
+  slideBase.map((path) =>
+    locale.value === "en" ? path.replace(/(\.\w+)$/, "_英文版$1") : path
+  )
+);
 
 const currentSlide = ref(0);
-// Total slides = 1 (Hero) + 11 (Images) = 12
-const totalSlides = slides.length + 1;
+// Total slides = 1 (Hero) + image slides
+const totalSlides = slideBase.length + 1;
 let slideInterval: any = null;
 let resumeTimeout: any = null;
 

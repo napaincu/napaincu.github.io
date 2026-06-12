@@ -163,8 +163,12 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const localePath = useLocalePath();
+
+// 英文介面時改用 _英文版 圖片（檔案放在同資料夾）
+const localizedImage = (path: string) =>
+  locale.value === "en" ? path.replace(/(\.\w+)$/, "_英文版$1") : path;
 
 useSeoMeta({
   title: () => t("faq.meta.title"),
@@ -185,13 +189,13 @@ const faqItems = computed(() => [
   {
     question: t("faq.items.q3.question"),
     answer: t("faq.items.q3.answer"),
-    image: "/image/faq/讀書會期程規劃.png",
+    image: localizedImage("/image/faq/讀書會期程規劃.png"),
     imageAlt: t("faq.items.q3.imageAlt"),
   },
   {
     question: t("faq.items.q4.question"),
     answer: t("faq.items.q4.answer"),
-    image: "/image/faq/讀書會的預期成果.png",
+    image: localizedImage("/image/faq/讀書會的預期成果.png"),
     imageAlt: t("faq.items.q4.imageAlt"),
   },
 ]);
