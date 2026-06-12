@@ -86,14 +86,14 @@
                     {{ $t("news.featured") }}
                   </span>
                   <span
-                    v-if="item.videoLink"
+                    v-if="item.videos?.length || item.videoLink"
                     class="inline-flex items-center gap-1 rounded-md bg-rose-100 px-2 py-1 font-semibold text-rose-700"
                   >
                     <Icon
                       name="heroicons:play-circle-solid"
                       class="h-3.5 w-3.5"
                     />
-                    {{ $t("news.video") }}
+                    {{ $t("news.videoUploaded") }}
                   </span>
                   <span
                     class="rounded-md bg-slate-100 px-2 py-1 font-semibold text-slate-700"
@@ -103,6 +103,13 @@
                   <span class="text-slate-400">{{
                     formatDate(item.date)
                   }}</span>
+                  <span
+                    v-if="item.updatedAt"
+                    class="inline-flex items-center gap-1 text-teal-600"
+                  >
+                    <Icon name="heroicons:clock" class="h-3.5 w-3.5" />
+                    {{ $t("news.updatedLabel") }} {{ formatDate(item.updatedAt) }}
+                  </span>
                 </div>
                 <NuxtLink
                   :to="resolveNewsPath(item)"
@@ -175,14 +182,14 @@
                     {{ $t("news.featured") }}
                   </span>
                   <span
-                    v-if="item.videoLink"
+                    v-if="item.videos?.length || item.videoLink"
                     class="inline-flex items-center gap-1 rounded-md bg-rose-100 px-2 py-1 font-semibold text-rose-700"
                   >
                     <Icon
                       name="heroicons:play-circle-solid"
                       class="h-3.5 w-3.5"
                     />
-                    {{ $t("news.video") }}
+                    {{ $t("news.videoUploaded") }}
                   </span>
                   <span
                     class="rounded-md bg-slate-100 px-2 py-1 font-semibold text-slate-700"
@@ -192,6 +199,13 @@
                   <span class="text-slate-400">{{
                     formatDate(item.date)
                   }}</span>
+                  <span
+                    v-if="item.updatedAt"
+                    class="inline-flex items-center gap-1 text-teal-600"
+                  >
+                    <Icon name="heroicons:clock" class="h-3.5 w-3.5" />
+                    {{ $t("news.updatedLabel") }} {{ formatDate(item.updatedAt) }}
+                  </span>
                 </div>
 
                 <NuxtLink
@@ -271,13 +285,18 @@ const allNews = computed(() => {
   return (newsData.value ?? []).filter((item) => !item.draft);
 });
 
+// 排序用的「有效日期」：有 updatedAt（如影片/筆記上架）就用它，
+// 讓最近更新的活動浮到最上面，否則退回原本的活動日期。
+const effectiveDate = (item: { date: string; updatedAt?: string | null }) =>
+  item.updatedAt?.trim() ? item.updatedAt : item.date;
+
 const displayedNews = computed(() => {
   return [...allNews.value].sort((a, b) => {
     if (a.featured !== b.featured) {
       return a.featured ? -1 : 1;
     }
 
-    return b.date.localeCompare(a.date);
+    return effectiveDate(b).localeCompare(effectiveDate(a));
   });
 });
 

@@ -1,15 +1,23 @@
 ---
-title: NAPAI SIGAgent 3｜機器學習初探
+title: 【影片上架】NAPAI SIGAgent 3｜機器學習初探
 description: NAPAI SIGAgent 3 從機器學習基礎觀念出發，帶入模型實作與應用思維。
 date: 2026-05-05
+updatedAt: 2026-06-12
 category: 系列活動
 cover: /image/news/SIGAgent%233_20260505.png
-status: upcoming
+status: past
 tags:
   - SIGAgent
   - 機器學習
   - 模型實作
 featured: false
+videos:
+  - https://youtu.be/GvKcLvLfHAU
+  - https://youtu.be/HJnFJ51NLlE
+  - https://youtu.be/jFu-ZkqizLY
+  - https://youtu.be/XazHQF4B1jg
+  - https://youtu.be/9Q6Q4YH5hk0
+notesLink: https://www.notion.so/NAPAI-SIGAgent-3_2026-5-5-352e05e67dac808a820fec034d8cd519
 draft: false
 ---
 

@@ -1,7 +1,8 @@
 ---
-title: NAPAI SIGRobot 2｜Real World to Digital Twin Scene
+title: 【影片上架】NAPAI SIGRobot 2｜Real World to Digital Twin Scene
 description: NAPAI SIGRobot 2 聚焦 Robotics 場景建模，探討如何從 Real World 建立並擴增 Digital Twin 環境。
 date: 2026-04-17
+updatedAt: 2026-06-12
 category: 系列活動
 cover: /image/news/SIGRobot%232_20260417.png
 status: past
@@ -10,6 +11,11 @@ tags:
   - Digital Twin
   - Robotics
 featured: false
+videos:
+  - https://youtu.be/fULbVOcvFjQ
+  - https://youtu.be/zSwv7vFglmA
+  - https://youtu.be/WXofzXViknI
+notesLink: https://www.notion.so/NAPAI-SIGRobot-2_2026-4-17-343e05e67dac80e49278c78ffdbcff6e
 draft: false
 ---
 

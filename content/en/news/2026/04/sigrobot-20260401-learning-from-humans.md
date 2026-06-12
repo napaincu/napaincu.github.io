@@ -1,7 +1,8 @@
 ---
-title: NAPAI SIGRobot 1 | Learning from Humans
+title: "[Video Available] NAPAI SIGRobot 1 | Learning from Humans"
 description: NAPAI SIGRobot 1, held on 2026/4/1, focuses on how teleoperation and demonstration apply to robot policy training.
 date: 2026-04-01
+updatedAt: 2026-06-12
 category: Series Events
 cover: /image/news/SIGRobot%231_20260401.png
 status: past
@@ -10,6 +11,11 @@ tags:
   - Robot Policy Training
   - Teleoperation
 featured: false
+videos:
+  - https://youtu.be/wH2UW7nMS54
+  - https://youtu.be/Go4tOpmmDXs
+  - https://youtu.be/WTjwry4yXco
+notesLink: https://www.notion.so/NAPAI-SIGRobot-1_2026-4-1-343e05e67dac809b974acbc78b7058cb
 draft: false
 ---
 

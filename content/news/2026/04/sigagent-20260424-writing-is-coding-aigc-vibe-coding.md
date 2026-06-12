@@ -1,15 +1,20 @@
 ---
-title: NAPAI SIGAgent 2｜Writing is Coding
+title: 【影片上架】NAPAI SIGAgent 2｜Writing is Coding
 description: NAPAI SIGAgent 2 以「從 AIgc 到 Vibe Coding」為題，分享跨界創作與實作方法。
 date: 2026-04-24
+updatedAt: 2026-06-12
 category: 系列活動
 cover: /image/news/SIGAgent%232_20260424.png
-status: upcoming
+status: past
 tags:
   - SIGAgent
   - Vibe Coding
   - AIgc
 featured: false
+videos:
+  - https://youtu.be/NY6NZEOfbnc
+  - https://youtu.be/AGpsxHwYCO0
+notesLink: https://www.notion.so/NAPAI-SIGAgent-2_2026-4-24-343e05e67dac803a9305d56e6d50f139
 draft: false
 ---
 

@@ -4,6 +4,8 @@ const newsSchema = z.object({
   title: z.string(),
   description: z.string(),
   date: z.string(),
+  // 最近更新時間（如影片/筆記上架）。有設定時用於列表排序，讓新更新的活動浮到最上面。
+  updatedAt: z.string().optional(),
   category: z.string(),
   cover: z.string().optional(),
   tags: z.array(z.string()).optional(),
@@ -11,6 +13,10 @@ const newsSchema = z.object({
   status: z.enum(["upcoming", "ongoing", "past"]).optional(),
   externalLink: z.string().optional(),
   videoLink: z.string().optional(),
+  // 多支活動影片（YouTube 連結），會依序以 Part 1、Part 2… 呈現。
+  videos: z.array(z.string()).optional(),
+  // 會議筆記連結（Notion）。
+  notesLink: z.string().optional(),
   draft: z.boolean().optional().default(false),
 });
 

@@ -27,6 +27,13 @@
             >
               {{ statusLabel(newsItem.status) }}
             </span>
+            <span
+              v-if="newsItem.updatedAt"
+              class="inline-flex items-center gap-1 text-teal-600"
+            >
+              <Icon name="heroicons:clock" class="h-4 w-4" />
+              {{ $t("news.updatedLabel") }} {{ newsItem.updatedAt }}
+            </span>
           </div>
 
           <h1
@@ -60,47 +67,69 @@
           <ContentRenderer :value="newsItem" />
         </div>
 
-        <div
-          v-if="newsItem.videoLink"
-          class="mt-10 border-t border-slate-100 pt-6"
-        >
+        <div v-if="eventVideos.length" class="mt-10 border-t border-slate-100 pt-6">
           <h2 class="mb-4 text-xl font-bold text-slate-900">
             {{ $t("news.eventVideo") }}
           </h2>
-          <div
-            class="overflow-hidden rounded-xl border border-slate-200 bg-slate-100"
-          >
-            <iframe
-              v-if="toYouTubeEmbedUrl(newsItem.videoLink)"
-              :src="toYouTubeEmbedUrl(newsItem.videoLink)"
-              class="aspect-video w-full"
-              :title="$t('news.youTubeTitle')"
-              frameborder="0"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <div class="space-y-8">
+            <div v-for="(video, index) in eventVideos" :key="video">
+              <p
+                v-if="eventVideos.length > 1"
+                class="mb-2 text-sm font-semibold text-slate-600"
+              >
+                {{ $t("news.videoPart") }} {{ index + 1 }}
+              </p>
+              <div
+                class="overflow-hidden rounded-xl border border-slate-200 bg-slate-100"
+              >
+                <iframe
+                  v-if="toYouTubeEmbedUrl(video)"
+                  :src="toYouTubeEmbedUrl(video)"
+                  class="aspect-video w-full"
+                  :title="$t('news.youTubeTitle')"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
 
+              <a
+                :href="video"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-2 inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+              >
+                {{ $t("news.watchOnYouTube") }}
+                <Icon
+                  name="heroicons:arrow-top-right-on-square"
+                  class="ml-1.5 h-4 w-4"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          v-if="newsItem.notesLink"
+          class="mt-10 border-t border-slate-100 pt-6"
+        >
           <a
-            :href="newsItem.videoLink"
+            :href="newsItem.notesLink"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-4 inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+            class="inline-flex items-center rounded-lg border border-teal-600 px-5 py-2.5 font-medium text-teal-700 transition hover:bg-teal-50"
           >
-            {{ $t("news.watchOnYouTube") }}
-            <Icon
-              name="heroicons:arrow-top-right-on-square"
-              class="ml-1.5 h-4 w-4"
-            />
+            <Icon name="heroicons:document-text" class="mr-2 h-5 w-5" />
+            {{ $t("news.notes") }}
           </a>
         </div>
 
@@ -176,6 +205,13 @@ useSeoMeta({
 
 useHead({
   link: [{ rel: "canonical", href: canonicalUrl.value }],
+});
+
+// 活動影片：優先用 videos 陣列（多支），否則退回舊的單一 videoLink 欄位。
+const eventVideos = computed(() => {
+  const videos = newsItem.value?.videos;
+  if (videos?.length) return videos;
+  return newsItem.value?.videoLink ? [newsItem.value.videoLink] : [];
 });
 
 const statusLabel = (value: string) => {

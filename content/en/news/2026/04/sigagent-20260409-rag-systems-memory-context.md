@@ -1,7 +1,8 @@
 ---
-title: NAPAI SIGAgent 1 | Building Agentic AI RAG Systems
+title: "[Video Available] NAPAI SIGAgent 1 | Building Agentic AI RAG Systems"
 description: NAPAI SIGAgent 1 explores memory architectures and context engineering to build deployable Agentic AI RAG systems.
 date: 2026-04-09
+updatedAt: 2026-06-12
 category: Series Events
 cover: /image/news/SIGAgent%231_20260409.png
 status: past
@@ -10,6 +11,12 @@ tags:
   - RAG
   - Context Engineering
 featured: false
+videos:
+  - https://youtu.be/8Z8zfbWUucw
+  - https://youtu.be/FqRfTwgj4Mk
+  - https://youtu.be/897kYJWLnsY
+  - https://youtu.be/AFGsNlukrO4
+notesLink: https://www.notion.so/NAPAI-SIGAgent-1_2026-4-9-33be05e67dac8086b326fba8e6cca243
 draft: false
 ---
 
