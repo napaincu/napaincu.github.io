@@ -17,6 +17,7 @@
     "team": "計畫團隊",
     "curriculum": "課程專區",
     "community": "社群與活動",
+    "partners": "合作夥伴",
     "faq": "常見問題",
     "contact": "聯絡我們"
   },
@@ -323,6 +324,35 @@
       "cancel": "取消"
     },
     "lightboxAlt": "活動放大照片"
+  },
+  "partners": {
+    "meta": {
+      "listTitle": "合作夥伴 - 前瞻AI人培",
+      "listDescription": "與前瞻AI人培計畫合作的競賽、活動與夥伴單位。"
+    },
+    "pageTitle": "合作夥伴",
+    "subtitle": "與本計畫合作的競賽、活動與夥伴單位。",
+    "viewDetail": "查看詳情",
+    "backToList": "返回合作夥伴",
+    "visitOfficial": "前往官方網站",
+    "organizer": "主辦單位",
+    "sponsor": "贊助",
+    "period": "活動期間",
+    "loading": "資料載入中...",
+    "error": "資料讀取失敗，請稍後再試。",
+    "empty": "目前沒有可顯示的合作夥伴。",
+    "notFound": "找不到這個合作夥伴。",
+    "resultsTitle": "競賽結果",
+    "rank": {
+      "1": "冠軍",
+      "2": "亞軍",
+      "3": "季軍"
+    },
+    "status": {
+      "upcoming": "即將開始",
+      "ongoing": "進行中",
+      "ended": "已結束"
+    }
   },
   "news": {
     "meta": {

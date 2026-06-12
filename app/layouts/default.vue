@@ -280,6 +280,7 @@ const navItems = computed(() => [
   { name: t("nav.team"), to: "/team" },
   { name: t("nav.curriculum"), to: "/curriculum" },
   { name: t("nav.community"), to: "/community" },
+  { name: t("nav.partners"), to: "/partners" },
   { name: t("nav.faq"), to: "/faq" },
   { name: t("nav.contact"), to: "/contact" },
 ]);

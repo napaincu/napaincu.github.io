@@ -17,6 +17,7 @@
     "team": "Team",
     "curriculum": "Curriculum",
     "community": "Community & Events",
+    "partners": "Partners",
     "faq": "FAQ",
     "contact": "Contact"
   },
@@ -358,6 +359,35 @@
       "cancel": "Cancel"
     },
     "lightboxAlt": "Enlarged event photo"
+  },
+  "partners": {
+    "meta": {
+      "listTitle": "Partners - NAPAI",
+      "listDescription": "Competitions, events, and partner organizations collaborating with the NAPAI program."
+    },
+    "pageTitle": "Partners",
+    "subtitle": "Competitions, events, and organizations collaborating with our program.",
+    "viewDetail": "View details",
+    "backToList": "Back to Partners",
+    "visitOfficial": "Visit official website",
+    "organizer": "Organizer",
+    "sponsor": "Sponsor",
+    "period": "Period",
+    "loading": "Loading...",
+    "error": "Failed to load. Please try again later.",
+    "empty": "There are no partners to display at the moment.",
+    "notFound": "This partner could not be found.",
+    "resultsTitle": "Results",
+    "rank": {
+      "1": "1st Place",
+      "2": "2nd Place",
+      "3": "3rd Place"
+    },
+    "status": {
+      "upcoming": "Upcoming",
+      "ongoing": "Ongoing",
+      "ended": "Concluded"
+    }
   },
   "news": {
     "meta": {
