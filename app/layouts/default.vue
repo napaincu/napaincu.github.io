@@ -297,7 +297,10 @@ onMounted(async () => {
     const data = await $fetch<{ count: string }>(
       "https://napai.goatcounter.com/counter/TOTAL.json",
     );
-    const count = Number.parseInt(data.count, 10);
+    // GoatCounter 會用空白分隔千分位（例如 "1 093"），
+    // 直接 parseInt 會停在空白只取到第一段數字（"1 093" -> 1），
+    // 所以先移除所有非數字字元再轉換。
+    const count = Number.parseInt(data.count.replace(/\D/g, ""), 10);
     totalVisitsText.value = Number.isNaN(count)
       ? data.count
       : count.toLocaleString(locale.value === "en" ? "en-US" : "zh-TW");
