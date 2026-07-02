@@ -420,5 +420,58 @@
       "ongoing": "Ongoing",
       "past": "Past"
     }
+  },
+  "guide": {
+    "name": "NAPAI Guide",
+    "status": "Online",
+    "openLabel": "Open site tour",
+    "closeLabel": "Close tour",
+    "start": "Show me around!",
+    "skip": "Maybe later",
+    "next": "Continue",
+    "done": "Finish tour",
+    "restart": "Replay tour",
+    "steps": {
+      "greet": {
+        "v1": "Hi there! I'm NAPAI's AI tour guide 🤖 Looks like it's your first visit — want me to show you around the site?",
+        "v2": "Hello and welcome to NAPAI! I'm the resident AI assistant. Give me 30 seconds and I'll walk you through everything — shall we?",
+        "v3": "New visitor detected… tour mode activated 🤖 Hi! I'm the NAPAI guide. Let me show you what's here!"
+      },
+      "about": {
+        "v1": "NAPAI is a Ministry of Education initiative for cultivating advanced AI talent, focused on two pillars: Agentic AI and Physical AI — training people who can bring AI into the real world.",
+        "v2": "First, who we are: NAPAI develops curricula for agentic and physical AI, so AI doesn't stay in simulation but actually reaches real life and industry.",
+        "v3": "This is the official site of the NAPAI program. We believe AI talent needs more than model skills — they must face real-world challenges. That's the heart of Agentic AI and Physical AI."
+      },
+      "news": {
+        "v1": "Under \"Latest News\" you'll find event announcements, talk recordings, and international competitions — like the recent EBiM robotics challenge!",
+        "v2": "Want to stay up to date? \"Latest News\" is the place: registration info, event videos, and international contests like the EBiM Benchmark are posted first here.",
+        "v3": "This is the news section, where announcements and videos go live. Psst — the featured post right now is an international robotics competition with prizes up to $5,250 per task 👀"
+      },
+      "curriculum": {
+        "v1": "The \"Curriculum\" section collects the course modules and teaching materials developed by the program — the best starting point for learning agentic or physical AI.",
+        "v2": "Looking to learn? \"Curriculum\" hosts our co-created course modules, covering hands-on agentic and physical AI content.",
+        "v3": "This is where the courses live: teaching resources from basics to hands-on practice, all organized under \"Curriculum\". Help yourself!"
+      },
+      "community": {
+        "v1": "\"Community & Events\" lists the SIGAgent talk series and workshops, and you can join our Discord community to connect with others!",
+        "v2": "We're not just courses — we run events too! The SIGAgent series invites professors from many universities to share frontier topics. Details under \"Community & Events\".",
+        "v3": "Looking for peers? \"Community & Events\" introduces our Discord community and the SIGAgent event series. Come join us!"
+      },
+      "partners": {
+        "v1": "\"Partners\" introduces the organizations and competitions we collaborate with; to meet the people behind the program, check out \"Team\".",
+        "v2": "Curious who drives all this? See \"Team\" for the members, and \"Partners\" for collaborating organizations and competitions.",
+        "v3": "These two sections introduce our people: partner organizations, competitions, and the team behind the program."
+      },
+      "lang": {
+        "v1": "By the way, the site is fully bilingual! Click the globe icon in the top-right corner to switch languages.",
+        "v2": "這個網站也會說中文喔！Click this globe icon anytime to switch between English and Chinese.",
+        "v3": "Quick tip: the globe icon in the top right switches between English and Chinese — perfect for sharing with friends."
+      },
+      "end": {
+        "v1": "That's the end of the tour! Click me in the bottom-right corner anytime to replay it. For questions, try \"FAQ\" or \"Contact\" — happy exploring ✨",
+        "v2": "And that's the quick tour! I'll be waiting in the bottom-right corner if you need me. Feel free to reach out via \"Contact\" — bye for now 👋",
+        "v3": "Mission complete ✅ That's NAPAI in a nutshell. Hit the button in the bottom-right to replay the tour. Now, go explore!"
+      }
+    }
   }
 }

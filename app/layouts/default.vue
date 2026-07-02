@@ -26,6 +26,7 @@
                 v-for="item in navItems"
                 :key="item.to"
                 :to="localePath(item.to)"
+                :data-tour="item.tour"
                 class="relative px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition-colors duration-200 ease-in-out group"
                 active-class="!text-teal-700"
               >
@@ -47,6 +48,7 @@
             <!-- Language Switcher (Desktop) -->
             <Menu as="div" class="relative ml-4">
               <MenuButton
+                data-tour="lang"
                 class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-teal-200 hover:text-teal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
                 :aria-label="$t('common.switchLanguage')"
                 :title="$t('common.switchLanguage')"
@@ -192,6 +194,11 @@
       <slot />
     </main>
 
+    <!-- AI Agent 網站導覽 -->
+    <ClientOnly>
+      <AgentGuide />
+    </ClientOnly>
+
     <!-- Footer -->
     <footer class="bg-white border-t-4 border-teal-600 pt-12 pb-8 mt-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,14 +282,14 @@ const isMobileMenuOpen = ref(false);
 const totalVisitsText = ref(t("footer.visitsLoading"));
 
 const navItems = computed(() => [
-  { name: t("nav.home"), to: "/" },
-  { name: t("nav.news"), to: "/news" },
-  { name: t("nav.team"), to: "/team" },
-  { name: t("nav.curriculum"), to: "/curriculum" },
-  { name: t("nav.community"), to: "/community" },
-  { name: t("nav.partners"), to: "/partners" },
-  { name: t("nav.faq"), to: "/faq" },
-  { name: t("nav.contact"), to: "/contact" },
+  { name: t("nav.home"), to: "/", tour: "home" },
+  { name: t("nav.news"), to: "/news", tour: "news" },
+  { name: t("nav.team"), to: "/team", tour: "team" },
+  { name: t("nav.curriculum"), to: "/curriculum", tour: "curriculum" },
+  { name: t("nav.community"), to: "/community", tour: "community" },
+  { name: t("nav.partners"), to: "/partners", tour: "partners" },
+  { name: t("nav.faq"), to: "/faq", tour: "faq" },
+  { name: t("nav.contact"), to: "/contact", tour: "contact" },
 ]);
 
 const availableLocales = computed(() =>
