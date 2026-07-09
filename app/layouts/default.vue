@@ -45,8 +45,20 @@
               </NuxtLink>
             </div>
 
+            <!-- YouTube Channel (Desktop) -->
+            <a
+              href="https://www.youtube.com/@NAPAI-b1g"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ml-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-red-200 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+              :aria-label="$t('common.youtubeChannel')"
+              :title="$t('common.youtubeChannel')"
+            >
+              <Icon name="simple-icons:youtube" class="h-5 w-5" />
+            </a>
+
             <!-- Language Switcher (Desktop) -->
-            <Menu as="div" class="relative ml-4">
+            <Menu as="div" class="relative ml-2">
               <MenuButton
                 data-tour="lang"
                 class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-teal-200 hover:text-teal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
@@ -156,6 +168,18 @@
               {{ item.name }}
             </NuxtLink>
 
+            <!-- YouTube Channel (Mobile) -->
+            <a
+              href="https://www.youtube.com/@NAPAI-b1g"
+              target="_blank"
+              rel="noopener noreferrer"
+              @click="isMobileMenuOpen = false"
+              class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-red-600 transition-colors"
+            >
+              <Icon name="simple-icons:youtube" class="h-5 w-5 text-red-600" />
+              {{ $t("common.youtubeChannel") }}
+            </a>
+
             <!-- Language Switcher (Mobile) -->
             <div class="mt-2 border-t border-slate-100 pt-2">
               <p
@@ -251,6 +275,26 @@
         <div
           class="mt-12 pt-8 border-t border-slate-200 text-slate-500 text-sm"
         >
+          <div class="mb-4 flex items-center justify-center gap-6">
+            <a
+              href="https://www.youtube.com/@NAPAI-b1g"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-slate-500 hover:text-red-600 transition-colors"
+            >
+              <Icon name="simple-icons:youtube" class="h-5 w-5" />
+              {{ $t("common.youtubeChannel") }}
+            </a>
+            <a
+              href="https://discord.gg/aatUjnEKmY"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-slate-500 hover:text-[#5865F2] transition-colors"
+            >
+              <Icon name="ic:baseline-discord" class="h-5 w-5" />
+              Discord
+            </a>
+          </div>
           <div class="relative md:flex md:items-center md:justify-center">
             <p class="text-center">
               {{ $t("footer.copyright") }}

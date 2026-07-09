@@ -2,7 +2,8 @@
   "common": {
     "loading": "載入中...",
     "readMore": "閱讀更多",
-    "switchLanguage": "切換語言"
+    "switchLanguage": "切換語言",
+    "youtubeChannel": "YouTube 頻道"
   },
   "app": {
     "metaDescription": "教育部前瞻AI技術人才培育計畫 - 智慧代理與實體AI機器人課程推動計畫"
@@ -34,6 +35,7 @@
     "title1": "前瞻AI技術人才培育計畫",
     "title2": "智慧代理與實體AI機器人課程推動計畫",
     "subtitle": "National Agentic & Physical AI Initiative",
+    "youtube": "訂閱 YouTube 頻道",
     "discord": "加入 Discord 專業社群",
     "notion": "瀏覽 Notion 課程資料庫"
   },
@@ -418,9 +420,9 @@
         "v3": "這裡是課程的家：從基礎到實作的教學資源都整理在「課程專區」，歡迎自由取用。"
       },
       "community": {
-        "v1": "「社群與活動」有 SIGAgent 系列講座與工作坊的資訊，也可以加入我們的 Discord 社群，跟大家一起交流！",
-        "v2": "我們不只有課程，還有活動！SIGAgent 系列邀請各校教授分享前沿主題，詳情都在「社群與活動」。",
-        "v3": "想找同好？「社群與活動」介紹了我們的 Discord 社群與 SIGAgent 系列活動，歡迎一起參與。"
+        "v1": "「社群與活動」有 SIGAgent 系列講座與工作坊的資訊，也可以加入我們的 Discord 社群！活動影片都會上傳到 YouTube 頻道，歡迎訂閱。",
+        "v2": "我們不只有課程，還有活動！SIGAgent 系列邀請各校教授分享前沿主題，錯過直播也沒關係，影片都會放上 YouTube 頻道。",
+        "v3": "想找同好？「社群與活動」介紹了我們的 Discord 社群與 SIGAgent 系列活動，也別忘了訂閱 YouTube 頻道接收最新影片！"
       },
       "partners": {
         "v1": "「合作夥伴」介紹與我們合作的單位和競賽活動；想認識推動這個計畫的成員，可以看「計畫團隊」。",

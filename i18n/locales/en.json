@@ -2,7 +2,8 @@
   "common": {
     "loading": "Loading...",
     "readMore": "Read more",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "youtubeChannel": "YouTube Channel"
   },
   "app": {
     "metaDescription": "Ministry of Education Advanced AI Talent Cultivation Program — Agentic & Physical AI Robotics Curriculum Initiative"
@@ -34,6 +35,7 @@
     "title1": "Advanced AI Talent Cultivation Program",
     "title2": "Agentic & Physical AI Robotics Curriculum Initiative",
     "subtitle": "National Agentic & Physical AI Initiative",
+    "youtube": "Subscribe on YouTube",
     "discord": "Join our Discord Community",
     "notion": "Browse the Notion Course Library"
   },
@@ -453,9 +455,9 @@
         "v3": "This is where the courses live: teaching resources from basics to hands-on practice, all organized under \"Curriculum\". Help yourself!"
       },
       "community": {
-        "v1": "\"Community & Events\" lists the SIGAgent talk series and workshops, and you can join our Discord community to connect with others!",
-        "v2": "We're not just courses — we run events too! The SIGAgent series invites professors from many universities to share frontier topics. Details under \"Community & Events\".",
-        "v3": "Looking for peers? \"Community & Events\" introduces our Discord community and the SIGAgent event series. Come join us!"
+        "v1": "\"Community & Events\" lists the SIGAgent talk series and workshops, and you can join our Discord community! Event recordings are uploaded to our YouTube channel — subscribe!",
+        "v2": "We're not just courses — we run events too! The SIGAgent series invites professors from many universities to share frontier topics. Missed a live session? The recordings are all on our YouTube channel.",
+        "v3": "Looking for peers? \"Community & Events\" introduces our Discord community and the SIGAgent event series — and don't forget to subscribe to our YouTube channel for the latest videos!"
       },
       "partners": {
         "v1": "\"Partners\" introduces the organizations and competitions we collaborate with; to meet the people behind the program, check out \"Team\".",

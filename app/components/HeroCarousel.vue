@@ -39,6 +39,15 @@
                         <Icon name="uil:github" size="20" /> GitHub 課程資源
                     </NuxtLink> -->
             <a
+              href="https://www.youtube.com/@NAPAI-b1g"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto px-8 py-3 rounded-full flex items-center justify-center gap-2 bg-[#FF0000] text-white hover:bg-[#cc0000] transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium"
+            >
+              <Icon name="simple-icons:youtube" size="20" />
+              {{ $t("hero.youtube") }}
+            </a>
+            <a
               href="https://discord.gg/aatUjnEKmY"
               target="_blank"
               rel="noopener noreferrer"
