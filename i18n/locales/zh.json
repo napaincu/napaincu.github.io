@@ -57,7 +57,7 @@
       "dynamicBody": "在日常生活中，問題往往是多面向且動態變化的，需要同時考量使用者需求、情境判斷與資源限制，而非單一指令即可解決。",
       "insight1": "許多應用型 AI 並非單純「回答問題」，而是必須從使用者角度出發，理解需求、拆解任務並持續調整行動策略。",
       "insight2": "顯示當前 Agent 開發所欠缺的，往往不是模型能力，而是來自真實使用情境的經驗與系統整合能力。",
-      "positioning": "因此，<span class=\"font-bold text-teal-800 text-xl\">NAPAI</span> 將 AI 人才培育的重心，聚焦於 <span class=\"inline-flex items-center px-3 py-1 rounded-full text-teal-800 font-semibold text-base\">Agentic AI</span> 與 <span class=\"inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-base\">Physical AI</span> 兩大前瞻主軸：",
+      "positioning": "因此，<span class=\"font-bold text-teal-700\">NAPAI</span> 將 AI 人才培育的重心，聚焦於 <span class=\"font-semibold text-teal-700\">Agentic AI</span> 與 <span class=\"font-semibold text-emerald-700\">Physical AI</span> 兩大前瞻主軸：",
       "pillar1": "培育能主動推理、規劃並回應使用者需求的智慧代理能力",
       "pillar2": "培育能面對真實世界限制，將 AI 落實於實體系統中的實作能力",
       "closing": "透過這兩大主軸的整合，NAPAI 致力培育能跨越模型、模擬與真實世界落差，<span class=\"font-bold text-slate-800\">真正解決現實問題</span>的前瞻 AI 技術人才。",
@@ -398,6 +398,16 @@
     "next": "繼續",
     "done": "完成導覽",
     "restart": "再導覽一次",
+    "replayTour": "重看導覽",
+    "chat": {
+      "intro": "想知道什麼呢？關於 NAPAI 計畫、課程、活動都可以問我！也可以直接點下方按鈕，我帶你過去看看：",
+      "takeMeTo": "帶我去",
+      "placeholder": "輸入你的問題…",
+      "send": "送出",
+      "ask": "我想問問題",
+      "error": "抱歉，我暫時連不上模型伺服器，請稍後再試 🙏",
+      "disclaimer": "回答由 AI 模型生成，僅供參考"
+    },
     "steps": {
       "greet": {
         "v1": "嗨，你好！我是 NAPAI 的 AI 導覽員 🤖 看起來你是第一次來，要不要讓我帶你快速認識這個網站？",

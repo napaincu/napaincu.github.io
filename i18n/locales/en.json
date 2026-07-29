@@ -57,7 +57,7 @@
       "dynamicBody": "In everyday life, problems are often multifaceted and constantly changing, requiring simultaneous consideration of user needs, situational judgment, and resource constraints rather than being solved by a single command.",
       "insight1": "Many applied AI systems are not simply \"answering questions\"; they must start from the user's perspective—understanding needs, breaking down tasks, and continually adjusting their course of action.",
       "insight2": "This shows that what current agent development lacks is often not model capability, but rather experience drawn from real usage scenarios and the ability to integrate systems.",
-      "positioning": "Therefore, <span class=\"font-bold text-teal-800 text-xl\">NAPAI</span> focuses its AI talent cultivation on two forward-looking pillars: <span class=\"inline-flex items-center px-3 py-1 rounded-full text-teal-800 font-semibold text-base\">Agentic AI</span> and <span class=\"inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-base\">Physical AI</span>:",
+      "positioning": "Therefore, <span class=\"font-bold text-teal-700\">NAPAI</span> focuses its AI talent cultivation on two forward-looking pillars: <span class=\"font-semibold text-teal-700\">Agentic AI</span> and <span class=\"font-semibold text-emerald-700\">Physical AI</span>:",
       "pillar1": "Cultivating agentic capabilities that can proactively reason, plan, and respond to user needs",
       "pillar2": "Cultivating hands-on skills to implement AI in physical systems under real-world constraints",
       "closing": "By integrating these two pillars, NAPAI is committed to cultivating forward-looking AI talent who can bridge the gap between models, simulation, and the real world to <span class=\"font-bold text-slate-800\">genuinely solve real-world problems</span>.",
@@ -433,6 +433,16 @@
     "next": "Continue",
     "done": "Finish tour",
     "restart": "Replay tour",
+    "replayTour": "Replay tour",
+    "chat": {
+      "intro": "What would you like to know? Ask me anything about the NAPAI program, courses, or events! Or tap a button below and I'll take you there:",
+      "takeMeTo": "Take me to",
+      "placeholder": "Type your question…",
+      "send": "Send",
+      "ask": "I have a question",
+      "error": "Sorry, I can't reach the model server right now. Please try again later 🙏",
+      "disclaimer": "Responses are AI-generated and for reference only"
+    },
     "steps": {
       "greet": {
         "v1": "Hi there! I'm NAPAI's AI tour guide 🤖 Looks like it's your first visit — want me to show you around the site?",
