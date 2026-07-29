@@ -2,14 +2,19 @@
 title: NAPAI SIGAgent 6｜How Language Enables Thinking and Coordination
 description: NAPAI SIGAgent 6 探討語言如何支援 Agent 系統中的思考與協作能力。
 date: 2026-06-16
+updatedAt: 2026-07-29
 category: 系列活動
 cover: /image/news/SIGAgent%236_20260616.png
-status: upcoming
+status: past
 tags:
   - SIGAgent
   - Agent Systems
   - Language
 featured: false
+videos:
+  - https://youtu.be/RJB_pPc60XY
+  - https://youtu.be/Cu-mxV6s3Es
+  - https://youtu.be/_Je_sMrEROA
 draft: false
 ---
 

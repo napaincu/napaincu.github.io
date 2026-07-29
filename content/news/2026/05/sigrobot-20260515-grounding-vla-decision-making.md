@@ -2,14 +2,17 @@
 title: NAPAI SIGRobot 4｜Grounding VLA Decision-Making
 description: NAPAI SIGRobot 4 探討高擬真 Digital Twin 場景如何支援 VLA 的決策能力與機器人自主性。
 date: 2026-05-15
+updatedAt: 2026-07-29
 category: 系列活動
 cover: /image/news/SIGRobot%234_20260515.png
-status: upcoming
+status: past
 tags:
   - SIGRobot
   - VLA
   - Robotic Autonomy
 featured: false
+videos:
+  - https://youtu.be/L3oj0YSII08
 draft: false
 ---
 

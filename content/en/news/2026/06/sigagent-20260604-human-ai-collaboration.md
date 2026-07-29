@@ -2,14 +2,18 @@
 title: NAPAI SIGAgent 5 | Human-AI Collaboration
 description: NAPAI SIGAgent 5 focuses on the core concepts, challenges, and future opportunities of Human-AI Collaboration.
 date: 2026-06-04
+updatedAt: 2026-07-29
 category: Series Events
 cover: /image/news/SIGAgent%235_20260604.png
-status: upcoming
+status: past
 tags:
   - SIGAgent
   - Human-AI Collaboration
   - AI Collaboration
 featured: false
+videos:
+  - https://youtu.be/n7QlamEjRIU
+  - https://youtu.be/pUA78BzuEsg
 draft: false
 ---
 

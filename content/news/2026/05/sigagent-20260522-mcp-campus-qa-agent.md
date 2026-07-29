@@ -2,14 +2,19 @@
 title: NAPAI SIGAgent 4｜用 MCP 打造大學智慧問答 Agent
 description: NAPAI SIGAgent 4 分享如何從零到上線，使用 MCP 建置大學智慧問答 Agent。
 date: 2026-05-22
+updatedAt: 2026-07-29
 category: 系列活動
 cover: /image/news/SIGAgent%234_20260522.png
-status: upcoming
+status: past
 tags:
   - SIGAgent
   - MCP
   - 智慧問答
 featured: false
+videos:
+  - https://youtu.be/EBAmbtY0lWs
+  - https://youtu.be/qWeo7TRAcHc
+  - https://youtu.be/ezjzXt84HNQ
 draft: false
 ---
 

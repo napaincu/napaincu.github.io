@@ -2,14 +2,19 @@
 title: NAPAI SIGAgent 4 | Building a Campus Q&A Agent with MCP
 description: NAPAI SIGAgent 4 shares how to build a campus smart Q&A agent with MCP, from scratch to deployment.
 date: 2026-05-22
+updatedAt: 2026-07-29
 category: Series Events
 cover: /image/news/SIGAgent%234_20260522.png
-status: upcoming
+status: past
 tags:
   - SIGAgent
   - MCP
   - Q&A Agent
 featured: false
+videos:
+  - https://youtu.be/EBAmbtY0lWs
+  - https://youtu.be/qWeo7TRAcHc
+  - https://youtu.be/ezjzXt84HNQ
 draft: false
 ---
 

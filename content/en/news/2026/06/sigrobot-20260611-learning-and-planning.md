@@ -2,14 +2,19 @@
 title: NAPAI SIGRobot 6 | Learning and Planning to Act
 description: NAPAI SIGRobot 6 shares how to give robots the ability to learn and plan to act in the physical world.
 date: 2026-06-11
+updatedAt: 2026-07-29
 category: Series Events
 cover: /image/news/SIGRobot%236_20260611.png
-status: upcoming
+status: past
 tags:
   - SIGRobot
   - Learning
   - Planning
 featured: false
+videos:
+  - https://youtu.be/eZifndMLIOc
+  - https://youtu.be/xs5ddovnVNc
+  - https://youtu.be/e3P8WFBbVD4
 draft: false
 ---
 
