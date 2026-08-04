@@ -5,7 +5,6 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-14 text-center">
         <h1
-          data-landmark="partners"
           class="relative inline-block text-4xl font-bold text-[#004d80] after:mx-auto after:mt-2 after:block after:h-1 after:w-2/3 after:bg-blue-500 after:content-['']"
         >
           {{ $t("partners.pageTitle") }}
@@ -30,7 +29,7 @@
 
       <template v-else-if="displayedPartners.length">
         <!-- Featured partners: full-width showcase -->
-        <div class="space-y-8">
+        <div data-landmark="partners" class="space-y-8">
           <NuxtLink
             v-for="item in featuredPartners"
             :key="resolvePath(item)"

@@ -3,7 +3,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h1
-          data-landmark="team"
           class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2"
         >
           {{ $t("team.pageTitle") }}
@@ -11,8 +10,9 @@
       </div>
 
       <div
-        v-for="section in sections"
+        v-for="(section, i) in sections"
         :key="section.id"
+        :data-landmark="i === 0 ? 'team' : undefined"
         :class="section.id === 'roboticsConsultants' ? '' : 'mb-16'"
       >
         <h3

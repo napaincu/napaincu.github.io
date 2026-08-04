@@ -442,7 +442,33 @@
       "ask": "I have a question",
       "error": "Sorry, I can't reach the model server right now. Please try again later 🙏",
       "rateLimited": "You're asking a bit too fast for me! Please wait a minute and try again 🙏",
-      "disclaimer": "Responses are AI-generated and for reference only"
+      "disclaimer": "Responses are AI-generated and for reference only. Conversations are logged to improve the service.",
+      "articleLabel": "this article",
+      "quick": {
+        "howto": {
+          "label": "How do I use this site?",
+          "prompt": "What can I find on this website and how do I use it?"
+        },
+        "events": {
+          "label": "Any recent events?",
+          "prompt": "What events or courses are open for registration recently?"
+        }
+      }
+    },
+    "resizeLabel": "Drag to resize",
+    "collapseLabel": "Tuck aside",
+    "expandLabel": "Bring back the guide",
+    "landmarks": {
+      "article": "Here's the article I mentioned — all the details are on this page!",
+      "about": "Here's the program overview! You can learn about NAPAI's origins and vision, and what our two pillars — Agentic AI and Physical AI — are all about.",
+      "news": "This is the news list! Workshops, course registrations, and competition announcements are all posted here — pinned items are usually open for registration, so don't miss them!",
+      "curriculum": "These two maps are our curriculum: Agentic AI on the left, Physical AI on the right. Click an image to zoom in, and scroll down for the course resource library.",
+      "team": "Meet the team! Principal investigators, co-PIs, and seed teachers from partner universities are all on this page — feel free to ask me about anyone.",
+      "community": "This is the community & events area! You'll find the SIGAgent and SIGRobot event series here — and don't forget to join our Discord.",
+      "notion": "This is the entrance to our Notion course library, where course notes and materials are organized — click through to browse.",
+      "partners": "Here are the organizations and competition partners working with NAPAI. Click a card to learn more.",
+      "faq": "Most common questions are answered here! Click a question to expand the answer — and if you can't find yours, just ask me.",
+      "contact": "Want to reach us? The office address, phone, and email are all on this card. Feel free to get in touch!"
     },
     "steps": {
       "greet": {

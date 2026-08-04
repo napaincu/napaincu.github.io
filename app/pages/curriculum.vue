@@ -2,7 +2,6 @@
   <section class="py-20 bg-white min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1
-        data-landmark="curriculum"
         class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2 mb-6"
       >
         {{ $t("curriculum.pageTitle") }}
@@ -14,7 +13,7 @@
         {{ $t("curriculum.intro") }}
       </p>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div data-landmark="curriculum" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div
           class="group bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
         >

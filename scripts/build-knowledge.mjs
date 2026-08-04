@@ -7,7 +7,7 @@
  * 因此網站內容更新後，導覽員的知識會自動跟上，無需人工維護。
  */
 import { readFile, readdir, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
@@ -76,13 +76,16 @@ async function collectNews() {
   for (const f of files) {
     const { meta, body } = parseFrontmatter(await readFile(f, "utf8"));
     if (meta.draft === "true" || !meta.title) continue;
-    items.push({ meta, body });
+    // 站內路徑＝內容路徑（供 [[goto:/news/...]] 深連結使用）
+    const sitePath =
+      "/news/" + relative(newsRoot, f).replace(/\\/g, "/").replace(/\.md$/, "");
+    items.push({ meta, body, sitePath });
   }
   items.sort((a, b) => (b.meta.updatedAt ?? b.meta.date ?? "").localeCompare(a.meta.updatedAt ?? a.meta.date ?? ""));
 
   const lines = [];
-  for (const { meta, body } of items.slice(0, NEWS_LIMIT)) {
-    let line = `- 【${meta.category ?? "消息"}】${meta.title}（發布 ${meta.date ?? "?"}${meta.status ? `，狀態：${meta.status}` : ""}）：${meta.description ?? ""}`;
+  for (const { meta, body, sitePath } of items.slice(0, NEWS_LIMIT)) {
+    let line = `- 【${meta.category ?? "消息"}】${meta.title}（發布 ${meta.date ?? "?"}${meta.status ? `，狀態：${meta.status}` : ""}）：${meta.description ?? ""} 路徑：${sitePath}`;
     if (meta.externalLink) line += ` 相關連結：${meta.externalLink}`;
     lines.push(line);
     // 進行中／即將開始的活動附上內文重點（報名方式、時程等常被詢問）
@@ -130,7 +133,9 @@ try {
     await readFile(join(ROOT, "app/utils/guide-landmarks.json"), "utf8"),
   );
   const lines = lms.map((l) => `- ${l.id}｜${l.zh} / ${l.en}：${l.desc}`).join("\n");
-  sections.push(`## 可帶路的頁面地標（NAVIGATION LANDMARKS）\n${lines}`);
+  sections.push(
+    `## 可帶路的頁面地標（NAVIGATION LANDMARKS）\n${lines}\n- 特定一則消息：以該消息的「路徑」（/news/ 開頭）作為 goto 目標，可直接帶使用者到那一頁`,
+  );
 } catch {
   console.warn("[knowledge] 讀不到 guide-landmarks.json，略過地標清單");
 }

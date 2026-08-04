@@ -4,7 +4,6 @@
       <!-- Page Title -->
       <div class="text-center mb-16">
         <h1
-          data-landmark="faq"
           class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2"
         >
           {{ $t("faq.pageTitle") }}
@@ -15,7 +14,7 @@
       </div>
 
       <!-- FAQ Section -->
-      <div class="space-y-4">
+      <div data-landmark="faq" class="space-y-4">
         <div
           v-for="(item, index) in faqItems"
           :key="index"

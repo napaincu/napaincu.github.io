@@ -3,14 +3,13 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <h1
-          data-landmark="news"
           class="relative inline-block text-4xl font-bold text-[#004d80] after:mx-auto after:mt-2 after:block after:h-1 after:w-2/3 after:bg-blue-500 after:content-['']"
         >
           {{ $t("news.pageTitle") }}
         </h1>
       </div>
 
-      <section>
+      <section data-landmark="news">
         <div class="mb-6 flex items-center justify-between gap-4">
           <h2
             class="border-l-4 border-blue-500 pl-4 text-2xl font-bold text-slate-800"
