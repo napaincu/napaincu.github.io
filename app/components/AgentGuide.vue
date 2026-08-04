@@ -901,8 +901,9 @@ async function sendChat() {
     // 模型有指定就用它的；沒有就用關鍵字後備猜一個
     const actionIds = ids.length ? ids : [guessLandmark(text)].filter(Boolean) as string[];
     const actions = actionIds.length ? actionsFor(actionIds) : undefined;
+    // 先查好文章標題再顯示訊息（本地查詢很快），避免 push 後改原始物件不觸發重繪
+    if (actions) await fillArticleTitles(actions);
     messages.value.push({ role: "agent", text: reply, actions });
-    if (actions) fillArticleTitles(actions);
     // 存進歷史的用乾淨版（不含指令），避免污染後續對話
     chatHistory.push({ role: "assistant", content: reply });
     // 模型有指路＋使用者訊息是明確命令 → 稍候直接帶過去（按鈕仍保留，跳錯可按回）
