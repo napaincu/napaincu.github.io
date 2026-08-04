@@ -441,6 +441,7 @@
       "send": "Send",
       "ask": "I have a question",
       "error": "Sorry, I can't reach the model server right now. Please try again later 🙏",
+      "rateLimited": "You're asking a bit too fast for me! Please wait a minute and try again 🙏",
       "disclaimer": "Responses are AI-generated and for reference only"
     },
     "steps": {

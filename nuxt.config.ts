@@ -7,6 +7,14 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    public: {
+      // 互動問答中繼後端（實驗室 widm 機台的 Nginx 轉發路徑，見 llm-server/README.md）
+      // 留空字串 = 隱藏互動問答模式，導覽員只保留劇本式導覽
+      chatApi: "https://widm.csie.ncu.edu.tw/napai",
+    },
+  },
+
   nitro: {
     preset: "github-pages",
   },

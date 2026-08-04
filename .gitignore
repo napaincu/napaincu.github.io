@@ -25,3 +25,12 @@ logs
 
 # References
 example
+
+# LLM 中繼後端（不公開，部署時另行複製出去）
+llm-server
+
+# 紅隊／壓力測試逐字稿（不上版控）
+redteam-tests
+
+# Others
+requirements.md

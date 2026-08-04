@@ -3,6 +3,7 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h1
+          data-landmark="contact"
           class="text-4xl font-bold text-[#004d80] inline-block relative after:content-[''] after:block after:w-2/3 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2"
         >
           {{ $t("contact.pageTitle") }}

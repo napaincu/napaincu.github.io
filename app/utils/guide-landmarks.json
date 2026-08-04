@@ -1,0 +1,83 @@
+[
+  {
+    "id": "about",
+    "path": "/",
+    "selector": "#about",
+    "zh": "計畫介紹",
+    "en": "About the program",
+    "desc": "計畫緣起、目標，以及 Agentic AI 與 Physical AI 兩大主軸介紹",
+    "keywords": ["計畫", "緣起", "目標", "介紹", "關於", "宗旨", "agentic", "physical", "about", "mission", "goal"]
+  },
+  {
+    "id": "news",
+    "path": "/news",
+    "selector": "[data-landmark='news']",
+    "zh": "最新消息",
+    "en": "Latest news",
+    "desc": "活動公告、報名資訊、國際競賽、演講影片列表",
+    "keywords": ["消息", "公告", "報名", "活動", "競賽", "比賽", "工作坊", "課程報名", "影片", "news", "register", "registration", "event", "competition", "workshop"]
+  },
+  {
+    "id": "curriculum",
+    "path": "/curriculum",
+    "selector": "[data-landmark='curriculum']",
+    "zh": "課程專區",
+    "en": "Curriculum",
+    "desc": "計畫開發的課程模組與教材資源",
+    "keywords": ["課程", "教材", "模組", "上課", "學習", "資源", "curriculum", "course", "material", "learn", "syllabus"]
+  },
+  {
+    "id": "team",
+    "path": "/team",
+    "selector": "[data-landmark='team']",
+    "zh": "計畫團隊",
+    "en": "Team",
+    "desc": "計畫主持人、協同主持人、SIGAgent／SIGRobot 種子教師等成員",
+    "keywords": ["團隊", "成員", "老師", "教授", "主持人", "師資", "誰", "team", "member", "professor", "faculty", "who"]
+  },
+  {
+    "id": "community",
+    "path": "/community",
+    "selector": "#community-links",
+    "zh": "社群與活動",
+    "en": "Community & events",
+    "desc": "SIGAgent／SIGRobot 系列活動、Discord 社群連結與活動花絮",
+    "keywords": ["社群", "活動", "discord", "sigagent", "sigrobot", "讀書會", "交流", "community", "event", "join", "seminar"]
+  },
+  {
+    "id": "notion",
+    "path": "/community",
+    "selector": "#notion-links",
+    "zh": "Notion 課程資料庫",
+    "en": "Notion course library",
+    "desc": "Notion 課程資料庫連結",
+    "keywords": ["notion", "資料庫", "筆記", "library", "database"]
+  },
+  {
+    "id": "partners",
+    "path": "/partners",
+    "selector": "[data-landmark='partners']",
+    "zh": "合作夥伴",
+    "en": "Partners",
+    "desc": "合作單位與競賽夥伴介紹",
+    "keywords": ["夥伴", "合作", "贊助", "廠商", "partner", "collaborat", "sponsor"]
+  },
+  {
+    "id": "faq",
+    "path": "/faq",
+    "selector": "[data-landmark='faq']",
+    "zh": "常見問題",
+    "en": "FAQ",
+    "desc": "常見問題與解答",
+    "keywords": ["常見問題", "faq", "疑問", "怎麼辦", "question", "help"]
+  },
+  {
+    "id": "contact",
+    "path": "/contact",
+    "selector": "[data-landmark='contact']",
+    "zh": "聯絡我們",
+    "en": "Contact us",
+    "desc": "聯絡方式：地址、電話、Email",
+    "keywords": ["聯絡", "聯繫", "電話", "地址", "email", "信箱", "怎麼找", "contact", "reach", "phone", "address"]
+  }
+]

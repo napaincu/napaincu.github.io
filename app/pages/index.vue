@@ -78,19 +78,19 @@
               class="text-base md:text-lg text-slate-700 leading-loose"
               v-html="$t('home.origin.positioning')"
             ></p>
-            <ul class="mt-8 space-y-5">
-              <li class="flex items-baseline gap-4">
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-start gap-4">
                 <span
-                  class="text-sm font-semibold text-teal-600 tabular-nums flex-shrink-0"
+                  class="mt-0.5 inline-flex w-24 flex-shrink-0 justify-center rounded-full bg-teal-50 px-3 py-1 text-sm font-semibold text-teal-700 ring-1 ring-teal-200"
                   >Agentic</span
                 >
                 <p class="text-base md:text-lg text-slate-700 leading-relaxed">
                   {{ $t("home.origin.pillar1") }}
                 </p>
               </li>
-              <li class="flex items-baseline gap-4">
+              <li class="flex items-start gap-4">
                 <span
-                  class="text-sm font-semibold text-emerald-600 flex-shrink-0"
+                  class="mt-0.5 inline-flex w-24 flex-shrink-0 justify-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700 ring-1 ring-emerald-200"
                   >Physical</span
                 >
                 <p class="text-base md:text-lg text-slate-700 leading-relaxed">
