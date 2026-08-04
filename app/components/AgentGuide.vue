@@ -597,15 +597,15 @@ function waitForEl(selector: string, tries = 20): Promise<HTMLElement | null> {
 async function goToArticle(path: string) {
   const isEn = locale.value === "en";
   const target = isEn ? `/en${path}` : path;
-  let exists = false;
+  let doc: { title?: string } | null = null;
   try {
-    exists = !!(await queryCollection(isEn ? "news_en" : "news")
+    doc = await queryCollection(isEn ? "news_en" : "news")
       .path(target)
-      .first());
+      .first();
   } catch {
-    exists = false;
+    doc = null;
   }
-  if (!exists) {
+  if (!doc) {
     await goToLandmark("news");
     return;
   }
@@ -615,7 +615,9 @@ async function goToArticle(path: string) {
   }
   // 手機版收合面板，讓使用者直接看文章
   if (window.matchMedia("(max-width: 640px)").matches) collapsed.value = true;
-  if (te("guide.landmarks.article")) speak(t("guide.landmarks.article"));
+  if (te("guide.landmarks.article")) {
+    speak(t("guide.landmarks.article", { title: doc.title ?? "" }));
+  }
 }
 
 async function goToLandmark(id: string) {
@@ -702,6 +704,25 @@ function actionsFor(ids: string[]): GuideAction[] {
       return lm ? { id, label: `${t("guide.chat.takeMeTo")} ${lm[label]}` } : null;
     })
     .filter((a): a is GuideAction => a !== null);
+}
+
+// 文章按鈕先以通用標籤出現，隨即補上文章標題，讓使用者分得出每顆按鈕跳去哪篇
+async function fillArticleTitles(actions: GuideAction[]) {
+  const isEn = locale.value === "en";
+  for (const a of actions) {
+    if (!a.id.startsWith("/news/")) continue;
+    try {
+      const doc = await queryCollection(isEn ? "news_en" : "news")
+        .path(isEn ? `/en${a.id}` : a.id)
+        .first();
+      if (doc?.title) {
+        const title = doc.title.length > 24 ? `${doc.title.slice(0, 24)}…` : doc.title;
+        a.label = `${t("guide.chat.takeMeTo")}${isEn ? ` "${title}"` : `「${title}」`}`;
+      }
+    } catch {
+      // 查不到（模型抄錯路徑）就維持通用標籤，點擊時會退回消息列表
+    }
+  }
 }
 
 // --- Typewriter ---
@@ -879,11 +900,9 @@ async function sendChat() {
     const { text: reply, ids } = extractActions(raw);
     // 模型有指定就用它的；沒有就用關鍵字後備猜一個
     const actionIds = ids.length ? ids : [guessLandmark(text)].filter(Boolean) as string[];
-    messages.value.push({
-      role: "agent",
-      text: reply,
-      actions: actionIds.length ? actionsFor(actionIds) : undefined,
-    });
+    const actions = actionIds.length ? actionsFor(actionIds) : undefined;
+    messages.value.push({ role: "agent", text: reply, actions });
+    if (actions) fillArticleTitles(actions);
     // 存進歷史的用乾淨版（不含指令），避免污染後續對話
     chatHistory.push({ role: "assistant", content: reply });
     // 模型有指路＋使用者訊息是明確命令 → 稍候直接帶過去（按鈕仍保留，跳錯可按回）

@@ -459,7 +459,7 @@
     "collapseLabel": "Tuck aside",
     "expandLabel": "Bring back the guide",
     "landmarks": {
-      "article": "Here's the article I mentioned — all the details are on this page!",
+      "article": "Here's \"{title}\" — all the details are on this page!",
       "about": "Here's the program overview! You can learn about NAPAI's origins and vision, and what our two pillars — Agentic AI and Physical AI — are all about.",
       "news": "This is the news list! Workshops, course registrations, and competition announcements are all posted here — pinned items are usually open for registration, so don't miss them!",
       "curriculum": "These two maps are our curriculum: Agentic AI on the left, Physical AI on the right. Click an image to zoom in, and scroll down for the course resource library.",

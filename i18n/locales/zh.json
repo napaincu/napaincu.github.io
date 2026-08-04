@@ -424,7 +424,7 @@
     "collapseLabel": "先收到旁邊",
     "expandLabel": "叫回導覽員",
     "landmarks": {
-      "article": "這篇就是我說的那則消息，詳細內容都在這裡！",
+      "article": "這篇就是「{title}」，詳細內容都在這裡！",
       "about": "這裡是計畫介紹！可以看到 NAPAI 的緣起與願景，以及 Agentic AI 和 Physical AI 兩大主軸在做什麼。",
       "news": "這一區就是最新消息列表！工作坊、課程報名、競賽公告都會發布在這裡，有「置頂」標籤的通常是正在報名中的活動，別錯過囉！",
       "curriculum": "這兩張就是我們的課程地圖：左邊 Agentic AI、右邊 Physical AI，點圖可以放大細看每個單元；再往下捲還有課程資源庫可以取得教材。",
