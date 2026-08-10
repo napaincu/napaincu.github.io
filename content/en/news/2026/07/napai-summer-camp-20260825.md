@@ -1,5 +1,6 @@
 ---
 title: "[NAPAI Summer Camp] Robotics Hands-On Workshop II"
+urlname: napai-summer-camp-20260825
 description: The second NAPAI Summer Camp workshop will be held on August 25, 2026 at National Cheng Kung University. Co-hosted by Prof. Wen-Yu Su and Prof. Tse-Yu Pan, the workshop will cover ROS2, Docker/Foxglove, and integrated LiDAR and depth camera applications on a physical gripper car robot.
 date: 2026-07-29
 category: Event Announcement

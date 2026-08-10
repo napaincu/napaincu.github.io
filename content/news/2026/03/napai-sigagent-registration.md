@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGAgent 活動報名資訊
+urlname: napai-sigagent-registration
 description: NAPAI SIGAgent 系列活動開放報名，公告 2026 年 4-6 月場次資訊，歡迎大家踴躍報名！
 date: 2026-03-23
 category: 活動公告

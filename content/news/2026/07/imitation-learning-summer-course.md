@@ -1,5 +1,6 @@
 ---
 title: 【暑期課程報名】Deploying Imitation Learning across Virtual and Physical Platforms
+urlname: imitation-learning-summer-course
 description: NAPAI 暑期實作課程開放報名！8/20 於中央大學 ideaNCU 創意園區，由臺科大潘則佑助理教授主講模仿學習於虛擬與實體平台的部署、資料收集與測試，全程免費，名額僅 60 名，報名至 8/6 止。
 date: 2026-07-16
 category: 活動公告

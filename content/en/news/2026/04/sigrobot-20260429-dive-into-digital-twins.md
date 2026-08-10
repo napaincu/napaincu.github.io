@@ -1,5 +1,6 @@
 ---
 title: "[Video Available] NAPAI SIGRobot 3 | Dive into Digital Twins for Robotics"
+urlname: sigrobot-20260429-dive-into-digital-twins
 description: NAPAI SIGRobot 3 introduces USD, Isaac Sim, and Isaac Lab for a deep dive into digital twin architecture in robotics scenes.
 date: 2026-04-29
 updatedAt: 2026-06-12

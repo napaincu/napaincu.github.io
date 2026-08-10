@@ -1,5 +1,6 @@
 ---
 title: Agentic AI 技術論壇活動資訊
+urlname: agentic-ai-forum
 description: Agentic AI 技術論壇匯集跨校教師，共同探討 Agent 導向教學與產學落地實踐。
 date: 2026-02-09
 category: 活動公告

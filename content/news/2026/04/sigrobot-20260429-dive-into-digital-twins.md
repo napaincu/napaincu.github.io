@@ -1,5 +1,6 @@
 ---
 title: 【影片上架】NAPAI SIGRobot 3｜Dive into Digital Twins for Robotics
+urlname: sigrobot-20260429-dive-into-digital-twins
 description: NAPAI SIGRobot 3 介紹 USD、Isaac Sim 與 Isaac Lab，帶領參與者深入數位分身在機器人場景中的架構設計。
 date: 2026-04-29
 updatedAt: 2026-06-12

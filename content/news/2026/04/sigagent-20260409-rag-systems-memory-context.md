@@ -1,5 +1,6 @@
 ---
 title: 【影片上架】NAPAI SIGAgent 1｜Building Agentic AI RAG Systems
+urlname: sigagent-20260409-rag-systems-memory-context
 description: NAPAI SIGAgent 1 探討 Memory Architectures 與 Context Engineering，建立可落地的 Agentic AI RAG 系統。
 date: 2026-04-09
 updatedAt: 2026-06-12

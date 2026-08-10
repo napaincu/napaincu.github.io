@@ -1,5 +1,6 @@
 ---
 title: Physical AI Technology Forum
+urlname: physical-ai-forum
 description: The Physical AI Technology Forum focused on digital twins, robot simulation, and real-world deployment, and has now successfully concluded.
 date: 2025-11-15
 category: Announcements

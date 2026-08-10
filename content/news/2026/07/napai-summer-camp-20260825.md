@@ -1,5 +1,6 @@
 ---
 title: 【NAPAI Summer Camp】暑期機器人實作工作坊第二彈
+urlname: napai-summer-camp-20260825
 description: NAPAI Summer Camp 第二彈將於 2026 年 8 月 25 日在國立成功大學舉辦，由成大資工蘇文鈺教授與臺科大 AI 所潘則佑助理教授共同主持，帶領學員實作 ROS2、Docker/Foxglove、LiDAR 與深度攝影機整合應用。
 date: 2026-07-29
 category: 活動公告

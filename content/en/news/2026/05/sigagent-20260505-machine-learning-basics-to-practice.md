@@ -1,5 +1,6 @@
 ---
 title: "[Video Available] NAPAI SIGAgent 3 | Machine Learning: An Introduction"
+urlname: sigagent-20260505-machine-learning-basics-to-practice
 description: NAPAI SIGAgent 3 starts from machine learning fundamentals and moves into model implementation and applied thinking.
 date: 2026-05-05
 updatedAt: 2026-06-12

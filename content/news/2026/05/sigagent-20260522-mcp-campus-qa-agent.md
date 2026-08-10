@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGAgent 4｜用 MCP 打造大學智慧問答 Agent
+urlname: sigagent-20260522-mcp-campus-qa-agent
 description: NAPAI SIGAgent 4 分享如何從零到上線，使用 MCP 建置大學智慧問答 Agent。
 date: 2026-05-22
 updatedAt: 2026-07-29

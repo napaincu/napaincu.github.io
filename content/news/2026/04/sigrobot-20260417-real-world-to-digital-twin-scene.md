@@ -1,5 +1,6 @@
 ---
 title: 【影片上架】NAPAI SIGRobot 2｜Real World to Digital Twin Scene
+urlname: sigrobot-20260417-real-world-to-digital-twin-scene
 description: NAPAI SIGRobot 2 聚焦 Robotics 場景建模，探討如何從 Real World 建立並擴增 Digital Twin 環境。
 date: 2026-04-17
 updatedAt: 2026-06-12

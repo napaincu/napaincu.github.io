@@ -1,5 +1,6 @@
 ---
 title: "[Video Available] NAPAI SIGRobot 2 | Real World to Digital Twin Scene"
+urlname: sigrobot-20260417-real-world-to-digital-twin-scene
 description: NAPAI SIGRobot 2 focuses on robotics scene modeling, exploring how to build and augment digital twin environments from the real world.
 date: 2026-04-17
 updatedAt: 2026-06-12

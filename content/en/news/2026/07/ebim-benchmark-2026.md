@@ -1,5 +1,6 @@
 ---
 title: "[International Competition] EBiM Benchmark 2026 — Embodied Bimanual Manipulation Challenge Now Open"
+urlname: ebim-benchmark-2026
 description: The EBiM (Embodied Bimanual Manipulation) Benchmark international competition has launched! The simulation phase runs from June 29 to August 3, 2026, followed by real-robot validation in Hamburg, Munich, Pittsburgh, and Shanghai. Prizes up to $5,250 per task — academic and industry teams worldwide are welcome.
 date: 2026-07-02
 category: Event Announcement

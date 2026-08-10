@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGRobot Study Group — Registration Open
+urlname: napai-sigrobot-study-group
 description: This is the NAPAI SIGRobot study group lecture series. Please fill out the registration form to join.
 date: 2026-03-09
 category: Announcements

@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGRobot 4 | Grounding VLA Decision-Making
+urlname: sigrobot-20260515-grounding-vla-decision-making
 description: NAPAI SIGRobot 4 explores how high-fidelity digital twin scenes support VLA decision-making and robotic autonomy.
 date: 2026-05-15
 updatedAt: 2026-07-29

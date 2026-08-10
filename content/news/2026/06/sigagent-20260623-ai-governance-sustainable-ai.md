@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGAgent 7｜AI Governance and Sustainable AI
+urlname: sigagent-20260623-ai-governance-sustainable-ai
 description: NAPAI SIGAgent 7 由管理領域視角切入，討論 AI 治理與永續 AI 的關鍵議題。
 date: 2026-06-23
 updatedAt: 2026-07-29

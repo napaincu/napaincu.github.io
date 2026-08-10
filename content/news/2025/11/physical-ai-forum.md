@@ -1,5 +1,6 @@
 ---
 title: Physical AI 技術論壇
+urlname: physical-ai-forum
 description: Physical AI 技術論壇聚焦數位分身、機器人模擬與實體場域落地，活動已圓滿結束。
 date: 2025-11-15
 category: 活動公告

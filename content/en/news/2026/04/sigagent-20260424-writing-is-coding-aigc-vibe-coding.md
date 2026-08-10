@@ -1,5 +1,6 @@
 ---
 title: "[Video Available] NAPAI SIGAgent 2 | Writing is Coding"
+urlname: sigagent-20260424-writing-is-coding-aigc-vibe-coding
 description: NAPAI SIGAgent 2, titled "From AIGC to Vibe Coding," shares cross-disciplinary creation and hands-on methods.
 date: 2026-04-24
 updatedAt: 2026-06-12

@@ -1,5 +1,6 @@
 ---
 title: Agentic AI Technology Forum
+urlname: agentic-ai-forum
 description: The Agentic AI Technology Forum gathered teachers from multiple universities to explore agent-oriented teaching and industry-academia implementation.
 date: 2026-02-09
 category: Announcements

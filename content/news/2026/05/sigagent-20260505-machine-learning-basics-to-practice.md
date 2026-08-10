@@ -1,5 +1,6 @@
 ---
 title: 【影片上架】NAPAI SIGAgent 3｜機器學習初探
+urlname: sigagent-20260505-machine-learning-basics-to-practice
 description: NAPAI SIGAgent 3 從機器學習基礎觀念出發，帶入模型實作與應用思維。
 date: 2026-05-05
 updatedAt: 2026-06-12

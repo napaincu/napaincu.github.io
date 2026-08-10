@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGAgent 5｜Human-AI Collaboration
+urlname: sigagent-20260604-human-ai-collaboration
 description: NAPAI SIGAgent 5 聚焦 Human-AI Collaboration 的核心概念、挑戰與未來機會。
 date: 2026-06-04
 updatedAt: 2026-07-29

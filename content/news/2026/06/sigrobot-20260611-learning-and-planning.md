@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGRobot 6｜Learning and Planning to Act
+urlname: sigrobot-20260611-learning-and-planning
 description: NAPAI SIGRobot 6 分享如何讓機器人在實體世界中具備 Learning 與 Planning 的行動能力。
 date: 2026-06-11
 updatedAt: 2026-07-29

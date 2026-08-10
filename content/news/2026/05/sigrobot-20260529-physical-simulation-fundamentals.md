@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGRobot 5｜Physical Simulation Fundamentals
+urlname: sigrobot-20260529-physical-simulation-fundamentals
 description: NAPAI SIGRobot 5 聚焦 Physical AI 入門，從 Physical Simulation 基礎帶入後續實作與應用。
 date: 2026-05-29
 updatedAt: 2026-07-29

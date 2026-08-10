@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGAgent Event Registration
+urlname: napai-sigagent-registration
 description: Registration for the NAPAI SIGAgent series is now open. See the schedule for April–June 2026 sessions—everyone is welcome to sign up!
 date: 2026-03-23
 category: Announcements

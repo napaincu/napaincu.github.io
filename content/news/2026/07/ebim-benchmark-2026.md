@@ -1,5 +1,6 @@
 ---
 title: 【國際比賽】EBiM Benchmark 2026 具身雙臂操作國際競賽開放報名
+urlname: ebim-benchmark-2026
 description: EBiM（Embodied Bimanual Manipulation）Benchmark 國際競賽開跑！模擬賽階段自 2026/6/29 至 8/3，晉級隊伍將於漢堡、慕尼黑、匹茲堡、上海進行實機驗證，每項任務最高獎金 $5,250 美元，歡迎全球學術與產業團隊組隊參加。
 date: 2026-07-02
 category: 活動公告

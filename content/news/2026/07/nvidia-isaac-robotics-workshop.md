@@ -1,5 +1,6 @@
 ---
 title: 【工作坊報名】如何使用 Isaac 模擬、訓練、驗證並部署完整的機器人工作流程
+urlname: nvidia-isaac-robotics-workshop
 description: NAPAI 攜手 NVIDIA DLI 白金級大使曾吉弘博士，8/6 於中央大學舉辦全日實作工作坊，從 Isaac Sim 模擬、Isaac Lab 訓練到實體機器人部署，計畫全額補助，名額僅 60 名，報名至 7/24 止！
 date: 2026-07-10
 category: 活動公告

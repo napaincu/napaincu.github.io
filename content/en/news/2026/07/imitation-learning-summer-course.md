@@ -1,5 +1,6 @@
 ---
 title: "[Summer Course Registration] Deploying Imitation Learning across Virtual and Physical Platforms"
+urlname: imitation-learning-summer-course
 description: NAPAI's summer hands-on course is open for registration! On Aug 20 at ideaNCU, National Central University, Prof. Tse-Yu Pan (NTUST) will cover deploying imitation learning across virtual and physical platforms, with data collection and testing. Free of charge, limited to 60 seats — register by Aug 6.
 date: 2026-07-16
 category: Event Announcement

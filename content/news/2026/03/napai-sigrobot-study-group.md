@@ -1,5 +1,6 @@
 ---
 title: NAPAI SIGRobot 讀書會活動開放報名
+urlname: napai-sigrobot-study-group
 description: 本活動為 NAPAI SIGRobot 讀書會系列講座，歡迎填寫報名表單參加。
 date: 2026-03-09
 category: 活動公告
