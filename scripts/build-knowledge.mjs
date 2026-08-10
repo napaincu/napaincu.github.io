@@ -81,7 +81,9 @@ async function collectNews() {
       "/news/" + relative(newsRoot, f).replace(/\\/g, "/").replace(/\.md$/, "");
     items.push({ meta, body, sitePath });
   }
-  items.sort((a, b) => (b.meta.updatedAt ?? b.meta.date ?? "").localeCompare(a.meta.updatedAt ?? a.meta.date ?? ""));
+  // 編輯後台對沒填的選填日期會寫入空字串，所以用 || 讓它退回 date（?? 擋不掉空字串）
+  const sortKey = (m) => m.updatedAt?.trim() || m.date?.trim() || "";
+  items.sort((a, b) => sortKey(b.meta).localeCompare(sortKey(a.meta)));
 
   const lines = [];
   for (const { meta, body, sitePath } of items.slice(0, NEWS_LIMIT)) {

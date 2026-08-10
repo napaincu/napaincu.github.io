@@ -22,7 +22,9 @@ backend:
     deleteMedia: "content: 刪除圖片 {{path}}"
 
 # 圖片上傳：實際存放位置 / 寫進文章的引用路徑
-media_folder: "public/image/news"
+# 注意：兩個 collection 底下都各自再宣告一次並加上開頭斜線，
+# 否則會退回「相對於文章」的模式，把圖片存進 content/ 並寫成沒有路徑的檔名。
+media_folder: "/public/image/news"
 public_folder: "/image/news"
 
 locale: zh-TW
@@ -40,6 +42,9 @@ collections:
     create: true
     extension: md
     format: yaml-frontmatter
+    # 開頭斜線＝相對於 repo 根目錄；沒有它會變成相對於文章所在資料夾
+    media_folder: "/public/image/news"
+    public_folder: "/image/news"
     sortable_fields: [date, title]
     view_filters:
       - { label: 報名中, field: status, pattern: upcoming }
@@ -156,6 +161,8 @@ collections:
     create: true
     extension: md
     format: yaml-frontmatter
+    media_folder: "/public/image/news"
+    public_folder: "/image/news"
     sortable_fields: [date, title]
     fields:
       - { label: Title, name: title, widget: string }
