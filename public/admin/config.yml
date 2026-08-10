@@ -1,0 +1,204 @@
+# NAPAI 內容編輯後台設定
+#
+# 編輯者在 https://napaincu.github.io/admin/ 以 GitHub 帳號登入後，
+# 這裡定義的欄位會變成表單；按下發布＝把 markdown commit 進本 repo，
+# GitHub Actions 隨即重新建置網站（約 2–3 分鐘上線）。
+#
+# 欄位定義必須與 content.config.ts 的 zod schema 對得上，
+# 新增欄位時兩邊要一起改。
+
+backend:
+  name: github
+  repo: napaincu/napaincu.github.io
+  branch: main
+  # OAuth 中繼（llm-server）：base_url 是主機，auth_endpoint 是路徑
+  base_url: https://widm.csie.ncu.edu.tw
+  auth_endpoint: napai/auth
+  commit_messages:
+    create: "content: 新增 {{collection}}「{{slug}}」"
+    update: "content: 更新 {{collection}}「{{slug}}」"
+    delete: "content: 刪除 {{collection}}「{{slug}}」"
+    uploadMedia: "content: 上傳圖片 {{path}}"
+    deleteMedia: "content: 刪除圖片 {{path}}"
+
+# 圖片上傳：實際存放位置 / 寫進文章的引用路徑
+media_folder: "public/image/news"
+public_folder: "/image/news"
+
+locale: zh-TW
+
+collections:
+  - name: news_zh
+    label: 最新消息（中文）
+    label_singular: 消息
+    description: >-
+      發布後約 2–3 分鐘會自動上線。「網址代稱」請用英文小寫加連字號，
+      英文版必須使用完全相同的代稱與日期，兩邊才會配對成功。
+    folder: content/news
+    path: "{{year}}/{{month}}/{{slug}}"
+    slug: "{{fields.urlname}}"
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    sortable_fields: [date, title]
+    view_filters:
+      - { label: 報名中, field: status, pattern: upcoming }
+      - { label: 進行中, field: status, pattern: ongoing }
+      - { label: 已結束, field: status, pattern: past }
+    fields:
+      - label: 標題
+        name: title
+        widget: string
+        hint: 顯示在列表與文章頁最上方
+
+      - label: 網址代稱
+        name: urlname
+        widget: string
+        pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號，例如 summer-camp-2026"]
+        hint: 決定文章網址與檔名，發布後請勿更改（舊連結會失效）
+
+      - label: 摘要
+        name: description
+        widget: text
+        hint: 列表卡片上顯示的簡短介紹，約一到兩句
+
+      - label: 發布日期
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+
+      - label: 最近更新
+        name: updatedAt
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+        required: false
+        hint: 影片或筆記補上架時填寫，列表會依此排序讓它浮到前面
+
+      - label: 分類
+        name: category
+        widget: select
+        options: ["系列活動", "活動公告"]
+
+      - label: 狀態
+        name: status
+        widget: select
+        options:
+          - { label: "即將開始（報名中）", value: upcoming }
+          - { label: "進行中", value: ongoing }
+          - { label: "已結束", value: past }
+        required: false
+        hint: 報名中與進行中的活動，導覽員會額外把內文摘要納入回答
+
+      - label: 封面圖
+        name: cover
+        widget: image
+        required: false
+        hint: 建議用英文檔名，避免空格與特殊符號
+
+      - label: 標籤
+        name: tags
+        widget: list
+        required: false
+        hint: 一行一個，例如 SIGAgent
+
+      - label: 報名／外部連結
+        name: externalLink
+        widget: string
+        required: false
+
+      - label: 影片連結
+        name: videos
+        widget: list
+        required: false
+        hint: YouTube 網址，一行一支，會依序顯示為 Part 1、Part 2…
+
+      - label: 單支影片連結
+        name: videoLink
+        widget: string
+        required: false
+        hint: 只有一支影片時可改用這欄
+
+      - label: 會議筆記連結
+        name: notesLink
+        widget: string
+        required: false
+
+      - label: 設為精選
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+
+      - label: 草稿（不公開）
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+        hint: 打開時不會出現在網站上，可先存起來之後再發布
+
+      - label: 內文
+        name: body
+        widget: markdown
+
+  - name: news_en
+    label: 最新消息（英文版）
+    label_singular: News
+    description: >-
+      英文版必須與中文版使用「完全相同」的網址代稱與發布日期，
+      否則英文站會找不到對應文章（CI 會在配對失敗時發出通知）。
+    folder: content/en/news
+    path: "{{year}}/{{month}}/{{slug}}"
+    slug: "{{fields.urlname}}"
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: 網址代稱（要與中文版相同）
+        name: urlname
+        widget: string
+        pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號"]
+        hint: 必須與中文版的網址代稱一字不差
+      - { label: Description, name: description, widget: text }
+      - label: 發布日期（要與中文版相同）
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+      - label: Last updated
+        name: updatedAt
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+        required: false
+      # 現有內容的分類值不一致：13 篇用 Series Events、4 篇 Announcements、
+      # 4 篇 Event Announcement。三個值都先列出來，免得編輯舊文章時值被清空。
+      # 建議擇一統一（例如把 Event Announcement 併入 Announcements）後再移除多餘選項。
+      - label: Category
+        name: category
+        widget: select
+        options: ["Series Events", "Announcements", "Event Announcement"]
+      - label: Status
+        name: status
+        widget: select
+        options:
+          - { label: "Upcoming", value: upcoming }
+          - { label: "Ongoing", value: ongoing }
+          - { label: "Past", value: past }
+        required: false
+      - { label: Cover image, name: cover, widget: image, required: false }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Registration / external link, name: externalLink, widget: string, required: false }
+      - { label: Video links, name: videos, widget: list, required: false }
+      - { label: Single video link, name: videoLink, widget: string, required: false }
+      - { label: Notes link, name: notesLink, widget: string, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false, required: false }
+      - { label: Draft (hidden), name: draft, widget: boolean, default: false, required: false }
+      - { label: Body, name: body, widget: markdown }

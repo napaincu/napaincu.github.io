@@ -3,6 +3,8 @@ import { defineCollection, defineContentConfig, z } from "@nuxt/content";
 const newsSchema = z.object({
   title: z.string(),
   description: z.string(),
+  // 編輯後台（/admin）用來決定檔名與網址；中英文兩邊必須相同才會配對成功
+  urlname: z.string().optional(),
   date: z.string(),
   // 最近更新時間（如影片/筆記上架）。有設定時用於列表排序，讓新更新的活動浮到最上面。
   updatedAt: z.string().optional(),

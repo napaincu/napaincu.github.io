@@ -12,6 +12,18 @@ permissions:
   id-token: write
 
 jobs:
+  # 中英內容配對檢查：刻意獨立成一個 job，失敗時不影響下方的部署
+  # （網站照常更新），但 commit 上會出現紅色叉並寄出通知信。
+  content-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check zh/en content pairs
+        run: node scripts/check-content-pairs.mjs
+
   build:
     runs-on: ubuntu-latest
     steps:

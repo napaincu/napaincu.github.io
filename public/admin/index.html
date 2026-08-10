@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>NAPAI 內容編輯後台</title>
+</head>
+<body>
+  <!--
+    Sveltia CMS：純前端編輯介面，登入後直接以 GitHub API 把文章寫回本 repo。
+    登入時的授權碼換 token 由 llm-server 的 /napai/auth、/napai/callback 代勞
+    （設定見同層 config.yml 的 backend 區塊）。
+    確認運作正常後建議把網址改成鎖定版本號，避免上游更新造成非預期變動。
+  -->
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+</body>
+</html>
