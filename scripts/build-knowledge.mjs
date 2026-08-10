@@ -48,12 +48,16 @@ function htmlToText(html) {
     .trim();
 }
 
-/** 極簡 frontmatter 解析（只取單行 key: value） */
+/**
+ * 極簡 frontmatter 解析（只取單行 key: value）。
+ * 行尾必須容許 CRLF：Windows 上 git 檢出會把 LF 轉成 CRLF，
+ * 只比對 \n 會導致每一篇都解析失敗、知識庫的消息區塊整個空掉。
+ */
 function parseFrontmatter(md) {
-  const m = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/.exec(md);
+  const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(md);
   if (!m) return { meta: {}, body: md };
   const meta = {};
-  for (const line of m[1].split("\n")) {
+  for (const line of m[1].split(/\r?\n/)) {
     const kv = /^([A-Za-z][\w]*):\s*(.*)$/.exec(line);
     if (kv) meta[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, "");
   }
