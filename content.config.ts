@@ -51,15 +51,15 @@ export default defineContentConfig({
   collections: {
     news: defineCollection({
       type: "page",
-      // 中文內容放在 content/zh/ 底下（與 en/ 對稱，編輯後台才能把中英視為
-      // 同一筆內容、一次儲存寫兩個檔）。prefix 把網址的 /zh 去掉，
-      // 讓中文網址維持 /news/...，與既有連結相容。
-      source: { include: "zh/news/**/*.md", prefix: "/news" },
+      // 中英文各自放在 content/news/{語言}/ 底下——這是編輯後台的 multiple_folders
+      // 結構唯一支援的排法，才能把中英視為同一筆內容、一次儲存寫兩個檔。
+      // prefix 把網址裡的語言資料夾去掉，維持既有連結不變。
+      source: { include: "news/zh/**/*.md", prefix: "/news" },
       schema: newsSchema,
     }),
     news_en: defineCollection({
       type: "page",
-      source: "en/news/**/*.md",
+      source: { include: "news/en/**/*.md", prefix: "/en/news" },
       schema: newsSchema,
     }),
     partners: defineCollection({

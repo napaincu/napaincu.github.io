@@ -65,9 +65,9 @@ function parseFrontmatter(md) {
 }
 
 async function collectNews() {
-  // 中文內容在 content/zh/ 底下（與 en/ 對稱，供編輯後台的雙語單筆編輯使用），
-  // 但站內路徑不含 /zh——與 content.config.ts 的 prefix 設定一致
-  const newsRoot = join(ROOT, "content/zh/news");
+  // 中英文各在 content/news/{語言}/ 底下（供編輯後台的雙語單筆編輯使用），
+  // 但站內路徑不含語言資料夾——與 content.config.ts 的 prefix 設定一致
+  const newsRoot = join(ROOT, "content/news/zh");
   const files = [];
   async function walk(dir) {
     for (const e of await readdir(dir, { withFileTypes: true })) {

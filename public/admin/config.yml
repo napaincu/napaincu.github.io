@@ -5,7 +5,7 @@
 # GitHub Actions 隨即重新建置網站（約 2–3 分鐘上線）。
 #
 # 中英文是「同一筆內容」：編輯畫面上切換語言，按一次儲存同時寫出
-# content/zh/news/... 與 content/en/news/... 兩個檔，只產生一個 commit。
+# content/news/zh/... 與 content/news/en/... 兩個檔，只產生一個 commit。
 # 這樣不會出現「只有中文、還沒有英文」的空窗，網址代稱也不可能兩邊不一致。
 #
 # 欄位定義必須與 content.config.ts 的 zod schema 對得上，
@@ -33,9 +33,10 @@ public_folder: "/image/news"
 
 locale: zh-TW
 
-# 語言資料夾放在 collection 路徑的最前面，對應 content/{語言}/news/...
+# multiple_folders＝語言資料夾接在 collection 資料夾後面，對應 content/news/{語言}/...
+# （這是唯一能表達「中英同一筆內容」又不用把語言放到 repo 根目錄的排法）
 i18n:
-  structure: multiple_folders_i18n_root
+  structure: multiple_folders
   locales: [zh, en]
   default_locale: zh
 
