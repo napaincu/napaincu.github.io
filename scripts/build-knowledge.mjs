@@ -65,7 +65,9 @@ function parseFrontmatter(md) {
 }
 
 async function collectNews() {
-  const newsRoot = join(ROOT, "content/news");
+  // 中文內容在 content/zh/ 底下（與 en/ 對稱，供編輯後台的雙語單筆編輯使用），
+  // 但站內路徑不含 /zh——與 content.config.ts 的 prefix 設定一致
+  const newsRoot = join(ROOT, "content/zh/news");
   const files = [];
   async function walk(dir) {
     for (const e of await readdir(dir, { withFileTypes: true })) {

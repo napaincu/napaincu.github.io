@@ -1,7 +1,7 @@
 /**
  * 檢查中英內容是否成對。
  *
- * 網站以「相同的相對路徑」配對中英文章（content/news/A.md ↔ content/en/news/A.md），
+ * 網站以「相同的相對路徑」配對中英文章（content/zh/news/A.md ↔ content/en/news/A.md），
  * 路徑對不上時英文站就會少一篇。編輯後台讓非工程師自行發布後，
  * 這類漏發或代稱打錯的情況會變常見，因此在 CI 獨立跑一個檢查：
  * 不擋部署（網站照常更新），但有問題時 GitHub 會顯示紅色叉並寄通知。
@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 const PAIRS = [
-  { label: "最新消息", zh: "content/news", en: "content/en/news" },
+  { label: "最新消息", zh: "content/zh/news", en: "content/en/news" },
   { label: "合作夥伴", zh: "content/partners", en: "content/en/partners" },
 ];
 

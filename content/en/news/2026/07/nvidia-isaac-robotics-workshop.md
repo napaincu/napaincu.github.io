@@ -3,7 +3,7 @@ title: "[Workshop Registration] Simulate, Train, Validate, and Deploy a Complete
 urlname: nvidia-isaac-robotics-workshop
 description: NAPAI partners with Dr. Chi-Hung Tseng, NVIDIA DLI Platinum Ambassador, for a full-day hands-on workshop at National Central University on Aug 6 — from Isaac Sim simulation and Isaac Lab training to real-robot deployment. Fully funded, limited to 60 seats, registration closes Jul 24!
 date: 2026-07-10
-category: Event Announcement
+category: Announcements
 cover: /image/news/NAPAI_NVIDIA_workshop.png
 status: upcoming
 externalLink: https://forms.gle/ghavLyjeNKX8NQjFA

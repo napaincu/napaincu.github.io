@@ -51,7 +51,10 @@ export default defineContentConfig({
   collections: {
     news: defineCollection({
       type: "page",
-      source: "news/**/*.md",
+      // 中文內容放在 content/zh/ 底下（與 en/ 對稱，編輯後台才能把中英視為
+      // 同一筆內容、一次儲存寫兩個檔）。prefix 把網址的 /zh 去掉，
+      // 讓中文網址維持 /news/...，與既有連結相容。
+      source: { include: "zh/news/**/*.md", prefix: "/news" },
       schema: newsSchema,
     }),
     news_en: defineCollection({

@@ -4,6 +4,10 @@
 # 這裡定義的欄位會變成表單；按下發布＝把 markdown commit 進本 repo，
 # GitHub Actions 隨即重新建置網站（約 2–3 分鐘上線）。
 #
+# 中英文是「同一筆內容」：編輯畫面上切換語言，按一次儲存同時寫出
+# content/zh/news/... 與 content/en/news/... 兩個檔，只產生一個 commit。
+# 這樣不會出現「只有中文、還沒有英文」的空窗，網址代稱也不可能兩邊不一致。
+#
 # 欄位定義必須與 content.config.ts 的 zod schema 對得上，
 # 新增欄位時兩邊要一起改。
 
@@ -15,27 +19,33 @@ backend:
   base_url: https://widm.csie.ncu.edu.tw
   auth_endpoint: napai/auth
   commit_messages:
-    create: "content: 新增 {{collection}}「{{slug}}」"
-    update: "content: 更新 {{collection}}「{{slug}}」"
-    delete: "content: 刪除 {{collection}}「{{slug}}」"
+    create: "content: 新增消息「{{slug}}」"
+    update: "content: 更新消息「{{slug}}」"
+    delete: "content: 刪除消息「{{slug}}」"
     uploadMedia: "content: 上傳圖片 {{path}}"
     deleteMedia: "content: 刪除圖片 {{path}}"
 
 # 圖片上傳：實際存放位置 / 寫進文章的引用路徑
-# 注意：兩個 collection 底下都各自再宣告一次並加上開頭斜線，
-# 否則會退回「相對於文章」的模式，把圖片存進 content/ 並寫成沒有路徑的檔名。
+# 注意：collection 底下會再宣告一次並加上開頭斜線，否則會退回
+# 「相對於文章」的模式，把圖片存進 content/ 並寫成沒有路徑的檔名。
 media_folder: "/public/image/news"
 public_folder: "/image/news"
 
 locale: zh-TW
 
+# 語言資料夾放在 collection 路徑的最前面，對應 content/{語言}/news/...
+i18n:
+  structure: multiple_folders_i18n_root
+  locales: [zh, en]
+  default_locale: zh
+
 collections:
-  - name: news_zh
-    label: 最新消息（中文）
+  - name: news
+    label: 最新消息
     label_singular: 消息
     description: >-
-      發布後約 2–3 分鐘會自動上線。「網址代稱」請用英文小寫加連字號，
-      英文版必須使用完全相同的代稱與日期，兩邊才會配對成功。
+      發布後約 2–3 分鐘會自動上線。左上角可切換中／英文，兩種語言都填好再儲存，
+      系統會一次寫入兩個版本。
     folder: content/news
     path: "{{year}}/{{month}}/{{slug}}"
     slug: "{{fields.urlname}}"
@@ -45,6 +55,7 @@ collections:
     delete: false
     extension: md
     format: yaml-frontmatter
+    i18n: true
     # 開頭斜線＝相對於 repo 根目錄；沒有它會變成相對於文章所在資料夾
     media_folder: "/public/image/news"
     public_folder: "/image/news"
@@ -54,20 +65,25 @@ collections:
       - { label: 進行中, field: status, pattern: ongoing }
       - { label: 已結束, field: status, pattern: past }
     fields:
+      # i18n: true      = 每個語言各自填寫
+      # i18n: duplicate = 只填一次，自動同步到另一個語言（結構性欄位必須一致）
       - label: 標題
         name: title
         widget: string
-        hint: 顯示在列表與文章頁最上方
+        i18n: true
+        hint: 顯示在列表與文章頁最上方；切換語言分別填寫
 
       - label: 網址代稱
         name: urlname
         widget: string
+        i18n: duplicate
         pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號，例如 summer-camp-2026"]
-        hint: 決定文章網址與檔名，發布後請勿更改（舊連結會失效）
+        hint: 決定文章網址與檔名，中英共用；發布後請勿更改（舊連結會失效）
 
       - label: 摘要
         name: description
         widget: text
+        i18n: true
         hint: 列表卡片上顯示的簡短介紹，約一到兩句
 
       - label: 發布日期
@@ -76,6 +92,8 @@ collections:
         date_format: "YYYY-MM-DD"
         time_format: false
         picker_utc: false
+        i18n: duplicate
+        hint: 也決定檔案放在哪個年／月資料夾，中英共用
 
       - label: 最近更新
         name: updatedAt
@@ -84,12 +102,15 @@ collections:
         time_format: false
         picker_utc: false
         required: false
+        i18n: duplicate
         hint: 影片或筆記補上架時填寫，列表會依此排序讓它浮到前面
 
       - label: 分類
         name: category
         widget: select
+        i18n: true
         options: ["系列活動", "活動公告"]
+        hint: 英文版請選 Series Events／Announcements（一一對應）
 
       - label: 狀態
         name: status
@@ -99,41 +120,48 @@ collections:
           - { label: "進行中", value: ongoing }
           - { label: "已結束", value: past }
         required: false
+        i18n: duplicate
         hint: 報名中與進行中的活動，導覽員會額外把內文摘要納入回答
 
       - label: 封面圖
         name: cover
         widget: image
         required: false
+        i18n: duplicate
         hint: 建議用英文檔名，避免空格與特殊符號
 
       - label: 標籤
         name: tags
         widget: list
         required: false
+        i18n: duplicate
         hint: 一行一個，例如 SIGAgent
 
       - label: 報名／外部連結
         name: externalLink
         widget: string
         required: false
+        i18n: duplicate
 
       - label: 影片連結
         name: videos
         widget: list
         required: false
+        i18n: duplicate
         hint: YouTube 網址，一行一支，會依序顯示為 Part 1、Part 2…
 
       - label: 單支影片連結
         name: videoLink
         widget: string
         required: false
+        i18n: duplicate
         hint: 只有一支影片時可改用這欄
 
       - label: 會議筆記連結
         name: notesLink
         widget: string
         required: false
+        i18n: duplicate
 
       # 網站上顯示的字就是「置頂」，欄位名稱要跟著一致，編輯者才對得起來
       - label: 置頂
@@ -141,6 +169,7 @@ collections:
         widget: boolean
         default: false
         required: false
+        i18n: duplicate
         hint: 打開後這篇會排到消息列表最前面，並顯示「置頂」標籤
 
       - label: 草稿（不公開）
@@ -148,75 +177,10 @@ collections:
         widget: boolean
         default: false
         required: false
+        i18n: duplicate
         hint: 打開時不會出現在網站上，可先存起來之後再發布
 
       - label: 內文
         name: body
         widget: markdown
-
-  - name: news_en
-    label: 最新消息（英文版）
-    label_singular: News
-    description: >-
-      英文版必須與中文版使用「完全相同」的網址代稱與發布日期，
-      否則英文站會找不到對應文章（CI 會在配對失敗時發出通知）。
-    folder: content/en/news
-    path: "{{year}}/{{month}}/{{slug}}"
-    slug: "{{fields.urlname}}"
-    create: true
-    delete: false
-    extension: md
-    format: yaml-frontmatter
-    media_folder: "/public/image/news"
-    public_folder: "/image/news"
-    sortable_fields: [date, title]
-    fields:
-      - { label: Title, name: title, widget: string }
-      - label: 網址代稱（要與中文版相同）
-        name: urlname
-        widget: string
-        pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號"]
-        hint: 必須與中文版的網址代稱一字不差
-      - { label: Description, name: description, widget: text }
-      - label: 發布日期（要與中文版相同）
-        name: date
-        widget: datetime
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        picker_utc: false
-      - label: Last updated
-        name: updatedAt
-        widget: datetime
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        picker_utc: false
-        required: false
-      # 現有內容的分類值不一致：13 篇用 Series Events、4 篇 Announcements、
-      # 4 篇 Event Announcement。三個值都先列出來，免得編輯舊文章時值被清空。
-      # 建議擇一統一（例如把 Event Announcement 併入 Announcements）後再移除多餘選項。
-      - label: Category
-        name: category
-        widget: select
-        options: ["Series Events", "Announcements", "Event Announcement"]
-      - label: Status
-        name: status
-        widget: select
-        options:
-          - { label: "Upcoming", value: upcoming }
-          - { label: "Ongoing", value: ongoing }
-          - { label: "Past", value: past }
-        required: false
-      - { label: Cover image, name: cover, widget: image, required: false }
-      - { label: Tags, name: tags, widget: list, required: false }
-      - { label: Registration / external link, name: externalLink, widget: string, required: false }
-      - { label: Video links, name: videos, widget: list, required: false }
-      - { label: Single video link, name: videoLink, widget: string, required: false }
-      - { label: Notes link, name: notesLink, widget: string, required: false }
-      - label: Featured（置頂）
-        name: featured
-        widget: boolean
-        default: false
-        required: false
-        hint: 排到列表最前面並顯示 Featured 標籤
-      - { label: Draft (hidden), name: draft, widget: boolean, default: false, required: false }
-      - { label: Body, name: body, widget: markdown }
+        i18n: true
