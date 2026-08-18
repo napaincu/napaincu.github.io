@@ -1,0 +1,24 @@
+name: Content check
+
+# 每天定時檢查中英內容是否成對。
+#
+# 刻意不掛在 push 上：編輯後台是先發中文、再發英文，兩者之間必然有一段
+# 「只有中文」的空窗，掛在 push 會變成每發一篇文章就誤報一次——一個每次
+# 都亮紅燈的檢查，很快就會被無視，也就失去了真的漏發時提醒的作用。
+#
+# 同一天內把中英兩篇都發完就完全不會誤報；真的漏掉隔天早上就會收到通知。
+on:
+  schedule:
+    - cron: "0 1 * * *" # 每天 UTC 01:00 ＝ 台北時間 09:00
+  workflow_dispatch: # 也可以隨時手動跑一次
+
+jobs:
+  pairs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check zh/en content pairs
+        run: node scripts/check-content-pairs.mjs

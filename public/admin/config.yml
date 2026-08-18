@@ -40,6 +40,9 @@ collections:
     path: "{{year}}/{{month}}/{{slug}}"
     slug: "{{fields.urlname}}"
     create: true
+    # 不開放從後台刪除：誤刪雖然 git 救得回來，但不如一開始就擋住。
+    # 真的要刪（例如清測試文章）請用 git，或暫時把這行改成 true。
+    delete: false
     extension: md
     format: yaml-frontmatter
     # 開頭斜線＝相對於 repo 根目錄；沒有它會變成相對於文章所在資料夾
@@ -132,11 +135,13 @@ collections:
         widget: string
         required: false
 
-      - label: 設為精選
+      # 網站上顯示的字就是「置頂」，欄位名稱要跟著一致，編輯者才對得起來
+      - label: 置頂
         name: featured
         widget: boolean
         default: false
         required: false
+        hint: 打開後這篇會排到消息列表最前面，並顯示「置頂」標籤
 
       - label: 草稿（不公開）
         name: draft
@@ -159,6 +164,7 @@ collections:
     path: "{{year}}/{{month}}/{{slug}}"
     slug: "{{fields.urlname}}"
     create: true
+    delete: false
     extension: md
     format: yaml-frontmatter
     media_folder: "/public/image/news"
@@ -206,6 +212,11 @@ collections:
       - { label: Video links, name: videos, widget: list, required: false }
       - { label: Single video link, name: videoLink, widget: string, required: false }
       - { label: Notes link, name: notesLink, widget: string, required: false }
-      - { label: Featured, name: featured, widget: boolean, default: false, required: false }
+      - label: Featured（置頂）
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+        hint: 排到列表最前面並顯示 Featured 標籤
       - { label: Draft (hidden), name: draft, widget: boolean, default: false, required: false }
       - { label: Body, name: body, widget: markdown }

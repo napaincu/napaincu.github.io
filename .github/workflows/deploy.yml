@@ -12,18 +12,9 @@ permissions:
   id-token: write
 
 jobs:
-  # 中英內容配對檢查：刻意獨立成一個 job，失敗時不影響下方的部署
-  # （網站照常更新），但 commit 上會出現紅色叉並寄出通知信。
-  content-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Check zh/en content pairs
-        run: node scripts/check-content-pairs.mjs
-
+  # 中英配對檢查不放這裡：編輯後台是先發中文、再發英文，兩者之間必然有一段
+  # 「只有中文」的空窗，掛在 push 上會每發一篇就誤報一次。改成每天定時跑，
+  # 見 content-check.yml。
   build:
     runs-on: ubuntu-latest
     steps:
