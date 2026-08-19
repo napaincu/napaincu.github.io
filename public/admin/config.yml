@@ -185,3 +185,104 @@ collections:
         name: body
         widget: markdown
         i18n: true
+  - name: insights
+    label: 前沿新知
+    label_singular: 文章
+    description: >-
+      技術解讀與研究動態。請務必勾選「適合對象」，讀者會用它來篩選。
+      左上角可切換中／英文，兩種語言都填好再儲存。
+    folder: content/insights
+    create: true
+    delete: false
+    extension: md
+    format: yaml-frontmatter
+    i18n: true
+    media_folder: "/public/image/insights"
+    public_folder: "/image/insights"
+    sortable_fields: [date, title]
+    fields:
+      - label: 標題
+        name: title
+        widget: string
+        i18n: true
+
+      - label: 網址代稱
+        name: urlname
+        widget: string
+        i18n: duplicate
+        pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號，例如 vla-robot-language-models"]
+        hint: 決定文章網址與檔名，中英共用；發布後請勿更改
+
+      - label: 摘要
+        name: description
+        widget: text
+        i18n: true
+        hint: 列表上顯示的一句話說明
+
+      - label: 發布日期
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+        i18n: duplicate
+
+      - label: 最近更新
+        name: updatedAt
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+        required: false
+        i18n: duplicate
+
+      - label: 適合對象
+        name: audiences
+        widget: select
+        multiple: true
+        min: 1
+        i18n: duplicate
+        options:
+          - { label: "應用（想了解能做什麼、怎麼用）", value: application }
+          - { label: "開發（想動手實作與整合）", value: developer }
+          - { label: "研究（關注方法細節與趨勢）", value: researcher }
+        hint: 可複選；讀者會依此篩選，請至少選一個
+
+      - label: 作者
+        name: author
+        widget: string
+        required: false
+        i18n: true
+        hint: 英文版請填英文姓名
+
+      - label: 服務單位
+        name: affiliation
+        widget: string
+        required: false
+        i18n: true
+        hint: 例如「國立清華大學 資訊工程學系」
+
+      - label: 標籤
+        name: tags
+        widget: list
+        required: false
+        i18n: duplicate
+
+      - label: 置頂
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+        i18n: duplicate
+
+      - label: 草稿（不公開）
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+        i18n: duplicate
+
+      - label: 內文
+        name: body
+        widget: markdown
+        i18n: true

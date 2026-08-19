@@ -433,7 +433,8 @@
       "notion": "這裡是 Notion 課程資料庫的入口，課程筆記與教材都整理在裡面，點進去就能瀏覽。",
       "partners": "這裡列出了與 NAPAI 攜手的合作單位與競賽夥伴，點卡片可以看更多介紹。",
       "faq": "常見的疑問這裡大多有解答！點問題就會展開答案，找不到的話也可以直接問我。",
-      "contact": "想找我們的話，辦公室地址、電話和 Email 都在這張卡片上，歡迎隨時聯絡！"
+      "contact": "想找我們的話，辦公室地址、電話和 Email 都在這張卡片上，歡迎隨時聯絡！",
+      "insights": "這裡是前沿新知！技術解讀與研究動態都在這，每篇都標了適合的對象——應用、開發、研究，可以依你的身分篩選。"
     },
     "steps": {
       "greet": {
@@ -476,6 +477,37 @@
         "v2": "以上就是快速導覽！我會待在右下角，需要我再點我一下。也歡迎透過「聯絡我們」與計畫團隊聯繫，掰掰 👋",
         "v3": "任務完成 ✅ 這就是 NAPAI 的全貌了。想重看導覽就點右下角的按鈕；現在，去探索吧！"
       }
+    }
+  },
+  "insights": {
+    "pageTitle": "前沿新知",
+    "subtitle": "由計畫團隊與合作學者撰寫的技術解讀，依你的身分挑選相關主題。",
+    "sectionHeading": "前沿新知",
+    "sectionHint": "技術解讀與研究動態",
+    "viewAll": "查看全部",
+    "empty": "目前尚無文章。",
+    "loading": "載入中…",
+    "error": "內容載入失敗，請稍後再試。",
+    "notFound": "找不到這篇文章",
+    "backToList": "返回前沿新知",
+    "audienceLabel": "適合對象",
+    "filterAll": "全部",
+    "filterHint": "依身分篩選",
+    "noMatch": "沒有符合這個身分的文章。",
+    "updatedLabel": "最近更新",
+    "audiences": {
+      "application": "應用",
+      "developer": "開發",
+      "researcher": "研究"
+    },
+    "audienceDesc": {
+      "application": "想了解技術能做什麼、怎麼用",
+      "developer": "想動手實作與整合",
+      "researcher": "關注方法細節與研究趨勢"
+    },
+    "meta": {
+      "listTitle": "前沿新知",
+      "listDescription": "NAPAI 前沿新知：Agentic AI 與 Physical AI 的技術解讀與研究動態。"
     }
   }
 }

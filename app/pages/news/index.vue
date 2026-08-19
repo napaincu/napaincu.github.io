@@ -9,6 +9,52 @@
         </h1>
       </div>
 
+      <!-- 前沿新知：只露出最新一則。放在首屏內才看得到，但刻意做成單張
+           小卡、視覺量體低，不與下方消息列表搶注意力。
+           標題列與卡片各自是獨立連結（HTML 不允許連結巢狀）：
+           「查看全部」去列表頁，卡片本身去那篇文章。 -->
+      <div
+        v-if="latestInsight"
+        class="mb-10 rounded-2xl border border-teal-200 bg-teal-50/50 px-5 py-4 md:px-6"
+      >
+        <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+          <span class="inline-flex items-center gap-1.5 text-sm font-bold text-teal-800">
+            <Icon name="heroicons:light-bulb" class="h-4 w-4" />
+            {{ $t("insights.sectionHeading") }}
+          </span>
+          <NuxtLink
+            :to="localePath('/insights')"
+            class="inline-flex items-center gap-1 text-sm font-semibold text-teal-700 transition hover:text-teal-900"
+          >
+            {{ $t("insights.viewAll") }}
+            <Icon name="heroicons:arrow-right" class="h-4 w-4" />
+          </NuxtLink>
+        </div>
+
+        <NuxtLink :to="latestInsight.path" class="group mt-2 block">
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span
+              v-for="a in latestInsight.audiences"
+              :key="a"
+              class="rounded-md px-2 py-0.5 font-semibold"
+              :class="AUDIENCE_CHIP[a]"
+            >
+              {{ $t(`insights.audiences.${a}`) }}
+            </span>
+            <span class="text-slate-400">{{ formatDate(latestInsight.date) }}</span>
+          </div>
+
+          <h2
+            class="mt-1.5 text-lg font-bold leading-snug text-slate-900 transition group-hover:text-teal-800"
+          >
+            {{ latestInsight.title }}
+          </h2>
+          <p class="mt-1 line-clamp-1 text-sm text-slate-600">
+            {{ latestInsight.description }}
+          </p>
+        </NuxtLink>
+      </div>
+
       <section data-landmark="news">
         <div class="mb-6 flex items-center justify-between gap-4">
           <h2
@@ -256,7 +302,26 @@ import { computed, onMounted, ref, watch } from "vue";
 const STORAGE_KEY = "news:viewMode";
 
 const { t, locale } = useI18n();
+const localePath = useLocalePath();
 const collection = computed(() => (locale.value === "en" ? "news_en" : "news"));
+
+// --- 前沿新知：消息頁只露出最新一則，完整清單在 /insights ---
+const AUDIENCE_CHIP: Record<string, string> = {
+  application: "bg-sky-100 text-sky-800",
+  developer: "bg-violet-100 text-violet-800",
+  researcher: "bg-emerald-100 text-emerald-800",
+};
+const insightsCollection = computed(() =>
+  locale.value === "en" ? "insights_en" : "insights",
+);
+const { data: insightsData } = await useAsyncData(
+  () => `news-insights-${locale.value}`,
+  () => queryCollection(insightsCollection.value).order("date", "DESC").all(),
+  { watch: [insightsCollection] },
+);
+const latestInsight = computed(
+  () => (insightsData.value ?? []).filter((i) => !i.draft)[0] ?? null,
+);
 
 const {
   data: newsData,

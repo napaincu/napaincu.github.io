@@ -468,7 +468,8 @@
       "notion": "This is the entrance to our Notion course library, where course notes and materials are organized — click through to browse.",
       "partners": "Here are the organizations and competition partners working with NAPAI. Click a card to learn more.",
       "faq": "Most common questions are answered here! Click a question to expand the answer — and if you can't find yours, just ask me.",
-      "contact": "Want to reach us? The office address, phone, and email are all on this card. Feel free to get in touch!"
+      "contact": "Want to reach us? The office address, phone, and email are all on this card. Feel free to get in touch!",
+      "insights": "This is Frontier Insights! Technical explainers and research updates live here, each labelled by audience — applied, developer, or researcher — so you can filter by your role."
     },
     "steps": {
       "greet": {
@@ -511,6 +512,37 @@
         "v2": "And that's the quick tour! I'll be waiting in the bottom-right corner if you need me. Feel free to reach out via \"Contact\" — bye for now 👋",
         "v3": "Mission complete ✅ That's NAPAI in a nutshell. Hit the button in the bottom-right to replay the tour. Now, go explore!"
       }
+    }
+  },
+  "insights": {
+    "pageTitle": "Frontier Insights",
+    "subtitle": "Technical explainers written by the project team and collaborating researchers — pick what fits your role.",
+    "sectionHeading": "Frontier Insights",
+    "sectionHint": "Technical explainers and research updates",
+    "viewAll": "View all",
+    "empty": "No articles yet.",
+    "loading": "Loading…",
+    "error": "Failed to load content. Please try again later.",
+    "notFound": "Article not found",
+    "backToList": "Back to Frontier Insights",
+    "audienceLabel": "Written for",
+    "filterAll": "All",
+    "filterHint": "Filter by role",
+    "noMatch": "No articles for this role yet.",
+    "updatedLabel": "Updated",
+    "audiences": {
+      "application": "Applied",
+      "developer": "Developer",
+      "researcher": "Researcher"
+    },
+    "audienceDesc": {
+      "application": "What the technology can do and how to use it",
+      "developer": "Hands-on building and integration",
+      "researcher": "Method details and research directions"
+    },
+    "meta": {
+      "listTitle": "Frontier Insights",
+      "listDescription": "NAPAI Frontier Insights: technical explainers and research updates on Agentic AI and Physical AI."
     }
   }
 }

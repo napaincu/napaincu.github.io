@@ -111,6 +111,51 @@ async function collectNews() {
   return lines.join("\n");
 }
 
+
+const AUDIENCE_LABEL = {
+  application: "應用",
+  developer: "開發",
+  researcher: "研究",
+};
+
+/** 前沿新知：知識型文章，讓導覽員能回答「有沒有相關的技術解讀」 */
+async function collectInsights() {
+  const root = join(ROOT, "content/insights/zh");
+  const files = [];
+  async function walk(dir) {
+    let entries;
+    try {
+      entries = await readdir(dir, { withFileTypes: true });
+    } catch {
+      return; // 還沒有任何文章
+    }
+    for (const e of entries) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) await walk(p);
+      else if (e.name.endsWith(".md")) files.push(p);
+    }
+  }
+  await walk(root);
+
+  const lines = [];
+  for (const f of files) {
+    const { meta } = parseFrontmatter(await readFile(f, "utf8"));
+    if (meta.draft === "true" || !meta.title) continue;
+    const sitePath =
+      "/insights/" + relative(root, f).replace(/\\\\/g, "/").replace(/\\.md$/, "");
+    const who = (meta.audiences ?? "")
+      .split(/[,\\s]+/)
+      .map((a) => AUDIENCE_LABEL[a])
+      .filter(Boolean)
+      .join("、");
+    const by = [meta.author, meta.affiliation].filter(Boolean).join("，");
+    lines.push(
+      `- ${meta.title}${who ? `（適合對象：${who}）` : ""}${by ? `｜作者：${by}` : ""}：${meta.description ?? ""} 路徑：${sitePath}`,
+    );
+  }
+  return lines.join("\n");
+}
+
 const header = `NAPAI 網站知識庫（自動生成於 ${new Date().toISOString().slice(0, 10)}）
 
 計畫全名：前瞻AI人培-智慧代理及實體AI課程推動計畫（National Agentic & Physical AI Initiative, NAPAI）
@@ -124,6 +169,11 @@ Discord 社群：https://discord.gg/aatUjnEKmY
 const sections = [header];
 
 sections.push(`## 最新消息（/news）\n${await collectNews()}`);
+
+const insightLines = await collectInsights();
+if (insightLines) {
+  sections.push(`## 前沿新知（/insights）——技術解讀文章\n${insightLines}`);
+}
 
 for (const page of PAGES) {
   try {

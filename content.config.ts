@@ -47,6 +47,24 @@ const partnersSchema = z.object({
   draft: z.boolean().optional().default(false),
 });
 
+// 前沿新知：知識型長文，非時效性內容，因此不用年月資料夾
+const insightsSchema = z.object({
+  title: z.string(),
+  // 編輯後台用來決定檔名與網址；中英文兩邊必須相同
+  urlname: z.string().optional(),
+  description: z.string(),
+  date: z.string(),
+  updatedAt: z.string().optional(),
+  // 目標受眾（可複選）。存英文代碼、顯示文字放語言檔，
+  // 避免像消息分類那樣中英各自寫出不一致的字串。
+  audiences: z.array(z.enum(["application", "developer", "researcher"])).default([]),
+  author: z.string().optional(),
+  affiliation: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+  featured: z.boolean().optional().default(false),
+  draft: z.boolean().optional().default(false),
+});
+
 export default defineContentConfig({
   collections: {
     news: defineCollection({
@@ -61,6 +79,16 @@ export default defineContentConfig({
       type: "page",
       source: { include: "news/en/**/*.md", prefix: "/en/news" },
       schema: newsSchema,
+    }),
+    insights: defineCollection({
+      type: "page",
+      source: { include: "insights/zh/**/*.md", prefix: "/insights" },
+      schema: insightsSchema,
+    }),
+    insights_en: defineCollection({
+      type: "page",
+      source: { include: "insights/en/**/*.md", prefix: "/en/insights" },
+      schema: insightsSchema,
     }),
     partners: defineCollection({
       type: "page",
