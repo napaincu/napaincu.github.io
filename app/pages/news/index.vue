@@ -159,6 +159,9 @@
                 </div>
                 <NuxtLink
                   :to="resolveNewsPath(item)"
+                  :external="isDirectExternalNews(item)"
+                  :target="isDirectExternalNews(item) ? '_blank' : undefined"
+                  :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
                   class="group inline-block"
                 >
                   <h3
@@ -177,6 +180,9 @@
 
                   <NuxtLink
                     :to="resolveNewsPath(item)"
+                    :external="isDirectExternalNews(item)"
+                    :target="isDirectExternalNews(item) ? '_blank' : undefined"
+                    :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
                     class="inline-flex shrink-0 items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
                     {{ $t("news.readMore") }}
@@ -198,6 +204,9 @@
             >
               <NuxtLink
                 :to="resolveNewsPath(item)"
+                :external="isDirectExternalNews(item)"
+                :target="isDirectExternalNews(item) ? '_blank' : undefined"
+                :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
                 class="flex h-72 items-center justify-center overflow-hidden bg-slate-100"
               >
                 <img
@@ -256,6 +265,9 @@
 
                 <NuxtLink
                   :to="resolveNewsPath(item)"
+                  :external="isDirectExternalNews(item)"
+                  :target="isDirectExternalNews(item) ? '_blank' : undefined"
+                  :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
                   class="group inline-block"
                 >
                   <h3
@@ -274,6 +286,9 @@
                 <div class="mt-auto flex justify-end pt-4">
                   <NuxtLink
                     :to="resolveNewsPath(item)"
+                    :external="isDirectExternalNews(item)"
+                    :target="isDirectExternalNews(item) ? '_blank' : undefined"
+                    :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
                     class="inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
                     {{ $t("news.readMore") }}
@@ -365,10 +380,22 @@ const displayedNews = computed(() => {
   });
 });
 
+// 競賽入口消息直接導向子站；其他消息維持原本的站內詳情頁連結。
+const isDirectExternalNews = (item: {
+  urlname?: string | null;
+  externalLink?: string | null;
+}) => item.urlname === "aaic2026" && Boolean(item.externalLink?.trim());
+
 const resolveNewsPath = (item: {
   path?: string | null;
   stem?: string | null;
+  urlname?: string | null;
+  externalLink?: string | null;
 }) => {
+  if (isDirectExternalNews(item)) {
+    return item.externalLink!.trim();
+  }
+
   if (item.path && item.path.trim()) {
     return item.path;
   }

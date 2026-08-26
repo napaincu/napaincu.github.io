@@ -1,0 +1,7 @@
+# Nothing here is built, so there is very little to ignore.
+
+.DS_Store
+Thumbs.db
+
+# GitHub Actions stages the published copy here; never committed.
+/_site/
