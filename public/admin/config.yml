@@ -286,3 +286,107 @@ collections:
         name: body
         widget: markdown
         i18n: true
+  - name: faq
+    label: 常見問題
+    label_singular: 問題
+    description: >-
+      一題一筆。「顯示順序」數字小的排前面。左上角可切換中／英文，兩種語言都填好再儲存。
+    folder: content/faq
+    create: true
+    delete: false
+    extension: md
+    format: yaml-frontmatter
+    i18n: true
+    media_folder: "/public/image/faq"
+    public_folder: "/image/faq"
+    sortable_fields: [order, title]
+    fields:
+      - { label: 問題, name: title, widget: string, i18n: true }
+      - label: 代稱
+        name: urlname
+        widget: string
+        i18n: duplicate
+        pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號"]
+        hint: 只用於中英配對，不會出現在網站上；發布後請勿更改
+      - label: 顯示順序
+        name: order
+        widget: number
+        value_type: int
+        i18n: duplicate
+        hint: 數字小的排前面
+      - { label: 答案, name: answer, widget: text, i18n: true }
+      - label: 圖片
+        name: image
+        widget: image
+        required: false
+        i18n: true
+        hint: 中英文可各自使用不同的圖
+      - { label: 圖片說明文字, name: imageAlt, widget: string, required: false, i18n: true }
+      - label: 草稿（不公開）
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+        i18n: duplicate
+
+  - name: team
+    label: 計畫團隊
+    label_singular: 成員
+    description: >-
+      一位成員一筆。「所屬分區」與「顯示順序」決定他出現在頁面的哪一區、第幾個。
+      新增分區需要工程師協助（分區標題與版面排列寫在程式裡）。
+    folder: content/team
+    create: true
+    delete: false
+    extension: md
+    format: yaml-frontmatter
+    i18n: true
+    media_folder: "/public/image/team"
+    public_folder: "/image/team"
+    sortable_fields: [section, order, title]
+    view_groups:
+      - { label: 依分區, field: section }
+    fields:
+      - { label: 姓名, name: title, widget: string, i18n: true }
+      - label: 代稱
+        name: urlname
+        widget: string
+        i18n: duplicate
+        pattern: ["^[a-z0-9-]+$", "只能用英文小寫、數字與連字號，例如 zhang-ch"]
+        hint: 只用於中英配對，不會出現在網站上；發布後請勿更改
+      - label: 所屬分區
+        name: section
+        widget: select
+        i18n: duplicate
+        options:
+          - { label: "主持人與協同主持人", value: pi }
+          - { label: "SIGAgent 核心種子教師", value: sigagent }
+          - { label: "SIGRobot 核心種子教師", value: sigrobot }
+          - { label: "Agentic AI 諮詢委員", value: agenticConsultants }
+          - { label: "Robotics AI 諮詢委員", value: roboticsConsultants }
+      - label: 顯示順序
+        name: order
+        widget: number
+        value_type: int
+        i18n: duplicate
+        hint: 同一分區內，數字小的排前面
+      - { label: 職稱, name: role, widget: string, required: false, i18n: true }
+      - label: 簡介
+        name: bio
+        widget: text
+        required: false
+        i18n: true
+        hint: 研究專長等，約一到兩句
+      - label: 照片
+        name: image
+        widget: image
+        required: false
+        i18n: duplicate
+        hint: 建議用英文檔名，避免空格與特殊符號
+      - { label: 個人網頁, name: link, widget: string, required: false, i18n: duplicate }
+      - label: 草稿（不顯示）
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+        i18n: duplicate

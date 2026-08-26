@@ -17,6 +17,8 @@ const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const PAIRS = [
   { label: "最新消息", zh: "content/news/zh", en: "content/news/en" },
   { label: "前沿新知", zh: "content/insights/zh", en: "content/insights/en" },
+  { label: "常見問題", zh: "content/faq/zh", en: "content/faq/en" },
+  { label: "計畫團隊", zh: "content/team/zh", en: "content/team/en" },
   { label: "合作夥伴", zh: "content/partners", en: "content/en/partners" },
 ];
 

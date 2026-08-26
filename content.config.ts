@@ -65,6 +65,37 @@ const insightsSchema = z.object({
   draft: z.boolean().optional().default(false),
 });
 
+// 常見問題：一題一個檔，body 是答案。沒有獨立網址，urlname 只用於中英配對。
+const faqSchema = z.object({
+  title: z.string(), // 問題
+  answer: z.string(),
+  urlname: z.string().optional(),
+  order: z.number().default(0),
+  image: z.string().optional(),
+  imageAlt: z.string().optional(),
+  draft: z.boolean().optional().default(false),
+});
+
+// 計畫團隊：一位成員一個檔。分區（section）與版面排列仍在 app/pages/team.vue，
+// 因為那屬於版面結構；後台只管成員資料與同一區內的排序。
+const teamSchema = z.object({
+  title: z.string(), // 姓名
+  urlname: z.string().optional(),
+  section: z.enum([
+    "pi",
+    "sigagent",
+    "sigrobot",
+    "agenticConsultants",
+    "roboticsConsultants",
+  ]),
+  order: z.number().default(0),
+  role: z.string().optional(),        // 職稱
+  bio: z.string().optional(),         // 簡介
+  image: z.string().optional(),
+  link: z.string().optional(),
+  draft: z.boolean().optional().default(false),
+});
+
 export default defineContentConfig({
   collections: {
     news: defineCollection({
@@ -89,6 +120,26 @@ export default defineContentConfig({
       type: "page",
       source: { include: "insights/en/**/*.md", prefix: "/en/insights" },
       schema: insightsSchema,
+    }),
+    faq: defineCollection({
+      type: "page",
+      source: { include: "faq/zh/**/*.md" },
+      schema: faqSchema,
+    }),
+    faq_en: defineCollection({
+      type: "page",
+      source: { include: "faq/en/**/*.md" },
+      schema: faqSchema,
+    }),
+    team: defineCollection({
+      type: "page",
+      source: { include: "team/zh/**/*.md" },
+      schema: teamSchema,
+    }),
+    team_en: defineCollection({
+      type: "page",
+      source: { include: "team/en/**/*.md" },
+      schema: teamSchema,
     }),
     partners: defineCollection({
       type: "page",

@@ -17,7 +17,7 @@
       <div data-landmark="faq" class="space-y-4">
         <div
           v-for="(item, index) in faqItems"
-          :key="index"
+          :key="item.urlname ?? index"
           class="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl shadow-md border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300"
         >
           <!-- Question Header -->
@@ -43,7 +43,7 @@
                 class="text-lg font-bold text-slate-800 pt-1 leading-relaxed"
                 :class="{ 'text-[#004d80]': isOpen(index) }"
               >
-                {{ item.question }}
+                {{ item.title }}
               </h3>
             </div>
             <!-- Chevron Icon -->
@@ -166,39 +166,26 @@ import { computed, ref } from "vue";
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
 
-// 英文介面時改用 _英文版 圖片（檔案放在同資料夾）
-const localizedImage = (path: string) =>
-  locale.value === "en" ? path.replace(/(\.\w+)$/, "_英文版$1") : path;
+const collection = computed(() => (locale.value === "en" ? "faq_en" : "faq"));
+
+const { data: faqData } = await useAsyncData(
+  () => `faq-${locale.value}`,
+  () => queryCollection(collection.value).all(),
+  { watch: [collection] },
+);
+
+const faqItems = computed(() =>
+  (faqData.value ?? [])
+    .filter((i) => !i.draft)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
+);
 
 useSeoMeta({
   title: () => t("faq.meta.title"),
   description: () => t("faq.meta.description"),
 });
 
-const openItems = ref<number[]>([0]); // 默認展開第一個問題
-
-const faqItems = computed(() => [
-  {
-    question: t("faq.items.q1.question"),
-    answer: t("faq.items.q1.answer"),
-  },
-  {
-    question: t("faq.items.q2.question"),
-    answer: t("faq.items.q2.answer"),
-  },
-  {
-    question: t("faq.items.q3.question"),
-    answer: t("faq.items.q3.answer"),
-    image: localizedImage("/image/faq/讀書會期程規劃.png"),
-    imageAlt: t("faq.items.q3.imageAlt"),
-  },
-  {
-    question: t("faq.items.q4.question"),
-    answer: t("faq.items.q4.answer"),
-    image: localizedImage("/image/faq/讀書會的預期成果.png"),
-    imageAlt: t("faq.items.q4.imageAlt"),
-  },
-]);
+const openItems = ref<number[]>([0]); // 預設展開第一題
 
 const toggleItem = (index: number) => {
   const itemIndex = openItems.value.indexOf(index);
