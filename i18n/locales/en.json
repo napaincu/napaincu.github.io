@@ -2,6 +2,7 @@
   "common": {
     "loading": "Loading...",
     "readMore": "Read more",
+    "facebookPage": "Facebook Page",
     "switchLanguage": "Switch language",
     "youtubeChannel": "YouTube Channel"
   },
@@ -103,7 +104,9 @@
     "physicalModule": "Physical AI Course Modules",
     "resourceLib": "Course Resource Library",
     "relatedResources": "Related Resources",
-    "building": "Under construction"
+    "building": "Under construction",
+    "sigrobotSeries": "SIGRobot Study Group Notes",
+    "communityIntro": "Join the community for full course materials and real-time discussion."
   },
   "contact": {
     "meta": {

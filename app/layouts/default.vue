@@ -45,12 +45,24 @@
               </NuxtLink>
             </div>
 
+            <!-- Facebook Page (Desktop) -->
+            <a
+              href="https://www.facebook.com/profile.php?id=61587137796896"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ml-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-blue-200 hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              :aria-label="$t('common.facebookPage')"
+              :title="$t('common.facebookPage')"
+            >
+              <Icon name="simple-icons:facebook" class="h-5 w-5" />
+            </a>
+
             <!-- YouTube Channel (Desktop) -->
             <a
               href="https://www.youtube.com/@NAPAI-b1g"
               target="_blank"
               rel="noopener noreferrer"
-              class="ml-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-red-200 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+              class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-red-200 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
               :aria-label="$t('common.youtubeChannel')"
               :title="$t('common.youtubeChannel')"
             >
@@ -330,7 +342,9 @@ const navItems = computed(() => [
   { name: t("nav.news"), to: "/news", tour: "news" },
   { name: t("nav.team"), to: "/team", tour: "team" },
   { name: t("nav.curriculum"), to: "/curriculum", tour: "curriculum" },
-  { name: t("nav.community"), to: "/community", tour: "community" },
+  // 「社群與活動」暫時從導覽列下架（2026-09-07），/community 頁面與翻譯字串都保留，
+  // 之後要復原只要把這一行的註解拿掉即可
+  // { name: t("nav.community"), to: "/community", tour: "community" },
   { name: t("nav.partners"), to: "/partners", tour: "partners" },
   { name: t("nav.faq"), to: "/faq", tour: "faq" },
   { name: t("nav.contact"), to: "/contact", tour: "contact" },
