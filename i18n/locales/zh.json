@@ -227,7 +227,9 @@
       "upcoming": "即將開始",
       "ongoing": "進行中",
       "past": "已結束"
-    }
+    },
+    "eventInfo": "活動資訊",
+    "moreNews": "其他消息"
   },
   "guide": {
     "name": "NAPAI 導覽員",
@@ -349,6 +351,9 @@
     "meta": {
       "listTitle": "前沿新知",
       "listDescription": "NAPAI 前沿新知：Agentic AI 與 Physical AI 的技術解讀與研究動態。"
-    }
+    },
+    "toc": "本文目錄",
+    "related": "相關文章",
+    "authorLabel": "作者"
   }
 }

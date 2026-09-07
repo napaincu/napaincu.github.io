@@ -227,7 +227,9 @@
       "upcoming": "Upcoming",
       "ongoing": "Ongoing",
       "past": "Past"
-    }
+    },
+    "eventInfo": "Event info",
+    "moreNews": "More news"
   },
   "guide": {
     "name": "NAPAI Guide",
@@ -349,6 +351,9 @@
     "meta": {
       "listTitle": "Frontier Insights",
       "listDescription": "NAPAI Frontier Insights: technical explainers and research updates on Agentic AI and Physical AI."
-    }
+    },
+    "toc": "On this page",
+    "related": "Related articles",
+    "authorLabel": "Author"
   }
 }

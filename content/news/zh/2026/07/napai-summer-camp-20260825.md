@@ -12,7 +12,7 @@ tags:
   - 機器人
   - ROS2
   - 活動公告
-featured: true
+featured: false
 draft: false
 ---
 

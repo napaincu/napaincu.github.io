@@ -12,7 +12,7 @@ tags:
   - Robotics
   - ROS2
   - Event Announcement
-featured: true
+featured: false
 draft: false
 ---
 

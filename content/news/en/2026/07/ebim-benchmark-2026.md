@@ -11,7 +11,7 @@ tags:
   - International Competition
   - Robotics
   - Embodied AI
-featured: true
+featured: false
 draft: false
 ---
 

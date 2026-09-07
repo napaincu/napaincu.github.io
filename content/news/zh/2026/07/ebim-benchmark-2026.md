@@ -11,7 +11,7 @@ tags:
   - 國際比賽
   - 機器人
   - Embodied AI
-featured: true
+featured: false
 draft: false
 ---
 
