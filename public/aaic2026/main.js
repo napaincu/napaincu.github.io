@@ -82,29 +82,63 @@
 
   /* ---------- schedule rail progress ---------- */
 
-  // Marks every stage already past, highlights the next one, and stretches the
-  // lime overlay to the last past dot. Column i of n is centred at
-  // (i + 0.5) / n, so the line stops exactly under that dot. Without this the
-  // rail still renders — just entirely grey, which is what it looks like
-  // before the first milestone anyway.
+  // Marks every stage already past, highlights the next one, and moves the
+  // lime overlay continuously between milestone dots according to the current
+  // date. Using the rendered dot positions keeps the progress aligned even
+  // though the desktop rail intentionally leaves a little room at the end.
   var rail = document.querySelector(".rail");
   if (rail) {
-    var stages = rail.querySelectorAll("article[data-date]");
-    var now = Date.now();
-    var passed = -1;
-    stages.forEach(function (stage, i) {
-      // End of that day in Taipei: a deadline dated today has not passed yet.
-      var due = new Date(stage.dataset.date + "T23:59:59+08:00").getTime();
-      if (due <= now) {
-        stage.classList.add("done");
-        passed = i;
-      } else if (passed === i - 1) {
-        stage.classList.add("next"); // the first stage still ahead
+    var stages = Array.prototype.slice.call(rail.querySelectorAll("article[data-date]"));
+    var updateRailProgress = function () {
+      if (!stages.length) return;
+
+      var now = Date.now();
+      var dates = stages.map(function (stage) {
+        // End of that day in Taipei: a deadline dated today has not passed yet.
+        return new Date(stage.dataset.date + "T23:59:59+08:00").getTime();
+      });
+      var passed = -1;
+
+      stages.forEach(function (stage, i) {
+        stage.classList.remove("done", "next");
+        if (dates[i] <= now) {
+          stage.classList.add("done");
+          passed = i;
+        } else if (passed === i - 1) {
+          stage.classList.add("next"); // the first stage still ahead
+        }
+      });
+
+      var railRect = rail.getBoundingClientRect();
+      var centers = stages.map(function (stage) {
+        var dot = stage.querySelector(".dot").getBoundingClientRect();
+        return dot.left + dot.width / 2 - railRect.left;
+      });
+      var progressPx = 0;
+
+      if (now >= dates[dates.length - 1]) {
+        progressPx = centers[centers.length - 1];
+      } else if (now > dates[0]) {
+        for (var i = 0; i < dates.length - 1; i += 1) {
+          if (now <= dates[i + 1]) {
+            var span = dates[i + 1] - dates[i];
+            var ratio = span ? (now - dates[i]) / span : 0;
+            ratio = Math.max(0, Math.min(1, ratio));
+            progressPx = centers[i] + (centers[i + 1] - centers[i]) * ratio;
+            break;
+          }
+        }
+      } else if (passed >= 0) {
+        progressPx = centers[passed];
       }
-    });
-    if (passed >= 0 && stages.length) {
-      rail.style.setProperty("--progress", ((passed + 0.5) / stages.length) * 100 + "%");
-    }
+
+      var progress = railRect.width ? (progressPx / railRect.width) * 100 : 0;
+      rail.style.setProperty("--progress", Math.max(0, Math.min(100, progress)) + "%");
+    };
+
+    updateRailProgress();
+    window.addEventListener("resize", updateRailProgress, { passive: true });
+    window.setInterval(updateRailProgress, 60000);
   }
 
   /* ---------- scroll reveal ---------- */

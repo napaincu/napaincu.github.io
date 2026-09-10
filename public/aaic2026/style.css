@@ -427,8 +427,8 @@ nav a.active { opacity: 1; color: var(--lime); }
 /* Horizontal milestone rail for the competition schedule. Each stage is one
    grid column: the label sits in a fixed-height first row so every dot lands
    on the same line, and the line itself is drawn on the container — a grey
-   full-width rule with a lime overlay whose width main.js sets to the last
-   stage already past. Falls back to a plain stacked list under 900px. */
+   full-width rule with a lime overlay whose width main.js sets between dates.
+   Falls back to a plain stacked list under 900px. */
 .rail { --rail-y: 140px; --dot: 24px; --bar: 6px; position: relative; max-width: 1560px; margin: 58px auto 12px; display: grid; grid-template-columns: repeat(7, 1fr); }
 .rail::before, .rail::after { content: ""; position: absolute; left: 0; top: var(--rail-y); height: var(--bar); border-radius: var(--bar); }
 .rail::before { right: 0; background: var(--rail-dim); opacity: .75; }
