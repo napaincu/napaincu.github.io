@@ -12,7 +12,7 @@ tags:
   - Imitation Learning
   - Robotics
   - Event Announcement
-featured: true
+featured: false
 draft: false
 ---
 

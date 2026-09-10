@@ -12,7 +12,7 @@ tags:
   - NVIDIA Isaac
   - Robotics
   - Event Announcement
-featured: true
+featured: false
 draft: false
 ---
 

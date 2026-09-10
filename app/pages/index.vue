@@ -1,5 +1,8 @@
 <template>
   <div class="overflow-x-hidden">
+    <!-- 前沿新知跑馬燈（最新一則），夾在導覽列與輪播器之間 -->
+    <InsightsMarquee />
+
     <!-- Hero Carousel -->
     <HeroCarousel />
 

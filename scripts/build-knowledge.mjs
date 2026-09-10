@@ -24,7 +24,9 @@ const PAGES = [
   { path: "contact/index.html", label: "聯絡我們 (/contact)", budget: 800 },
 ];
 
-const NEWS_LIMIT = 12; // 最新 N 則消息
+// 消息全數收錄：整份 news 區塊也才數千字元，沒必要為了 context 預算漏掉舊活動
+// （上限只是防呆，避免哪天消息暴增到塞爆模型 context）
+const NEWS_LIMIT = 200;
 const NEWS_BODY_EXCERPT = 600; // 進行中/即將開始的消息附上內文摘要
 
 function htmlToText(html) {
@@ -57,9 +59,18 @@ function parseFrontmatter(md) {
   const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(md);
   if (!m) return { meta: {}, body: md };
   const meta = {};
+  let listKey = null; // 目前正在收集的 YAML 區塊清單（audiences、tags 等寫成多行 "- 項目"）
   for (const line of m[1].split(/\r?\n/)) {
+    const item = /^\s+-\s+(.*)$/.exec(line);
+    if (listKey && item) {
+      const v = item[1].trim().replace(/^["']|["']$/g, "");
+      meta[listKey] = meta[listKey] ? `${meta[listKey]}, ${v}` : v;
+      continue;
+    }
     const kv = /^([A-Za-z][\w]*):\s*(.*)$/.exec(line);
-    if (kv) meta[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, "");
+    if (!kv) continue;
+    meta[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, "");
+    listKey = meta[kv[1]] === "" ? kv[1] : null;
   }
   return { meta, body: m[2] };
 }
@@ -137,14 +148,23 @@ async function collectInsights() {
   }
   await walk(root);
 
-  const lines = [];
+  // 新的在前，與 /insights 頁面的排序一致
+  const articles = [];
   for (const f of files) {
     const { meta } = parseFrontmatter(await readFile(f, "utf8"));
     if (meta.draft === "true" || !meta.title) continue;
+    articles.push({ meta, f });
+  }
+  articles.sort((a, b) =>
+    (b.meta.date ?? "").localeCompare(a.meta.date ?? ""),
+  );
+
+  const lines = [];
+  for (const { meta, f } of articles) {
     const sitePath =
-      "/insights/" + relative(root, f).replace(/\\\\/g, "/").replace(/\\.md$/, "");
+      "/insights/" + relative(root, f).replace(/\\/g, "/").replace(/\.md$/, "");
     const who = (meta.audiences ?? "")
-      .split(/[,\\s]+/)
+      .split(/[,\s]+/)
       .map((a) => AUDIENCE_LABEL[a])
       .filter(Boolean)
       .join("、");

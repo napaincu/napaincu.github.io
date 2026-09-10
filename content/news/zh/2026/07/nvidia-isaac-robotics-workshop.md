@@ -12,7 +12,7 @@ tags:
   - NVIDIA Isaac
   - 機器人
   - 活動公告
-featured: true
+featured: false
 draft: false
 ---
 
