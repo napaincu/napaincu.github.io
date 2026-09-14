@@ -16,7 +16,7 @@ externalLink: https://forms.gle/erxxnXFi9TkyxbAs8
 videos: []
 videoLink: ''
 notesLink: ''
-featured: false
+featured: true
 draft: false
 ---
 
