@@ -3,15 +3,20 @@ title: NAPAI SIGRobot Study Group — Registration Open
 urlname: napai-sigrobot-study-group
 description: This is the NAPAI SIGRobot study group lecture series. Please fill out the registration form to join.
 date: 2026-03-09
+updatedAt: ''
 category: Announcements
-cover: /image/news/NAPAI_SIGRobot.png
-featured: false
 status: upcoming
-externalLink: https://forms.gle/4YkjiiyRtsKeZUU96
+cover: /image/news/NAPAI_SIGRobot.png
 tags:
   - SIGRobot
-  - Study Group
-  - Physical AI
+  - 讀書會
+  - 實體AI
+externalLink: https://forms.gle/4YkjiiyRtsKeZUU96
+videos: []
+videoLink: ''
+notesLink: ''
+featured: false
+draft: false
 ---
 
 Registration for the NAPAI SIGRobot study group is now officially open. Teachers, students, and researchers interested in robotics, digital twins, and Physical AI are welcome to join.
