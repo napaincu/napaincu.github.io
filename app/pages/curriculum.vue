@@ -92,32 +92,44 @@
             {{ $t("curriculum.intro") }}
           </p>
 
-          <h3 class="text-lg font-semibold text-slate-800 mb-3">
-            {{ $t("curriculum.sigrobotSeries") }}
-          </h3>
-          <ul class="space-y-2">
-            <li v-for="session in sigrobotSessions" :key="session.no">
-              <a
-                :href="session.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group flex items-center gap-3 rounded-xl border border-slate-200 px-4 py-3 transition hover:border-blue-300 hover:bg-blue-50/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-              >
-                <span
-                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#004d80] text-sm font-bold text-white"
+          <div
+            v-for="(group, groupIndex) in resourceGroups"
+            :key="group.title"
+            :class="groupIndex > 0 ? 'mt-8' : ''"
+          >
+            <h3 class="text-lg font-semibold text-slate-800 mb-3">
+              {{ group.title }}
+            </h3>
+            <ul class="space-y-2">
+              <li v-for="entry in group.items" :key="entry.url">
+                <a
+                  :href="entry.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center gap-3 rounded-xl border border-slate-200 px-4 py-3 transition hover:border-blue-300 hover:bg-blue-50/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
-                  {{ session.no }}
-                </span>
-                <span class="flex-1 text-slate-700 group-hover:text-[#004d80]">
-                  NAPAI SIGRobot #{{ session.no }}｜{{ session.topic }}
-                </span>
-                <Icon
-                  name="heroicons:arrow-top-right-on-square"
-                  class="h-5 w-5 shrink-0 text-slate-400 group-hover:text-blue-600"
-                />
-              </a>
-            </li>
-          </ul>
+                  <span
+                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#004d80] text-sm font-bold text-white"
+                  >
+                    <!-- 讀書會有場次編號，工作坊沒有，就用圖示佔同樣的位置 -->
+                    <template v-if="entry.no">{{ entry.no }}</template>
+                    <Icon
+                      v-else
+                      name="heroicons:academic-cap"
+                      class="h-4 w-4"
+                    />
+                  </span>
+                  <span class="flex-1 text-slate-700 group-hover:text-[#004d80]">
+                    {{ entry.label }}
+                  </span>
+                  <Icon
+                    name="heroicons:arrow-top-right-on-square"
+                    class="h-5 w-5 shrink-0 text-slate-400 group-hover:text-blue-600"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section
@@ -169,7 +181,20 @@ import { onBeforeUnmount } from "vue";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.css";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
+
+// 2026 暑期工作坊
+const summerWorkshops = [
+  {
+    label:
+      "2026 Summer Camp: Deploying Imitation Learning across Virtual and Physical Platforms: A Guided Guide to Data Collection and Testing",
+    url: "https://app.notion.com/p/2026-Summer-Camp_Deploying-Imitation-Learning-across-Virtual-and-Physical-Platforms-A-Guided-Guide--3bce05e67dac80bb9e7ff3d67befa334",
+  },
+  {
+    label: "2026 Summer Camp: Wildbot Workshop",
+    url: "https://app.notion.com/p/2026-Summer-Camp_Wildbot-3d5e05e67dac80fc8593db69a09732e4",
+  },
+];
 
 // SIGRobot 讀書會各場次的 Notion 共筆（標題用演講主題，與 /news 的消息稿一致）
 const sigrobotSessions = [
@@ -200,10 +225,76 @@ const sigrobotSessions = [
   },
   {
     no: 6,
-    topic: "Learning and Planning to Act",
+    topic: "Learning and Planning to Act in a Physical World",
     url: "https://app.notion.com/p/NAPAI-SIGRobot-6_2026-6-11-37ae05e67dac80228e6feb06e03cae7c",
   },
 ];
+
+// SIGAgent 讀書會。第 3、4 場的主題中英文不同，另外記 topicEn；
+// 其餘各場中英一致，就只留 topic
+const sigagentSessions = [
+  {
+    no: 1,
+    topic: "Building Agentic AI RAG Systems",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-1_Building-Agentic-AI-RAG-Systems-with-Memory-Architectures-and-Context-Engineering-33be05e67dac8086b326fba8e6cca243",
+  },
+  {
+    no: 2,
+    topic: "Writing is Coding",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-2_Writing-is-Coding-AI-343e05e67dac803a9305d56e6d50f139",
+  },
+  {
+    no: 3,
+    topic: "機器學習初探",
+    topicEn: "Machine Learning: An Introduction",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-3_-352e05e67dac808aac4ddaa1e9f8b293",
+  },
+  {
+    no: 4,
+    topic: "用 MCP 打造大學智慧問答 Agent",
+    topicEn: "Building a Campus Q&A Agent with MCP",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-4_MCP-LLM-MCP-364e05e67dac80e3be0ffaa1afdf089c",
+  },
+  {
+    no: 5,
+    topic: "Human-AI Collaboration",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-5_Human-AI-Collaboration-HRI-AIMR-AI-373e05e67dac8076b014f405fa368626",
+  },
+  {
+    no: 6,
+    topic: "How Language Enables Thinking and Coordination",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-6_-Agent-Agentic-AI-37ce05e67dac8044baafc600a4b2c13b",
+  },
+  {
+    no: 7,
+    topic: "AI Governance and Sustainable AI",
+    url: "https://app.notion.com/p/NAPAI-SIGAgent-7_AI-Governance-AI-382e05e67dac80968293e7e3aabba86e",
+  },
+];
+
+// 課程資源庫的分區與排序：暑期工作坊 → SIGRobot → SIGAgent
+const resourceGroups = computed(() => [
+  {
+    title: t("curriculum.summerWorkshops"),
+    items: summerWorkshops,
+  },
+  {
+    title: t("curriculum.sigrobotSeries"),
+    items: sigrobotSessions.map((s) => ({
+      ...s,
+      label: `NAPAI SIGRobot #${s.no}｜${s.topic}`,
+    })),
+  },
+  {
+    title: t("curriculum.sigagentSeries"),
+    items: sigagentSessions.map((s) => ({
+      ...s,
+      label: `NAPAI SIGAgent #${s.no}｜${
+        locale.value === "en" && s.topicEn ? s.topicEn : s.topic
+      }`,
+    })),
+  },
+]);
 
 // 沿用 community.* 的翻譯字串，/community 之後若復原，兩邊文案不會走鐘
 const communityLinks = [

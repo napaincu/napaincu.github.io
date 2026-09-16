@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // 互動問答中繼後端（實驗室 widm 機台的 Nginx 轉發路徑，見 llm-server/README.md）
+      // 網站走 HTTPS，這裡也必須是 https，否則會被瀏覽器當 mixed content 擋掉
       // 留空字串 = 隱藏互動問答模式，導覽員只保留劇本式導覽
       chatApi: "https://widm.csie.ncu.edu.tw/napai",
     },

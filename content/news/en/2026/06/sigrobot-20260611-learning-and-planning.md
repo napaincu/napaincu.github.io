@@ -1,5 +1,5 @@
 ---
-title: NAPAI SIGRobot 6 | Learning and Planning to Act
+title: NAPAI SIGRobot 6 | Learning and Planning to Act in a Physical World
 urlname: sigrobot-20260611-learning-and-planning
 description: NAPAI SIGRobot 6 shares how to give robots the ability to learn and plan to act in the physical world.
 date: 2026-06-11
