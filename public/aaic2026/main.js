@@ -175,7 +175,7 @@
       // Fires when a section crosses the middle band of the viewport.
       { rootMargin: "-45% 0px -45% 0px" }
     );
-    ["about", "challenge", "criteria", "awards", "timeline", "faq"].forEach(function (id) {
+    ["about", "challenge", "criteria", "awards", "timeline", "workshop", "faq"].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });

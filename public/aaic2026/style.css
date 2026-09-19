@@ -444,6 +444,30 @@ nav a.active { opacity: 1; color: var(--lime); }
 .rail .next h3, .rail .next time { font-weight: 800; }
 .rail small { margin-top: 9px; font-size: 14px; line-height: 1.6; color: var(--muted); }
 
+/* WORKSHOP RECAP / completed briefing resources */
+.workshop-recap { background: var(--surface-alt); }
+.workshop-heading { display: grid; grid-template-columns: .9fr 1.1fr; gap: 10vw; align-items: end; margin: 48px 0 36px; }
+.workshop-heading > div { max-width: 650px; }
+.workshop-kicker { color: var(--accent-text); font: 13.5px monospace; letter-spacing: .1em; margin: 0 0 18px; text-transform: uppercase; }
+.workshop-heading h2 { margin: 0; }
+.workshop-heading > p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.9; }
+.workshop-facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.workshop-fact { min-height: 184px; padding: 28px 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; }
+.workshop-fact-label, .workshop-resource-label { color: var(--accent-text); font: 13px monospace; letter-spacing: .1em; margin: 0 0 18px; }
+.workshop-fact time, .workshop-fact address, .workshop-fact a { display: block; margin-top: auto; font-size: clamp(17px, 1.6vw, 23px); line-height: 1.55; }
+.workshop-fact address { color: var(--ink); font-style: normal; }
+.workshop-fact a { color: var(--accent-text); font-weight: 700; transition: color .2s ease; }
+.workshop-fact a:hover { color: var(--ink); }
+.workshop-fact a span { font-size: .75em; margin-left: 5px; }
+.workshop-resources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 22px; }
+.workshop-resource { min-height: 246px; padding: 32px 30px; border: 1px solid var(--line); display: flex; flex-direction: column; transition: background .3s ease, transform .3s ease; }
+.workshop-resource:hover { background: var(--card-hover); transform: translateY(-2px); }
+.workshop-resource-label { margin-bottom: 0; }
+.workshop-resource h3 { margin: 22px 0 12px; font-size: 24px; letter-spacing: -.02em; }
+.workshop-resource p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.workshop-status { align-self: flex-start; margin-top: auto; padding: 8px 14px; border: 1px dashed var(--line); border-radius: 30px; color: var(--muted); font-size: 13px; }
+.lang-zh .workshop-resource h3 { letter-spacing: 0; }
+
 .venue { display: grid; grid-template-columns: 1fr 1fr; min-height: 720px; background: #133328; color: white; }
 .venue-visual { min-height: 720px; overflow: hidden; position: relative; background: radial-gradient(circle at 40% 45%, rgba(190,255,113,.42), transparent 9%), radial-gradient(circle at 50% 55%, #5d9a72, #1c4736 42%, #0d251c 70%); }
 .venue-visual:before, .venue-visual:after { content: ""; position: absolute; inset: 12%; border: 1px solid rgba(205,255,140,.28); border-radius: 50%; transform: rotate(24deg); }
@@ -587,9 +611,9 @@ footer a:hover { color: white; }
 .lang-zh .awards-head h2 { letter-spacing: -.008em; }
 .lang-zh .award h3 { letter-spacing: 0; }
 
-/* Six nav items + CTA get tight before the mobile menu takes over at 900px. */
+/* Eight nav items + CTA get tight before the mobile menu takes over at 900px. */
 @media (max-width: 1180px) and (min-width: 901px) {
-  nav { gap: 18px; font-size: 14px; }
+  nav { gap: 14px; font-size: 13.5px; }
   .nav-cta { padding: 12px 13px; }
   /* Seven rail columns narrow to ~120px here, so the labels drop a size to
      keep every stage name inside the fixed label row. */
@@ -625,7 +649,8 @@ footer a:hover { color: white; }
   .countdown { width: 100%; justify-content: space-between; gap: 10px; }
   .count strong { font-size: 32px; }
   .section { padding: 62px 5vw; }
-  .section-heading, .audience-layout, .timeline-heading, .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+  .section-heading, .audience-layout, .timeline-heading, .workshop-heading, .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+  .workshop-facts, .workshop-resources { grid-template-columns: 1fr; }
   .value-grid { grid-template-columns: 1fr 1fr; }
   .challenge-specs { grid-template-columns: 1fr; gap: 0; }
   .challenge-spec + .challenge-spec { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-top: 26px; margin-top: 26px; }
@@ -669,6 +694,7 @@ footer a:hover { color: white; }
   .abilities h3 { font-size: 19px; }
   .award { padding: 30px 24px; }
   .award h3 { font-size: 21px; }
+  .workshop-fact, .workshop-resource { padding-left: 24px; padding-right: 24px; }
   .audience-list > div { grid-template-columns: 56px 1fr; }
   .audience-list b { font-size: 18px; }
   .tech-strip { grid-template-columns: 1fr; gap: 18px; }
