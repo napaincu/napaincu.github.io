@@ -5,7 +5,7 @@ description: NAPAI Agentic AI校園落地創新競賽將於2026/9/18舉辦實體
 date: 2026-09-15
 updatedAt: 2026-09-15
 category: 活動公告
-status: upcoming
+status: past
 cover: /image/news/說明會圖卡.png
 tags:
   - Agentic AI
@@ -13,9 +13,11 @@ tags:
   - Innovation Competition
   - Campus Applications
 externalLink: https://meet.google.com/paj-zhhj-mya
-videos: []
+videos:
+  - https://www.youtube.com/watch?v=XHkqU-40zY4&list=PLb6cpTUYlFPc&index=1
+  - https://www.youtube.com/watch?v=JoNXVLeQC8g&list=PLb6cpTUYlFPc&index=2
 videoLink: ''
-notesLink: ''
+notesLink: https://app.notion.com/p/NAPAI-2026-Agentic-AI-3e2e05e67dac805a9e74f0b2cbf977f3?source=copy_link
 featured: false
 draft: false
 ---
@@ -26,12 +28,8 @@ draft: false
 
 📅 【說明會時間】2026 年 9 月 18 日(五)14:00 - 16:00
 
-📍 【說明會地點(實體與線上同步)】
+📍 【說明會地點】國立臺北大學三峽校區商學大樓 3F13 階梯教室
 
-- 會議地點：國立臺北大學三峽校區商學大樓 3F13 階梯教室
-- Google Meet：[https://meet.google.com/paj-zhhj-mya](https://meet.google.com/paj-zhhj-mya?fbclid=IwcGRvZgFleHRuA2FlbQIxMABicmlkETFUQnBLY1VLZWZvWXRiMTI5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHr6kl3s7Kzy-kGwgb2nhDiHCVMyVY-gV2TrIMcc_8nduZB2rlHHMqdkUlX32_aem_sm4cobDeThOF3KAU1DvUDg)
+🔗競賽網站：[https://napaincu.github.io/aaic2026/](https://l.facebook.com/l.php?u=https%3A%2F%2Fnapaincu.github.io%2Faaic2026%2F%3Ffbclid%3DIwcGRvZgFleHRuA2FlbQIxMABicmlkETFUQnBLY1VLZWZvWXRiMTI5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHrHW8tyxZXqufV43V8P4azWx_GwzPxfq7aDmrfOZ87-6lh0yt_VYi4Wp2Hcr_aem_eVJyW39hl5wA5k_1mNATEw&h=AUDT2sufd8Rm_5XAw2GULwQF44lqPDZyIn9hBrbxbXo8snnde0ZJfz-fZ7e5cZyEaEDkC1wzCZp4gt49m2mdwp_-8CB-Fl6q02o-VnnHEQIy9ivRWmAc5TtTOeWzdW6zRjar6L_jcsqsUmnRjg&__tn__=-UK-R&c[0]=AUCxvyY2QXgSvrevavrDq0uxtj19Zm5kF5DGp5VWCUBNcEpFzd7g018tRKcMUmakGl2pTLbsUoiAkuErKu_kerlqjN2jAeMLa9K3a66TUeVAYEiSQd3LjROcnTdIfbInIQ0qeOJn5YalXPOd47EsNpBqw44x0E3fRKfaWxIbNbI681XUyyDFtPKMsq2sgppXKvmizcSJH4HNvkdL-Uf1d70Uy9Yypg)
 
-🔗 【說明會報名】請至競賽平台登入報名
-
-- 競賽網站：[https://napaincu.github.io/aaic2026/](https://l.facebook.com/l.php?u=https%3A%2F%2Fnapaincu.github.io%2Faaic2026%2F%3Ffbclid%3DIwcGRvZgFleHRuA2FlbQIxMABicmlkETFUQnBLY1VLZWZvWXRiMTI5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHrHW8tyxZXqufV43V8P4azWx_GwzPxfq7aDmrfOZ87-6lh0yt_VYi4Wp2Hcr_aem_eVJyW39hl5wA5k_1mNATEw&h=AUDT2sufd8Rm_5XAw2GULwQF44lqPDZyIn9hBrbxbXo8snnde0ZJfz-fZ7e5cZyEaEDkC1wzCZp4gt49m2mdwp_-8CB-Fl6q02o-VnnHEQIy9ivRWmAc5TtTOeWzdW6zRjar6L_jcsqsUmnRjg&__tn__=-UK-R&c[0]=AUCxvyY2QXgSvrevavrDq0uxtj19Zm5kF5DGp5VWCUBNcEpFzd7g018tRKcMUmakGl2pTLbsUoiAkuErKu_kerlqjN2jAeMLa9K3a66TUeVAYEiSQd3LjROcnTdIfbInIQ0qeOJn5YalXPOd47EsNpBqw44x0E3fRKfaWxIbNbI681XUyyDFtPKMsq2sgppXKvmizcSJH4HNvkdL-Uf1d70Uy9Yypg)
-- 競賽平台：[https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026](https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026?fbclid=IwcGRvZgFleHRuA2FlbQIxMABicmlkETFUQnBLY1VLZWZvWXRiMTI5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqno0CPlcdyOMHdhv6P5o2SujYtUKT_jgqqQHdlxdaLnTKMghF__f9uF7GJL_aem_PICtoQpQmqE9dULmKAXgzQ)
+🔗競賽平台：[https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026](https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026?fbclid=IwcGRvZgFleHRuA2FlbQIxMABicmlkETFUQnBLY1VLZWZvWXRiMTI5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqno0CPlcdyOMHdhv6P5o2SujYtUKT_jgqqQHdlxdaLnTKMghF__f9uF7GJL_aem_PICtoQpQmqE9dULmKAXgzQ)

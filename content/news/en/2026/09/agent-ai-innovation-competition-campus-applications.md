@@ -5,7 +5,7 @@ description: Registration is now open for the NAPAI Agentic AI Campus Innovation
 date: 2026-09-15
 updatedAt: 2026-09-15
 category: 活動公告
-status: upcoming
+status: past
 cover: /image/news/說明會圖卡.png
 tags:
   - Agentic AI
@@ -13,9 +13,11 @@ tags:
   - Innovation Competition
   - Campus Applications
 externalLink: https://meet.google.com/paj-zhhj-mya
-videos: []
+videos:
+  - https://www.youtube.com/watch?v=XHkqU-40zY4&list=PLb6cpTUYlFPc&index=1
+  - https://www.youtube.com/watch?v=JoNXVLeQC8g&list=PLb6cpTUYlFPc&index=2
 videoLink: ''
-notesLink: ''
+notesLink: https://app.notion.com/p/NAPAI-2026-Agentic-AI-3e2e05e67dac805a9e74f0b2cbf977f3?source=copy_link
 featured: false
 draft: false
 ---
@@ -28,12 +30,8 @@ The competition features two tracks—"Campus Self-Defined Track" and "Domain-Sp
 
 📅 **Date & Time:** Friday, September 18, 2026 | 14:00 – 16:00
 
-📍 **Location (Hybrid - Physical & Online):**
+📍 **Location:** Room 3F13, College of Business Building, Sanxia Campus, National Taipei University
 
-- **Physical:** Room 3F13, College of Business Building, Sanxia Campus, National Taipei University
-- **Google Meet:** [https://meet.google.com/paj-zhhj-mya](https://meet.google.com/paj-zhhj-mya)
+🔗 Competition Official Website: [https://napaincu.github.io/aaic2026/](https://napaincu.github.io/aaic2026/)
 
-🔗 **Information Session Registration:** Please log in to the competition platform to register:
-
-- Competition Official Website: [https://napaincu.github.io/aaic2026/](https://napaincu.github.io/aaic2026/)
-- Competition Registration Portal: [https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026](https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026)
+🔗Competition Registration Portal: [https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026](https://aicp.ntpu.ai/c/napai-agentic-ai-innovation-2026)
