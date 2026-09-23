@@ -12,7 +12,7 @@ tags:
   - TAAI 2026
   - Innovation Competition
   - Campus Applications
-externalLink: https://meet.google.com/paj-zhhj-mya
+externalLink: https://napaincu.github.io/aaic2026/
 videos:
   - https://www.youtube.com/watch?v=XHkqU-40zY4&list=PLb6cpTUYlFPc&index=1
   - https://www.youtube.com/watch?v=JoNXVLeQC8g&list=PLb6cpTUYlFPc&index=2
