@@ -5,7 +5,7 @@ description: NAPAI Summer Camp 第二彈將於 2026 年 8 月 25 日在國立成
 date: 2026-07-29
 category: 活動公告
 cover: /image/news/NAPAI_SummerCamp_20260825_agenda.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/izpKzUu9eJTSJWCP8
 tags:
   - 暑期工作坊
@@ -14,6 +14,10 @@ tags:
   - 活動公告
 featured: false
 draft: false
+eventStart: 2026-08-25
+eventEnd: 2026-08-25
+registrationStatus: closed
+externalLinkType: registration
 ---
 
 ## 一、課程資訊

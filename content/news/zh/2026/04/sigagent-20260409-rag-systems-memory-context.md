@@ -19,6 +19,7 @@ videos:
   - https://youtu.be/AFGsNlukrO4
 notesLink: https://www.notion.so/NAPAI-SIGAgent-1_2026-4-9-33be05e67dac8086b326fba8e6cca243
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #1 活動資訊如下，歡迎分享。

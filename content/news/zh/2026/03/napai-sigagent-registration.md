@@ -5,13 +5,17 @@ description: NAPAI SIGAgent 系列活動開放報名，公告 2026 年 4-6 月�
 date: 2026-03-23
 category: 活動公告
 cover: /image/news/NAPAI_SIGAgent.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/zQFrin4R9GQD8MwH8
 tags:
   - SIGAgent
   - 活動公告
 featured: false
 draft: false
+eventStart: 2026-04-09
+eventEnd: 2026-06-23
+registrationStatus: closed
+externalLinkType: registration
 ---
 
 NAPAI SIGAgent 活動開放報名。

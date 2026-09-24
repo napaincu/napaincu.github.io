@@ -17,6 +17,7 @@ videos:
   - https://youtu.be/AGpsxHwYCO0
 notesLink: https://www.notion.so/NAPAI-SIGAgent-2_2026-4-24-343e05e67dac803a9305d56e6d50f139
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #2 event details are as follows.

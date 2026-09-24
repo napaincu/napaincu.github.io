@@ -23,6 +23,7 @@ videos:
   - https://youtu.be/_e3qhO9iZ5s
 notesLink: https://www.notion.so/NAPAI-SIGRobot-3_2026-4-29-34ae05e67dac8093b421e323d8ddcc53
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #3 活動資訊如下。

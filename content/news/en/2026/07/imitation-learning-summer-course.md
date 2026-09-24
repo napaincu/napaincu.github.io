@@ -5,7 +5,7 @@ description: NAPAI's summer hands-on course is open for registration! On Aug 20 
 date: 2026-07-16
 category: Announcements
 cover: /image/news/NAPAI_SummerCamp_20260820.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/NXYPcp1sKCtzHESN9
 tags:
   - Summer Course
@@ -14,6 +14,11 @@ tags:
   - Event Announcement
 featured: false
 draft: false
+eventStart: 2026-08-20
+eventEnd: 2026-08-20
+registrationStatus: closed
+registrationDeadline: 2026-08-06
+externalLinkType: registration
 ---
 
 ## 1. Course Information

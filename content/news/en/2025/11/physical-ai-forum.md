@@ -9,6 +9,7 @@ status: past
 tags:
   - Physical AI
   - Technology Forum
+registrationStatus: closed
 ---
 
 The Physical AI Technology Forum brought together teachers and research teams from multiple universities to share key technologies and teaching experiences spanning from simulated environments to physical robot deployment.

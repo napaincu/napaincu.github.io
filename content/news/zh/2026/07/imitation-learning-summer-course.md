@@ -5,7 +5,7 @@ description: NAPAI 暑期實作課程開放報名！8/20 於中央大學 ideaNCU
 date: 2026-07-16
 category: 活動公告
 cover: /image/news/NAPAI_SummerCamp_20260820.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/NXYPcp1sKCtzHESN9
 tags:
   - 暑期課程
@@ -14,6 +14,11 @@ tags:
   - 活動公告
 featured: false
 draft: false
+eventStart: 2026-08-20
+eventEnd: 2026-08-20
+registrationStatus: closed
+registrationDeadline: 2026-08-06
+externalLinkType: registration
 ---
 
 ## 一、課程資訊

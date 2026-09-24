@@ -17,8 +17,12 @@
         v-if="latestInsight"
         class="mb-10 rounded-2xl border border-teal-200 bg-teal-50/50 px-5 py-4 md:px-6"
       >
-        <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-          <span class="inline-flex items-center gap-1.5 text-sm font-bold text-teal-800">
+        <div
+          class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1"
+        >
+          <span
+            class="inline-flex items-center gap-1.5 text-sm font-bold text-teal-800"
+          >
             <Icon name="heroicons:light-bulb" class="h-4 w-4" />
             {{ $t("insights.sectionHeading") }}
           </span>
@@ -41,7 +45,9 @@
             >
               {{ $t(`insights.audiences.${a}`) }}
             </span>
-            <span class="text-slate-400">{{ formatDate(latestInsight.date) }}</span>
+            <span class="text-slate-400">{{
+              formatDate(latestInsight.date)
+            }}</span>
           </div>
 
           <h2
@@ -56,6 +62,31 @@
       </div>
 
       <section data-landmark="news">
+        <div
+          class="mb-6 flex flex-wrap gap-2"
+          role="group"
+          :aria-label="$t('news.filterLabel')"
+        >
+          <button
+            v-for="filter in NEWS_FILTERS"
+            :key="filter"
+            type="button"
+            :aria-pressed="activeFilter === filter"
+            @click="activeFilter = filter"
+            class="min-h-11 rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+            :class="
+              activeFilter === filter
+                ? 'border-teal-700 bg-teal-700 text-white'
+                : 'border-slate-200 bg-white text-slate-700 hover:bg-teal-50'
+            "
+          >
+            {{ $t(`news.filters.${filter}`) }}
+            <span class="ml-1 tabular-nums">{{ filterCounts[filter] }}</span>
+          </button>
+        </div>
+        <p class="sr-only" role="status" aria-live="polite">
+          {{ $t(`news.filters.${activeFilter}`) }}: {{ displayedNews.length }}
+        </p>
         <div class="mb-6 flex items-center justify-between gap-4">
           <h2
             class="border-l-4 border-blue-500 pl-4 text-2xl font-bold text-slate-800"
@@ -119,6 +150,7 @@
               class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md"
             >
               <div class="flex flex-col p-5 md:p-6">
+                <NewsEventMeta :item="item" class="mb-3" />
                 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs">
                   <span
                     v-if="item.featured"
@@ -147,21 +179,26 @@
                     {{ item.category }}
                   </span>
                   <span class="text-slate-400">{{
-                    formatDate(item.date)
+                    `${t("news.published")} ${formatDate(item.date)}`
                   }}</span>
                   <span
                     v-if="item.updatedAt"
                     class="inline-flex items-center gap-1 text-teal-600"
                   >
                     <Icon name="heroicons:clock" class="h-3.5 w-3.5" />
-                    {{ $t("news.updatedLabel") }} {{ formatDate(item.updatedAt) }}
+                    {{ $t("news.updatedLabel") }}
+                    {{ formatDate(item.updatedAt) }}
                   </span>
                 </div>
                 <NuxtLink
                   :to="resolveNewsPath(item)"
                   :external="isDirectExternalNews(item)"
                   :target="isDirectExternalNews(item) ? '_blank' : undefined"
-                  :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
+                  :rel="
+                    isDirectExternalNews(item)
+                      ? 'noopener noreferrer'
+                      : undefined
+                  "
                   class="group inline-block"
                 >
                   <h3
@@ -182,7 +219,11 @@
                     :to="resolveNewsPath(item)"
                     :external="isDirectExternalNews(item)"
                     :target="isDirectExternalNews(item) ? '_blank' : undefined"
-                    :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
+                    :rel="
+                      isDirectExternalNews(item)
+                        ? 'noopener noreferrer'
+                        : undefined
+                    "
                     class="inline-flex shrink-0 items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
                     {{ $t("news.readMore") }}
@@ -206,7 +247,9 @@
                 :to="resolveNewsPath(item)"
                 :external="isDirectExternalNews(item)"
                 :target="isDirectExternalNews(item) ? '_blank' : undefined"
-                :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
+                :rel="
+                  isDirectExternalNews(item) ? 'noopener noreferrer' : undefined
+                "
                 class="flex h-72 items-center justify-center overflow-hidden bg-slate-100"
               >
                 <img
@@ -224,6 +267,7 @@
               </NuxtLink>
 
               <div class="flex flex-1 flex-col p-5">
+                <NewsEventMeta :item="item" class="mb-3" />
                 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs">
                   <span
                     v-if="item.featured"
@@ -252,14 +296,15 @@
                     {{ item.category }}
                   </span>
                   <span class="text-slate-400">{{
-                    formatDate(item.date)
+                    `${t("news.published")} ${formatDate(item.date)}`
                   }}</span>
                   <span
                     v-if="item.updatedAt"
                     class="inline-flex items-center gap-1 text-teal-600"
                   >
                     <Icon name="heroicons:clock" class="h-3.5 w-3.5" />
-                    {{ $t("news.updatedLabel") }} {{ formatDate(item.updatedAt) }}
+                    {{ $t("news.updatedLabel") }}
+                    {{ formatDate(item.updatedAt) }}
                   </span>
                 </div>
 
@@ -267,7 +312,11 @@
                   :to="resolveNewsPath(item)"
                   :external="isDirectExternalNews(item)"
                   :target="isDirectExternalNews(item) ? '_blank' : undefined"
-                  :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
+                  :rel="
+                    isDirectExternalNews(item)
+                      ? 'noopener noreferrer'
+                      : undefined
+                  "
                   class="group inline-block"
                 >
                   <h3
@@ -288,7 +337,11 @@
                     :to="resolveNewsPath(item)"
                     :external="isDirectExternalNews(item)"
                     :target="isDirectExternalNews(item) ? '_blank' : undefined"
-                    :rel="isDirectExternalNews(item) ? 'noopener noreferrer' : undefined"
+                    :rel="
+                      isDirectExternalNews(item)
+                        ? 'noopener noreferrer'
+                        : undefined
+                    "
                     class="inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800"
                   >
                     {{ $t("news.readMore") }}
@@ -304,7 +357,7 @@
           v-else
           class="rounded-xl border border-slate-200 bg-white p-8 text-center text-slate-500"
         >
-          {{ $t("news.empty") }}
+          {{ $t(activeFilter === "all" ? "news.empty" : "news.filterEmpty") }}
         </div>
       </section>
     </div>
@@ -313,6 +366,12 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
+import {
+  NEWS_FILTERS,
+  matchesNewsFilter,
+  sortNews,
+} from "~/utils/news-state.mjs";
+const activeFilter = ref("all");
 
 const STORAGE_KEY = "news:viewMode";
 
@@ -365,20 +424,19 @@ const allNews = computed(() => {
   return (newsData.value ?? []).filter((item) => !item.draft);
 });
 
-// 排序用的「有效日期」：有 updatedAt（如影片/筆記上架）就用它，
-// 讓最近更新的活動浮到最上面，否則退回原本的活動日期。
-const effectiveDate = (item: { date: string; updatedAt?: string | null }) =>
-  item.updatedAt?.trim() ? item.updatedAt : item.date;
-
-const displayedNews = computed(() => {
-  return [...allNews.value].sort((a, b) => {
-    if (a.featured !== b.featured) {
-      return a.featured ? -1 : 1;
-    }
-
-    return effectiveDate(b).localeCompare(effectiveDate(a));
-  });
-});
+const filterCounts = computed(() =>
+  Object.fromEntries(
+    NEWS_FILTERS.map((filter) => [
+      filter,
+      allNews.value.filter((item) => matchesNewsFilter(item, filter)).length,
+    ]),
+  ),
+);
+const displayedNews = computed(() =>
+  sortNews(
+    allNews.value.filter((item) => matchesNewsFilter(item, activeFilter.value)),
+  ),
+);
 
 // 競賽入口消息直接導向子站；其他消息維持原本的站內詳情頁連結。
 const isDirectExternalNews = (item: {

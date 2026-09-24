@@ -10,6 +10,12 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import {
+  isRegistrationOpen,
+  registrationState,
+  showNewsExternalLink,
+} from "../app/utils/news-state.mjs";
+
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const OUT_DIR = join(ROOT, ".output/public");
 
@@ -17,8 +23,16 @@ const OUT_DIR = join(ROOT, ".output/public");
 const PAGES = [
   { path: "index.html", label: "首頁／計畫介紹 (/)", budget: 2200 },
   { path: "team/index.html", label: "計畫團隊 (/team)", budget: 4500 },
-  { path: "curriculum/index.html", label: "課程專區 (/curriculum)", budget: 2500 },
-  { path: "community/index.html", label: "社群與活動 (/community)", budget: 2500 },
+  {
+    path: "curriculum/index.html",
+    label: "課程專區 (/curriculum)",
+    budget: 2500,
+  },
+  {
+    path: "community/index.html",
+    label: "社群與活動 (/community)",
+    budget: 2500,
+  },
   { path: "partners/index.html", label: "合作夥伴 (/partners)", budget: 1800 },
   { path: "faq/index.html", label: "常見問題 (/faq)", budget: 3000 },
   { path: "contact/index.html", label: "聯絡我們 (/contact)", budget: 800 },
@@ -102,13 +116,25 @@ async function collectNews() {
   const sortKey = (m) => m.updatedAt?.trim() || m.date?.trim() || "";
   items.sort((a, b) => sortKey(b.meta).localeCompare(sortKey(a.meta)));
 
-  const lines = [];
+  const lines = [
+    "報名判斷：只有 registrationStatus=open 且活動未結束才可推薦報名；勿依標題、置頂、upcoming 或歷史內文推測。unknown 代表待確認。日期不會自動切換人工狀態，回答時亦應比對截止日與目前時間，過期資訊不得推薦為開放報名。",
+  ];
   for (const { meta, body, sitePath } of items.slice(0, NEWS_LIMIT)) {
     let line = `- 【${meta.category ?? "消息"}】${meta.title}（發布 ${meta.date ?? "?"}${meta.status ? `，狀態：${meta.status}` : ""}）：${meta.description ?? ""} 路徑：${sitePath}`;
-    if (meta.externalLink) line += ` 相關連結：${meta.externalLink}`;
+    line += ` 報名狀態：${registrationState(meta) || "unknown"}。`;
+    if (meta.eventStart) line += ` 活動開始：${meta.eventStart}`;
+    if (meta.eventEnd) line += ` 活動結束：${meta.eventEnd}`;
+    if (meta.registrationDeadline)
+      line += ` 報名截止：${meta.registrationDeadline}`;
+    if (showNewsExternalLink(meta))
+      line += ` ${meta.externalLinkType === "registration" ? "報名表單" : "相關資訊"}：${meta.externalLink}`;
     lines.push(line);
     // 進行中／即將開始的活動附上內文重點（報名方式、時程等常被詢問）
-    if (meta.status === "upcoming" || meta.status === "ongoing") {
+    if (
+      isRegistrationOpen(meta) ||
+      meta.status === "upcoming" ||
+      meta.status === "ongoing"
+    ) {
       const excerpt = body
         .replace(/[#>*|`-]/g, " ")
         .replace(/\[([^\]]*)\]\(([^)]*)\)/g, "$1 $2")
@@ -121,7 +147,6 @@ async function collectNews() {
   }
   return lines.join("\n");
 }
-
 
 const AUDIENCE_LABEL = {
   application: "應用",
@@ -155,9 +180,7 @@ async function collectInsights() {
     if (meta.draft === "true" || !meta.title) continue;
     articles.push({ meta, f });
   }
-  articles.sort((a, b) =>
-    (b.meta.date ?? "").localeCompare(a.meta.date ?? ""),
-  );
+  articles.sort((a, b) => (b.meta.date ?? "").localeCompare(a.meta.date ?? ""));
 
   const lines = [];
   for (const { meta, f } of articles) {
@@ -210,7 +233,9 @@ try {
   const lms = JSON.parse(
     await readFile(join(ROOT, "app/utils/guide-landmarks.json"), "utf8"),
   );
-  const lines = lms.map((l) => `- ${l.id}｜${l.zh} / ${l.en}：${l.desc}`).join("\n");
+  const lines = lms
+    .map((l) => `- ${l.id}｜${l.zh} / ${l.en}：${l.desc}`)
+    .join("\n");
   sections.push(
     `## 可帶路的頁面地標（NAVIGATION LANDMARKS）\n${lines}\n- 特定一則消息：以該消息的「路徑」（/news/ 開頭）作為 goto 目標，可直接帶使用者到那一頁`,
   );

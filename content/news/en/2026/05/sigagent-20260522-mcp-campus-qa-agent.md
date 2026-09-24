@@ -17,6 +17,7 @@ videos:
   - https://youtu.be/qWeo7TRAcHc
   - https://youtu.be/ezjzXt84HNQ
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #4 event details are as follows.

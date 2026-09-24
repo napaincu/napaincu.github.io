@@ -16,6 +16,7 @@ videos:
   - https://youtu.be/W1KWIQzQ9vs
   - https://youtu.be/ovF0o1QhjC0
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #7 event details are as follows.

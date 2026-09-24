@@ -18,6 +18,9 @@ videoLink: ''
 notesLink: ''
 featured: true
 draft: false
+eventStart: 2026-10-02
+registrationStatus: open
+externalLinkType: registration
 ---
 
 NAPAI SIGRobot系列讀書會115-1學期正式開放報名，歡迎對機器人、數位分身、Physical AI 有興趣的師生與研究者參與。

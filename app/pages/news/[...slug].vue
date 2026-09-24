@@ -18,14 +18,9 @@
             >
               {{ newsItem.category }}
             </span>
-            <span class="text-slate-500">{{ newsItem.date }}</span>
-            <span
-              v-if="newsItem.status"
-              class="rounded-md px-2.5 py-1 font-medium"
-              :class="STATUS_CHIP[newsItem.status] ?? 'bg-slate-100 text-slate-700'"
+            <span class="text-slate-500"
+              >{{ $t("news.published") }}：{{ newsItem.date }}</span
             >
-              {{ statusLabel(newsItem.status) }}
-            </span>
             <span
               v-if="newsItem.updatedAt"
               class="inline-flex items-center gap-1 text-teal-600"
@@ -34,6 +29,17 @@
               {{ $t("news.updatedLabel") }} {{ newsItem.updatedAt }}
             </span>
           </div>
+
+          <NewsEventMeta :item="newsItem" class="mt-4" />
+          <p
+            v-if="
+              newsItem.externalLinkType === 'registration' &&
+              !isRegistrationOpen(newsItem)
+            "
+            class="mt-4 rounded-lg bg-slate-100 p-3 text-sm text-slate-600"
+          >
+            {{ $t("news.registrationClosedNotice") }}
+          </p>
 
           <h1
             class="mt-4 max-w-5xl text-3xl/[1.35] font-bold text-slate-900 md:text-4xl/[1.35] lg:text-[2.75rem]/[1.35]"
@@ -100,7 +106,10 @@
             <ContentRenderer :value="newsItem" />
           </div>
 
-          <div v-if="eventVideos.length" class="mt-10 border-t border-slate-100 pt-6">
+          <div
+            v-if="eventVideos.length"
+            class="mt-10 border-t border-slate-100 pt-6"
+          >
             <h2 class="mb-4 text-xl font-bold text-slate-900">
               {{ $t("news.eventVideo") }}
             </h2>
@@ -169,31 +178,31 @@
                     name="heroicons:calendar-days"
                     class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
                   />
-                  <dd class="text-slate-700">{{ newsItem.date }}</dd>
-                </div>
-                <div v-if="newsItem.status" class="flex items-start gap-2">
-                  <Icon
-                    name="heroicons:flag"
-                    class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
-                  />
                   <dd class="text-slate-700">
-                    {{ statusLabel(newsItem.status) }}
+                    {{ $t("news.published") }}：{{ newsItem.date }}
                   </dd>
                 </div>
               </dl>
+              <NewsEventMeta :item="newsItem" class="mt-3" />
 
               <div
-                v-if="newsItem.externalLink || newsItem.notesLink"
+                v-if="showNewsExternalLink(newsItem) || newsItem.notesLink"
                 class="mt-5 space-y-2 border-t border-slate-100 pt-5"
               >
                 <a
-                  v-if="newsItem.externalLink"
+                  v-if="showNewsExternalLink(newsItem)"
                   :href="newsItem.externalLink"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
                 >
-                  {{ $t("news.externalLink") }}
+                  {{
+                    $t(
+                      newsItem.externalLinkType === "registration"
+                        ? "news.register"
+                        : "news.externalLink",
+                    )
+                  }}
                   <Icon
                     name="heroicons:arrow-top-right-on-square"
                     class="h-4 w-4"
@@ -217,18 +226,24 @@
 
       <!-- 窄螢幕沒有右欄，行動裝置上把報名／簡報按鈕補在文章後面 -->
       <div
-        v-if="newsItem.externalLink || newsItem.notesLink"
+        v-if="showNewsExternalLink(newsItem) || newsItem.notesLink"
         class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 xl:hidden"
       >
         <div class="flex flex-wrap gap-3">
           <a
-            v-if="newsItem.externalLink"
+            v-if="showNewsExternalLink(newsItem)"
             :href="newsItem.externalLink"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-2.5 font-medium text-white transition hover:bg-teal-700"
           >
-            {{ $t("news.externalLink") }}
+            {{
+              $t(
+                newsItem.externalLinkType === "registration"
+                  ? "news.register"
+                  : "news.externalLink",
+              )
+            }}
             <Icon name="heroicons:arrow-top-right-on-square" class="h-4 w-4" />
           </a>
           <a
@@ -273,7 +288,9 @@
               >
                 {{ post.title }}
               </h3>
-              <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
+              <p
+                class="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600"
+              >
                 {{ post.description }}
               </p>
             </NuxtLink>
@@ -292,18 +309,15 @@
 </template>
 
 <script setup lang="ts">
+import {
+  isRegistrationOpen,
+  showNewsExternalLink,
+} from "~/utils/news-state.mjs";
 const route = useRoute();
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
 
 const collection = computed(() => (locale.value === "en" ? "news_en" : "news"));
-
-// 狀態用顏色輔助，但文字本身就說明了狀態，顏色不是唯一的識別管道
-const STATUS_CHIP: Record<string, string> = {
-  upcoming: "bg-amber-100 text-amber-800",
-  ongoing: "bg-emerald-100 text-emerald-800",
-  past: "bg-slate-100 text-slate-600",
-};
 
 const { data: newsItem, pending } = await useAsyncData(
   () => `news-${route.path}`,
@@ -399,13 +413,6 @@ const eventVideos = computed(() => {
   if (videos?.length) return videos;
   return newsItem.value?.videoLink ? [newsItem.value.videoLink] : [];
 });
-
-const statusLabel = (value: string) => {
-  if (value === "upcoming") return t("news.status.upcoming");
-  if (value === "ongoing") return t("news.status.ongoing");
-  if (value === "past") return t("news.status.past");
-  return value;
-};
 
 const toYouTubeEmbedUrl = (url?: string | null) => {
   if (!url) return null;

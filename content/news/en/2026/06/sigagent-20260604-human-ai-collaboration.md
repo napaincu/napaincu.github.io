@@ -16,6 +16,7 @@ videos:
   - https://youtu.be/n7QlamEjRIU
   - https://youtu.be/pUA78BzuEsg
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #5 event details are as follows.

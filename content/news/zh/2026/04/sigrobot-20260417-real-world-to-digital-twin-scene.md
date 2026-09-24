@@ -18,6 +18,7 @@ videos:
   - https://youtu.be/WXofzXViknI
 notesLink: https://www.notion.so/NAPAI-SIGRobot-2_2026-4-17-343e05e67dac80e49278c78ffdbcff6e
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #2 活動資訊如下，歡迎轉分享。

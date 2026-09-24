@@ -17,6 +17,7 @@ videos:
   - https://youtu.be/xs5ddovnVNc
   - https://youtu.be/e3P8WFBbVD4
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #6 活動資訊如下。

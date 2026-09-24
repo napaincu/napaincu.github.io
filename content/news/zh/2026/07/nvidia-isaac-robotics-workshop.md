@@ -5,7 +5,7 @@ description: NAPAI 攜手 NVIDIA DLI 白金級大使曾吉弘博士，8/6 於中
 date: 2026-07-10
 category: 活動公告
 cover: /image/news/NAPAI_NVIDIA_workshop.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/ghavLyjeNKX8NQjFA
 tags:
   - 工作坊
@@ -14,6 +14,11 @@ tags:
   - 活動公告
 featured: false
 draft: false
+eventStart: 2026-08-06
+eventEnd: 2026-08-06
+registrationStatus: closed
+registrationDeadline: 2026-07-24
+externalLinkType: registration
 ---
 
 ## 一、活動資訊

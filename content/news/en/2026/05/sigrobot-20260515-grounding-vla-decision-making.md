@@ -15,6 +15,7 @@ featured: false
 videos:
   - https://youtu.be/L3oj0YSII08
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #4 event details are as follows.

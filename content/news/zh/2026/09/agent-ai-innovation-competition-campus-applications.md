@@ -20,6 +20,10 @@ videoLink: ''
 notesLink: https://app.notion.com/p/NAPAI-2026-Agentic-AI-3e2e05e67dac805a9e74f0b2cbf977f3?source=copy_link
 featured: false
 draft: false
+eventStart: 2026-09-18
+eventEnd: 2026-09-18
+registrationStatus: closed
+externalLinkType: information
 ---
 
 【Agentic AI 校園落地創新應用競賽 | 說明會暨增能工作坊】

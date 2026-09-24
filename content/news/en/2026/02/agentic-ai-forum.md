@@ -9,6 +9,7 @@ status: past
 tags:
   - Agentic AI
   - Technology Forum
+registrationStatus: closed
 ---
 
 This forum centered on the application of Agentic AI in teaching and industry, inviting several speakers to share practical experience and holding a panel on cross-disciplinary talent cultivation.

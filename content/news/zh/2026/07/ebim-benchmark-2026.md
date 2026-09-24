@@ -13,6 +13,9 @@ tags:
   - Embodied AI
 featured: false
 draft: false
+registrationStatus: unknown
+eventStart: 2026-06-29
+externalLinkType: information
 ---
 
 **EBiM Benchmark**（Embodied Bimanual Manipulation Benchmark，具身雙臂操作基準競賽）是一項全球協作的機器人競賽計畫，由漢堡大學（Universität Hamburg）、卡內基美隆大學（Carnegie Mellon University）、清華大學等橫跨四大洲的研究機構共同主辦，目標是縮小「實驗室基準測試」與「真實世界機器人部署」之間的落差，聚焦模擬到現實（Sim-to-Real）的轉移問題。

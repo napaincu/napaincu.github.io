@@ -5,7 +5,7 @@ description: NAPAI partners with Dr. Chi-Hung Tseng, NVIDIA DLI Platinum Ambassa
 date: 2026-07-10
 category: Announcements
 cover: /image/news/NAPAI_NVIDIA_workshop.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/ghavLyjeNKX8NQjFA
 tags:
   - Workshop
@@ -14,6 +14,11 @@ tags:
   - Event Announcement
 featured: false
 draft: false
+eventStart: 2026-08-06
+eventEnd: 2026-08-06
+registrationStatus: closed
+registrationDeadline: 2026-07-24
+externalLinkType: registration
 ---
 
 ## 1. Event Information

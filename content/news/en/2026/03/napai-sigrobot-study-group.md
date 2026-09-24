@@ -5,7 +5,7 @@ description: This is the NAPAI SIGRobot study group lecture series. Please fill 
 date: 2026-03-09
 updatedAt: ''
 category: Announcements
-status: upcoming
+status: past
 cover: /image/news/NAPAI_SIGRobot.png
 tags:
   - SIGRobot
@@ -17,6 +17,10 @@ videoLink: ''
 notesLink: ''
 featured: false
 draft: false
+eventStart: 2026-04-01
+eventEnd: 2026-06-11
+registrationStatus: closed
+externalLinkType: registration
 ---
 
 Registration for the NAPAI SIGRobot study group is now officially open. Teachers, students, and researchers interested in robotics, digital twins, and Physical AI are welcome to join.

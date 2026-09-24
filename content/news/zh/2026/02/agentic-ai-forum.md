@@ -9,6 +9,7 @@ status: past
 tags:
   - Agentic AI
   - 技術論壇
+registrationStatus: closed
 ---
 
 本次論壇以 Agentic AI 在教學與產業的應用為主題，邀請多位講者分享實務經驗，並進行跨域人才培育座談。

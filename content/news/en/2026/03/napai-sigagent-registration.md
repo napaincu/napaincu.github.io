@@ -5,13 +5,17 @@ description: Registration for the NAPAI SIGAgent series is now open. See the sch
 date: 2026-03-23
 category: Announcements
 cover: /image/news/NAPAI_SIGAgent.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/zQFrin4R9GQD8MwH8
 tags:
   - SIGAgent
   - Announcements
 featured: false
 draft: false
+eventStart: 2026-04-09
+eventEnd: 2026-06-23
+registrationStatus: closed
+externalLinkType: registration
 ---
 
 Registration for NAPAI SIGAgent events is now open.

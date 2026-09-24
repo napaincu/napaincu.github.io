@@ -17,6 +17,7 @@ videos:
   - https://youtu.be/Cu-mxV6s3Es
   - https://youtu.be/_Je_sMrEROA
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #6 活動資訊如下。

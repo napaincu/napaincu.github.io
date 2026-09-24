@@ -5,7 +5,7 @@ description: 本活動為 NAPAI SIGRobot 讀書會系列講座，歡迎填寫報
 date: 2026-03-09
 updatedAt: ''
 category: 活動公告
-status: upcoming
+status: past
 cover: /image/news/NAPAI_SIGRobot.png
 tags:
   - SIGRobot
@@ -17,6 +17,10 @@ videoLink: ''
 notesLink: ''
 featured: false
 draft: false
+eventStart: 2026-04-01
+eventEnd: 2026-06-11
+registrationStatus: closed
+externalLinkType: registration
 ---
 
 NAPAI SIGRobot 讀書會正式開放報名，歡迎對機器人、數位分身、Physical AI 有興趣的師生與研究者參與。

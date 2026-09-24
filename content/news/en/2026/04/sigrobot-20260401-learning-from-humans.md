@@ -18,6 +18,7 @@ videos:
   - https://youtu.be/WTjwry4yXco
 notesLink: https://www.notion.so/NAPAI-SIGRobot-1_2026-4-1-343e05e67dac809b974acbc78b7058cb
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #1 event details are as follows. Feel free to share with anyone interested in Physical AI and robot learning.

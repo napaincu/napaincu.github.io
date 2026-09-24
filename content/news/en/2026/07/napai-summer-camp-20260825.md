@@ -5,7 +5,7 @@ description: The second NAPAI Summer Camp workshop will be held on August 25, 20
 date: 2026-07-29
 category: Announcements
 cover: /image/news/NAPAI_SummerCamp_20260825_agenda.png
-status: upcoming
+status: past
 externalLink: https://forms.gle/izpKzUu9eJTSJWCP8
 tags:
   - Summer Workshop
@@ -14,6 +14,10 @@ tags:
   - Event Announcement
 featured: false
 draft: false
+eventStart: 2026-08-25
+eventEnd: 2026-08-25
+registrationStatus: closed
+externalLinkType: registration
 ---
 
 ## 1. Event Information

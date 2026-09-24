@@ -16,6 +16,7 @@ videos:
   - https://youtu.be/D3WxgnAfga0
   - https://youtu.be/DFWLz4m6FHU
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #5 event details are as follows.

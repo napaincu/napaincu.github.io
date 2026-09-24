@@ -13,6 +13,9 @@ tags:
   - Embodied AI
 featured: false
 draft: false
+registrationStatus: unknown
+eventStart: 2026-06-29
+externalLinkType: information
 ---
 
 The **EBiM Benchmark** (Embodied Bimanual Manipulation Benchmark) is a globally coordinated robotics benchmark initiative, organized by a multidisciplinary committee spanning four continents, including Universität Hamburg, Carnegie Mellon University, and Tsinghua University. Its goal is to close the gap between laboratory benchmarks and real-world robot deployment, with a focus on sim-to-real transfer.

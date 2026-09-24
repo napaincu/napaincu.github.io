@@ -9,6 +9,7 @@ status: past
 tags:
   - Physical AI
   - 技術論壇
+registrationStatus: closed
 ---
 
 Physical AI 技術論壇邀集跨校教師與研究團隊，分享從模擬環境到實體機器人部署的關鍵技術與教學經驗。

@@ -1,5 +1,15 @@
 import { defineCollection, defineContentConfig, z } from "@nuxt/content";
 
+// Empty strings are emitted by the CMS for cleared optional fields.
+const eventDate = z
+  .string()
+  .regex(/^$|^\d{4}-\d{2}-\d{2}$/)
+  .optional();
+const registrationDeadline = z
+  .string()
+  .regex(/^$|^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}\+08:00)?$/)
+  .optional();
+
 const newsSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -13,6 +23,13 @@ const newsSchema = z.object({
   tags: z.array(z.string()).optional(),
   featured: z.boolean().optional().default(false),
   status: z.enum(["upcoming", "ongoing", "past"]).optional(),
+  registrationStatus: z
+    .enum(["open", "closed", "not_open", "unknown"])
+    .optional(),
+  externalLinkType: z.enum(["information", "registration"]).optional(),
+  eventStart: eventDate,
+  eventEnd: eventDate,
+  registrationDeadline,
   externalLink: z.string().optional(),
   videoLink: z.string().optional(),
   // 多支活動影片（YouTube 連結），會依序以 Part 1、Part 2… 呈現。
@@ -57,7 +74,9 @@ const insightsSchema = z.object({
   updatedAt: z.string().optional(),
   // 目標受眾（可複選）。存英文代碼、顯示文字放語言檔，
   // 避免像消息分類那樣中英各自寫出不一致的字串。
-  audiences: z.array(z.enum(["application", "developer", "researcher"])).default([]),
+  audiences: z
+    .array(z.enum(["application", "developer", "researcher"]))
+    .default([]),
   author: z.string().optional(),
   affiliation: z.string().optional(),
   tags: z.array(z.string()).optional(),
@@ -89,8 +108,8 @@ const teamSchema = z.object({
     "roboticsConsultants",
   ]),
   order: z.number().default(0),
-  role: z.string().optional(),        // 職稱
-  bio: z.string().optional(),         // 簡介
+  role: z.string().optional(), // 職稱
+  bio: z.string().optional(), // 簡介
   image: z.string().optional(),
   link: z.string().optional(),
   draft: z.boolean().optional().default(false),

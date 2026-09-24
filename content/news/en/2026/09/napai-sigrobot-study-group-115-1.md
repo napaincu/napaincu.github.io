@@ -18,6 +18,9 @@ videoLink: ''
 notesLink: ''
 featured: true
 draft: false
+eventStart: 2026-10-02
+registrationStatus: open
+externalLinkType: registration
 ---
 
 Registration for the 115-1 semester of the NAPAI SIGRobot Workshop Series is officially open! We cordially invite all faculty, students, and researchers interested in robotics, digital twins, and Physical AI to participate.

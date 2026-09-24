@@ -18,6 +18,7 @@ videos:
   - https://youtu.be/WTjwry4yXco
 notesLink: https://www.notion.so/NAPAI-SIGRobot-1_2026-4-1-343e05e67dac809b974acbc78b7058cb
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGRobot #1 活動資訊如下，歡迎分享給對實體 AI 與機器人學習有興趣的夥伴。

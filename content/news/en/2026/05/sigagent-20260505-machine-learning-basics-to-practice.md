@@ -20,6 +20,7 @@ videos:
   - https://youtu.be/9Q6Q4YH5hk0
 notesLink: https://www.notion.so/NAPAI-SIGAgent-3_2026-5-5-352e05e67dac808a820fec034d8cd519
 draft: false
+registrationStatus: closed
 ---
 
 NAPAI SIGAgent #3 event details are as follows.

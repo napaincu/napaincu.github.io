@@ -62,7 +62,8 @@ collections:
     public_folder: "/image/news"
     sortable_fields: [date, title]
     view_filters:
-      - { label: 報名中, field: status, pattern: upcoming }
+      - { label: 開放報名, field: registrationStatus, pattern: open }
+      - { label: 即將開始, field: status, pattern: upcoming }
       - { label: 進行中, field: status, pattern: ongoing }
       - { label: 已結束, field: status, pattern: past }
     fields:
@@ -117,12 +118,65 @@ collections:
         name: status
         widget: select
         options:
-          - { label: "即將開始（報名中）", value: upcoming }
+          - { label: "即將開始", value: upcoming }
           - { label: "進行中", value: ongoing }
           - { label: "已結束", value: past }
         required: false
         i18n: duplicate
-        hint: 報名中與進行中的活動，導覽員會額外把內文摘要納入回答
+        hint: 活動進度與報名狀態分開維護；日期不會自動切換狀態，結束後請改為已結束
+
+      - label: 報名狀態
+        name: registrationStatus
+        widget: select
+        options:
+          - { label: 開放報名, value: open }
+          - { label: 報名已截止, value: closed }
+          - { label: 尚未開放報名, value: not_open }
+          - { label: 資訊待確認, value: unknown }
+        required: false
+        i18n: duplicate
+        hint: 只有明確選擇開放報名才會出現在報名分類；截止或額滿請更新，勿由活動狀態推測
+
+      - label: 外部連結用途
+        name: externalLinkType
+        widget: select
+        options:
+          - { label: 一般資訊／競賽官網, value: information }
+          - { label: 報名表單, value: registration }
+        default: information
+        required: false
+        i18n: duplicate
+        hint: 報名表單只在開放報名時顯示按鈕；一般資訊連結會保留
+
+      - label: 活動開始日期
+        name: eventStart
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        picker_utc: false
+        required: false
+        i18n: duplicate
+        hint: 單日活動填相同起訖日期；系列活動填首場與末場，未確定日期留空
+
+      - label: 活動結束日期
+        name: eventEnd
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        picker_utc: false
+        required: false
+        i18n: duplicate
+        hint: 單日活動填相同起訖日期；系列活動填首場與末場，未確定日期留空
+
+      - label: 報名截止時間（台北時間 UTC+8）
+        name: registrationDeadline
+        widget: string
+        required: false
+        i18n: duplicate
+        pattern: ['^$|^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}\+08:00)?$', '請填 YYYY-MM-DD 或 YYYY-MM-DDTHH:mm:ss+08:00']
+        hint: 例如 2026-10-16T23:59:00+08:00；只有日期時不推測時刻。此欄不會自動關閉報名
 
       - label: 封面圖
         name: cover
