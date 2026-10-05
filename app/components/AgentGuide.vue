@@ -27,7 +27,7 @@
       >
         <div
           v-if="isOpen"
-          class="w-[calc(100vw-2.5rem)] max-w-sm rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden flex flex-col"
+          class="w-[calc(100vw-2.5rem)] max-w-sm max-h-[calc(100dvh-2.5rem)] rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden flex flex-col"
           :class="[
             collapsed ? 'pointer-events-none translate-x-[calc(100%+1.5rem)]' : '',
             panelDragX === 0 ? 'transition-transform duration-300 ease-out' : '',
@@ -36,7 +36,7 @@
         >
           <!-- 拖曳上緣把手可調整面板高度 -->
           <div
-            class="flex cursor-ns-resize touch-none select-none items-center justify-center bg-gradient-to-r from-teal-600 to-emerald-600 pt-1.5"
+            class="flex shrink-0 cursor-ns-resize touch-none select-none items-center justify-center bg-gradient-to-r from-teal-600 to-emerald-600 pt-1.5"
             :title="$t('guide.resizeLabel')"
             @pointerdown="startResize"
           >
@@ -44,7 +44,7 @@
           </div>
           <!-- Header（按住空白處向右拖曳可把面板收到側邊） -->
           <div
-            class="flex cursor-grab items-center gap-3 bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-3 active:cursor-grabbing"
+            class="flex shrink-0 cursor-grab items-center gap-3 bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-3 active:cursor-grabbing"
             @pointerdown="startPanelDrag"
           >
             <div class="relative h-10 w-10 flex-shrink-0">
@@ -54,7 +54,8 @@
                 class="h-full w-full rounded-full bg-white"
               />
               <span
-                class="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-teal-600 bg-emerald-300"
+                class="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-teal-600"
+                :class="statusDotClass"
               ></span>
             </div>
             <div class="flex-1 min-w-0">
@@ -62,11 +63,11 @@
                 {{ $t("guide.name") }}
               </p>
               <p class="text-xs text-teal-100 flex items-center gap-1">
-                <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300 animate-pulse"></span>
-                {{ $t("guide.status") }}
+                <span class="inline-block h-1.5 w-1.5 rounded-full" :class="statusDotClass"></span>
+                {{ $t(statusKey) }}
               </p>
             </div>
-            <!-- 重看導覽（互動問答模式時顯示的小按鈕） -->
+            <!-- 問答中的選用導覽入口 -->
             <button
               v-if="mode === 'chat'"
               type="button"
@@ -99,7 +100,7 @@
           <!-- Messages -->
           <div
             ref="bodyEl"
-            class="overflow-y-auto bg-slate-50 px-4 py-4 space-y-3"
+            class="min-h-0 overflow-y-auto bg-slate-50 px-4 py-4 space-y-3"
             :style="{ height: `${panelHeight}px` }"
             @click="skipTyping"
           >
@@ -192,17 +193,40 @@
           </div>
 
           <!-- Actions -->
-          <div class="border-t border-slate-200 bg-white px-4 py-3">
+          <div class="shrink-0 border-t border-slate-200 bg-white px-4 py-3">
             <!-- Chat mode: input -->
             <template v-if="mode === 'chat'">
+              <div
+                v-if="connectionState !== 'ready'"
+                role="status"
+                class="mb-3 rounded-lg px-3 py-2 text-xs leading-relaxed"
+                :class="connectionState === 'error' ? 'bg-amber-50 text-amber-800' : 'bg-slate-50 text-slate-600'"
+              >
+                <p>{{ $t(connectionState === 'connecting' ? 'guide.chat.connecting' : 'guide.chat.unavailable') }}</p>
+                <button
+                  v-if="connectionState === 'error'"
+                  type="button"
+                  class="mt-1 font-semibold underline underline-offset-2"
+                  @click="checkConnection"
+                >
+                  {{ $t('guide.chat.retry') }}
+                </button>
+              </div>
               <!-- 快捷提問：解決「不知道能問什麼」的冷啟動 -->
               <div class="mb-2 flex flex-wrap gap-1.5">
+                <button
+                  type="button"
+                  class="rounded-full border border-teal-200 bg-teal-50/60 px-3 py-1 text-xs font-medium text-teal-700 transition hover:bg-teal-100"
+                  @click="replayTour"
+                >
+                  {{ $t('guide.start') }}
+                </button>
                 <button
                   v-for="key in ['howto', 'events']"
                   :key="key"
                   type="button"
                   class="rounded-full border border-teal-200 bg-teal-50/60 px-3 py-1 text-xs font-medium text-teal-700 transition hover:bg-teal-100 disabled:opacity-40"
-                  :disabled="chatState !== 'idle'"
+                  :disabled="!canSendChat"
                   @click="sendQuick(key)"
                 >
                   {{ $t(`guide.chat.quick.${key}.label`) }}
@@ -213,13 +237,14 @@
                   v-model="chatInput"
                   type="text"
                   :maxlength="500"
+                  :aria-label="$t('guide.chat.placeholder')"
                   :placeholder="$t('guide.chat.placeholder')"
                   :disabled="chatState !== 'idle'"
-                  class="flex-1 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-teal-400 focus:bg-white disabled:opacity-60 transition"
+                  class="min-w-0 flex-1 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-teal-400 focus:bg-white disabled:opacity-60 transition"
                 />
                 <button
                   type="submit"
-                  :disabled="chatState !== 'idle' || !chatInput.trim()"
+                  :disabled="!canSendChat || !chatInput.trim()"
                   class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-teal-600 text-white transition hover:bg-teal-700 disabled:opacity-40"
                   :aria-label="$t('guide.chat.send')"
                 >
@@ -232,40 +257,29 @@
             </template>
 
             <div
-              v-else-if="phase === 'awaiting'"
+              v-else
               class="flex flex-wrap items-center justify-end gap-2"
             >
-              <!-- Greeting step: start / skip -->
-              <template v-if="stepIndex === 0">
-                <button type="button" class="guide-btn-secondary" @click="declineTour">
-                  {{ $t("guide.skip") }}
-                </button>
+              <!-- 即使導覽仍在打字，也能隨時回到問答 -->
+              <button type="button" class="guide-btn-secondary" @click="askQuestion">
+                {{ $t("guide.chat.ask") }}
+              </button>
+              <template v-if="phase === 'awaiting' && stepIndex === 0">
                 <button type="button" class="guide-btn-primary" @click="acceptTour">
                   {{ $t("guide.start") }}
                 </button>
               </template>
-              <!-- Final step: replay / ask / done -->
-              <template v-else-if="stepIndex === steps.length - 1">
+              <!-- Final step: replay / done -->
+              <template v-else-if="phase === 'awaiting' && stepIndex === steps.length - 1">
                 <button type="button" class="guide-btn-secondary" @click="restartTour">
                   {{ $t("guide.restart") }}
-                </button>
-                <button
-                  v-if="chatAvailable"
-                  type="button"
-                  class="guide-btn-secondary"
-                  @click="askQuestion"
-                >
-                  {{ $t("guide.chat.ask") }}
                 </button>
                 <button type="button" class="guide-btn-primary" @click="finishTour">
                   {{ $t("guide.done") }}
                 </button>
               </template>
-              <!-- Middle steps: skip / next -->
-              <template v-else>
-                <button type="button" class="guide-btn-secondary" @click="declineTour">
-                  {{ $t("guide.skip") }}
-                </button>
+              <!-- Middle steps: next -->
+              <template v-else-if="phase === 'awaiting'">
                 <button type="button" class="guide-btn-primary" @click="nextStep">
                   {{ $t("guide.next") }}
                   <Icon name="heroicons:arrow-right" class="h-4 w-4" />
@@ -312,6 +326,16 @@
       <img src="/image/guide-avatar.png" alt="" class="h-9 w-9 rounded-full bg-white" />
     </button>
 
+    <!-- 首次造訪只顯示提示，由使用者自行開啟問答 -->
+    <button
+      v-if="!isOpen && !hasSeenGuide"
+      type="button"
+      class="fixed bottom-8 right-24 z-[60] max-w-[calc(100vw-7.5rem)] rounded-2xl rounded-br-sm border border-teal-200 bg-white px-4 py-2.5 text-left text-sm font-medium text-teal-800 shadow-lg transition hover:bg-teal-50"
+      @click="openPanel"
+    >
+      {{ $t('guide.hint') }}
+    </button>
+
     <!-- Floating launcher button -->
     <button
       v-if="!isOpen"
@@ -321,10 +345,6 @@
       :title="$t('guide.openLabel')"
       @click="openPanel"
     >
-      <span
-        v-if="!hasSeenGuide"
-        class="absolute inset-0 rounded-full bg-teal-400 animate-ping opacity-40"
-      ></span>
       <img
         src="/image/guide-avatar.png"
         alt=""
@@ -382,6 +402,7 @@ const steps: Step[] = [
   { key: "end", target: null },
 ];
 
+// 沿用舊紀錄，只用於隱藏首次提示，不再限制問答入口。
 const hasSeenGuide = useLocalStorage("napai-agent-guide-seen", false);
 // 訊息區高度（可拖曳上緣把手調整，記住使用者偏好）
 const panelHeight = useLocalStorage("napai-guide-panel-height", 320);
@@ -434,15 +455,26 @@ const messages = ref<Message[]>([]);
 const typedText = ref("");
 const bodyEl = ref<HTMLElement | null>(null);
 
-// --- 互動問答（接 llm-server 中繼後端；未設定或未上線時整個模式隱藏） ---
+// --- 互動問答：輸入框固定顯示，連線狀態只控制是否能送出 ---
 const chatApiBase = ((config.public.chatApi as string) || "").replace(/\/+$/, "");
-const chatAvailable = ref(false);
-const mode = ref<"tour" | "chat">("tour");
+const connectionState = ref<"connecting" | "ready" | "error">("connecting");
+const mode = ref<"tour" | "chat">("chat");
 const chatInput = ref("");
 const chatState = ref<"idle" | "waiting" | "streaming">("idle");
 const streamText = ref("");
 const chatHistory: { role: "user" | "assistant"; content: string }[] = [];
 let chatIntroShown = false;
+let savedChatMessages: Message[] = [];
+let healthController: AbortController | null = null;
+let chatController: AbortController | null = null;
+let navigationTimer: ReturnType<typeof setTimeout> | null = null;
+const canSendChat = computed(() => connectionState.value === "ready" && chatState.value === "idle");
+const statusKey = computed(() => mode.value === "tour"
+  ? "guide.tourStatus"
+  : connectionState.value === "ready" ? "guide.status" : `guide.chat.${connectionState.value === "connecting" ? "connectingStatus" : "offlineStatus"}`);
+const statusDotClass = computed(() => mode.value === "tour" || connectionState.value === "ready"
+  ? "bg-emerald-300"
+  : connectionState.value === "connecting" ? "bg-amber-200 motion-safe:animate-pulse" : "bg-amber-300");
 
 const spotRect = ref<{ top: number; left: number; width: number; height: number } | null>(null);
 // 導覽時遮罩深一點聚焦；帶路時淺一點，讓使用者還能瀏覽整頁
@@ -781,16 +813,17 @@ function runStep(i: number) {
 function openPanel() {
   isOpen.value = true;
   collapsed.value = false;
-  // 已看過導覽且問答後端上線 → 直接進互動問答；否則（第一次造訪／後端未上線）走導覽
-  if (hasSeenGuide.value && chatAvailable.value) {
-    enterChat();
-  } else if (phase.value === "idle") {
-    messages.value = [];
-    runStep(0);
-  }
+  hasSeenGuide.value = true;
+  enterChat();
+  if (connectionState.value === "error") void checkConnection();
 }
 
 function enterChat() {
+  clearTimers();
+  phase.value = "idle";
+  typedText.value = "";
+  fullText = "";
+  if (mode.value === "tour") messages.value = savedChatMessages;
   mode.value = "chat";
   setSpotlight(null);
   if (!chatIntroShown) {
@@ -803,17 +836,32 @@ function enterChat() {
   }
 }
 
-// 從互動問答點「重看導覽」：清空對話、切回導覽並從頭播放
+// 問答與導覽各自保留訊息，結束導覽後可以接著問。
 function replayTour() {
   clearTimers();
+  cancelChat();
+  savedChatMessages = messages.value;
   mode.value = "tour";
-  chatState.value = "idle";
-  streamText.value = "";
   messages.value = [];
-  chatHistory.length = 0;
-  chatIntroShown = false;
   phase.value = "idle";
   runStep(0);
+}
+
+function cancelChat() {
+  if (navigationTimer) clearTimeout(navigationTimer);
+  navigationTimer = null;
+  if (chatController) {
+    chatController.abort();
+    chatController = null;
+    // 未完成的提問不留在下一輪送給模型的歷史中，並保留草稿供重送。
+    const pending = chatHistory.at(-1);
+    if (pending?.role === "user") {
+      if (!chatInput.value) chatInput.value = pending.content;
+      chatHistory.pop();
+    }
+  }
+  chatState.value = "idle";
+  streamText.value = "";
 }
 
 function closePanel() {
@@ -821,31 +869,56 @@ function closePanel() {
   isOpen.value = false;
   collapsed.value = false;
   clearTimers();
+  cancelChat();
   phase.value = "idle";
   messages.value = [];
+  savedChatMessages = [];
   setSpotlight(null);
-  mode.value = "tour";
-  chatState.value = "idle";
-  streamText.value = "";
+  mode.value = "chat";
   chatHistory.length = 0;
   chatIntroShown = false;
 }
 
 function askQuestion() {
-  pushUserReply(t("guide.chat.ask"));
   enterChat();
+}
+
+async function checkConnection() {
+  if (healthController) return;
+  if (!chatApiBase) {
+    connectionState.value = "error";
+    return;
+  }
+  connectionState.value = "connecting";
+  const controller = new AbortController();
+  healthController = controller;
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const res = await fetch(`${chatApiBase}/health`, { signal: controller.signal });
+    const health = res.ok ? await res.json() : null;
+    if (healthController === controller) {
+      connectionState.value = health?.ok ? "ready" : "error";
+    }
+  } catch {
+    if (healthController === controller) connectionState.value = "error";
+  } finally {
+    clearTimeout(timeout);
+    if (healthController === controller) healthController = null;
+  }
 }
 
 // 快捷提問：鈕上是短標籤，實際送出較完整的問題，模型比較不會反問
 function sendQuick(key: string) {
-  if (chatState.value !== "idle") return;
+  if (!canSendChat.value) return;
   chatInput.value = t(`guide.chat.quick.${key}.prompt`);
   sendChat();
 }
 
 async function sendChat() {
   const text = chatInput.value.trim();
-  if (!text || chatState.value !== "idle") return;
+  if (!text || !canSendChat.value) return;
+  const controller = new AbortController();
+  chatController = controller;
   chatInput.value = "";
   messages.value.push({ role: "user", text });
   chatHistory.push({ role: "user", content: text });
@@ -854,12 +927,14 @@ async function sendChat() {
   try {
     const res = await fetch(`${chatApiBase}/chat`, {
       method: "POST",
+      signal: controller.signal,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         messages: chatHistory.slice(-10),
         locale: locale.value,
       }),
     });
+    if (chatController !== controller) return;
     // 429 = 實驗室 Nginx 限流（每 IP 每分鐘 10 次），給專屬提示而非一般錯誤
     if (res.status === 429) {
       messages.value.push({ role: "agent", text: t("guide.chat.rateLimited") });
@@ -873,6 +948,7 @@ async function sendChat() {
     let upstreamError = "";
     for (;;) {
       const { done, value } = await reader.read();
+      if (chatController !== controller) return;
       if (done) break;
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split("\n");
@@ -903,18 +979,26 @@ async function sendChat() {
     const actions = actionIds.length ? actionsFor(actionIds) : undefined;
     // 先查好文章標題再顯示訊息（本地查詢很快），避免 push 後改原始物件不觸發重繪
     if (actions) await fillArticleTitles(actions);
+    if (chatController !== controller) return;
     messages.value.push({ role: "agent", text: reply, actions });
     // 存進歷史的用乾淨版（不含指令），避免污染後續對話
     chatHistory.push({ role: "assistant", content: reply });
     // 模型有指路＋使用者訊息是明確命令 → 稍候直接帶過去（按鈕仍保留，跳錯可按回）
     if (actionIds.length && isNavCommand(text)) {
-      setTimeout(() => goToLandmark(actionIds[0]!), 600);
+      navigationTimer = setTimeout(() => goToLandmark(actionIds[0]!), 600);
     }
   } catch {
+    if (chatController !== controller) return;
+    chatHistory.pop();
+    if (!chatInput.value) chatInput.value = text;
+    connectionState.value = "error";
     messages.value.push({ role: "agent", text: t("guide.chat.error") });
   } finally {
-    streamText.value = "";
-    chatState.value = "idle";
+    if (chatController === controller) {
+      chatController = null;
+      streamText.value = "";
+      chatState.value = "idle";
+    }
   }
 }
 
@@ -927,19 +1011,13 @@ function acceptTour() {
   runStep(1);
 }
 
-function declineTour() {
-  pushUserReply(t("guide.skip"));
-  closePanel();
-}
-
 function nextStep() {
   pushUserReply(t("guide.next"));
   runStep(stepIndex.value + 1);
 }
 
 function finishTour() {
-  pushUserReply(t("guide.done"));
-  closePanel();
+  enterChat();
 }
 
 function restartTour() {
@@ -949,23 +1027,15 @@ function restartTour() {
 
 // --- Lifecycle ---
 onMounted(() => {
-  // 首次造訪且在首頁時，稍等片刻後自動打開導覽
-  if (!hasSeenGuide.value && route.path === localePath("/")) {
-    pendingTimer = setTimeout(openPanel, 1500);
-  }
-  // 後端健康檢查通過才顯示互動問答模式
-  if (chatApiBase) {
-    fetch(`${chatApiBase}/health`, { signal: AbortSignal.timeout(5000) })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((j) => {
-        if (j?.ok) chatAvailable.value = true;
-      })
-      .catch(() => {});
-  }
+  void checkConnection();
 });
 
 onBeforeUnmount(() => {
   clearTimers();
+  cancelChat();
+  healthController?.abort();
+  healthController = null;
+  if (spotClearTimer) clearTimeout(spotClearTimer);
   stopSpotTracking();
 });
 

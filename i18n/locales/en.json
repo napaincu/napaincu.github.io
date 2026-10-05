@@ -254,23 +254,30 @@
     "registrationClosedNotice": "Registration is not currently open. Registration details in the article are retained as a historical record."
   },
   "guide": {
-    "name": "NAPAI Guide",
+    "name": "NAPAI AI Assistant",
     "status": "Online",
-    "openLabel": "Open site tour",
-    "closeLabel": "Close tour",
+    "tourStatus": "Site tour",
+    "hint": "Looking for courses or events? Ask me!",
+    "openLabel": "Open AI chat",
+    "closeLabel": "Close AI assistant",
     "start": "Show me around!",
     "skip": "Maybe later",
     "next": "Continue",
     "done": "Finish tour",
     "restart": "Replay tour",
-    "replayTour": "Replay tour",
+    "replayTour": "Site tour",
     "chat": {
-      "intro": "What would you like to know? Ask me anything about the NAPAI program, courses, or events! Or tap a button below and I'll take you there:",
+      "intro": "Hi! Ask me about the NAPAI program, courses, or events. You can also tap “Show me around!” for a quick tour of the site.",
       "takeMeTo": "Take me to",
       "placeholder": "Type your question…",
       "send": "Send",
-      "ask": "I have a question",
-      "error": "Sorry, I can't reach the model server right now. Please try again later 🙏",
+      "ask": "Ask a question",
+      "connectingStatus": "Connecting",
+      "offlineStatus": "Unable to connect",
+      "connecting": "Connecting — you can start typing your question.",
+      "unavailable": "Chat is temporarily unavailable. Please retry, or take a site tour in the meantime.",
+      "retry": "Reconnect",
+      "error": "Sorry, I couldn't get an answer this time. Your question is saved in the input box. Please reconnect and send it again.",
       "rateLimited": "You're asking a bit too fast for me! Please wait a minute and try again 🙏",
       "disclaimer": "Responses are AI-generated and for reference only. Conversations are logged to improve the service.",
       "articleLabel": "this article",
@@ -287,7 +294,7 @@
     },
     "resizeLabel": "Drag to resize",
     "collapseLabel": "Tuck aside",
-    "expandLabel": "Bring back the guide",
+    "expandLabel": "Bring back the AI assistant",
     "landmarks": {
       "article": "Here's \"{title}\" — all the details are on this page!",
       "about": "Here's the program overview! You can learn about NAPAI's origins and vision, and what our two pillars — Agentic AI and Physical AI — are all about.",
@@ -303,9 +310,9 @@
     },
     "steps": {
       "greet": {
-        "v1": "Hi there! I'm NAPAI's AI tour guide 🤖 Looks like it's your first visit — want me to show you around the site?",
+        "v1": "Hi there! I'm NAPAI's AI assistant 🤖 Let me show you around the site. You can return to chat anytime by tapping “Ask a question”.",
         "v2": "Hello and welcome to NAPAI! I'm the resident AI assistant. Give me 30 seconds and I'll walk you through everything — shall we?",
-        "v3": "New visitor detected… tour mode activated 🤖 Hi! I'm the NAPAI guide. Let me show you what's here!"
+        "v3": "Your site tour is ready 🤖 Let me show you what's here! Tap “Ask a question” anytime to return to chat."
       },
       "about": {
         "v1": "NAPAI is a Ministry of Education initiative for cultivating advanced AI talent, focused on two pillars: Agentic AI and Physical AI — training people who can bring AI into the real world.",
@@ -338,9 +345,9 @@
         "v3": "Quick tip: the globe icon in the top right switches between English and Chinese — perfect for sharing with friends."
       },
       "end": {
-        "v1": "That's the end of the tour! Click me in the bottom-right corner anytime to replay it. For questions, try \"FAQ\" or \"Contact\" — happy exploring ✨",
-        "v2": "And that's the quick tour! I'll be waiting in the bottom-right corner if you need me. Feel free to reach out via \"Contact\" — bye for now 👋",
-        "v3": "Mission complete ✅ That's NAPAI in a nutshell. Hit the button in the bottom-right to replay the tour. Now, go explore!"
+        "v1": "That's the end of the tour! Tap “Finish tour” to return to chat and ask about the program, courses, or events ✨",
+        "v2": "And that's the quick tour! You can ask me a question next, or reach the program team through “Contact”.",
+        "v3": "Mission complete ✅ That's NAPAI in a nutshell. Tap “Finish tour” to return to chat, or choose “Site tour” anytime to look around again!"
       }
     }
   },
