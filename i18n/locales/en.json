@@ -6,6 +6,15 @@
     "switchLanguage": "Switch language",
     "youtubeChannel": "YouTube Channel"
   },
+  "migration": {
+    "title": "Website relocation notice",
+    "beforeLink": "This website will close in the future. Please visit our new website at",
+    "afterLink": "for the latest information and services, and update your bookmarks.",
+    "chatTitle": "AI Chatbot has moved",
+    "chatMessage": "AI Chatbot is no longer supported on this website. To use this feature, please visit the new NAPAI website.",
+    "visitNewSite": "Visit the new website",
+    "close": "Close"
+  },
   "app": {
     "metaDescription": "Ministry of Education Advanced AI Talent Cultivation Program — Agentic & Physical AI Robotics Curriculum Initiative"
   },

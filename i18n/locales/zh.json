@@ -6,6 +6,15 @@
     "switchLanguage": "切換語言",
     "youtubeChannel": "YouTube 頻道"
   },
+  "migration": {
+    "title": "網站搬遷公告",
+    "beforeLink": "本站將於未來停止服務，請前往新站",
+    "afterLink": "，取得最新資訊與服務，並更新您的書籤。",
+    "chatTitle": "AI Chatbot 已移至新站",
+    "chatMessage": "舊網站已不再支援 AI Chatbot。如需體驗此功能，請前往 NAPAI 新站。",
+    "visitNewSite": "前往新站",
+    "close": "關閉"
+  },
   "app": {
     "metaDescription": "教育部前瞻AI技術人才培育計畫 - 智慧代理與實體AI機器人課程推動計畫"
   },

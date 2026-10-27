@@ -2,6 +2,19 @@
   <div
     class="min-h-screen flex flex-col font-sans text-slate-800 bg-slate-50 selection:bg-blue-200 selection:text-blue-900"
   >
+    <aside
+      :aria-label="$t('migration.title')"
+      class="border-b border-teal-200 bg-teal-50 px-4 py-3 text-center text-sm leading-relaxed text-teal-900 sm:px-6"
+    >
+      <strong class="mr-2 font-bold">{{ $t('migration.title') }}</strong>
+      {{ $t('migration.beforeLink') }}
+      <a
+        href="https://napai.ncu.edu.tw/"
+        class="inline-block font-semibold underline decoration-teal-400 underline-offset-4 hover:text-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+      >https://napai.ncu.edu.tw/</a>
+      {{ $t('migration.afterLink') }}
+    </aside>
+
     <!-- Navigation -->
     <nav
       class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100"
@@ -230,9 +243,9 @@
       <slot />
     </main>
 
-    <!-- AI Agent 網站導覽 -->
+    <!-- The retired chatbot only shows a migration notice; no API connection. -->
     <ClientOnly>
-      <AgentGuide />
+      <LegacyChatNotice />
     </ClientOnly>
 
     <!-- Footer -->
