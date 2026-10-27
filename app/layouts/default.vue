@@ -246,6 +246,7 @@
     <!-- The retired chatbot only shows a migration notice; no API connection. -->
     <ClientOnly>
       <LegacyChatNotice />
+      <LegacyMigrationNotice />
     </ClientOnly>
 
     <!-- Footer -->
